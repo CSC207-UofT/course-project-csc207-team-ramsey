@@ -1,31 +1,28 @@
+package Entities;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Represents a Food for our fridge
+ * Represents a Entities.Food for our fridge
  */
 public class Food {
     /** assuming shelfLife is in days */
     private int shelfLife;
     private String foodName;
-    private int calories;
-    private String foodUnit;
     private int quantity;
-    private HashMap<LocalDateTime, String[]> dates;
+    private HashMap<String, String[]> dates;
 
     /**
-     * Creates an instance of Food
+     * Creates an instance of Entities.Food
      * @param sl the shelf life of the food
      * @param name food name
-     * @param cals the calorie content per food serving
-     * @param unit the unit of measurement for the food
      */
-    public Food(int sl, String name, int cals, String unit) {
+    public Food(int sl, String name, int quantity) {
         this.shelfLife = sl;
         this.foodName = name;
-        this.calories = cals;
-        this.foodUnit = unit;
 
         LocalDateTime buyDate = LocalDateTime.now();
         LocalDateTime expDate = buyDate.plusDays(shelfLife);
@@ -34,8 +31,8 @@ public class Food {
         String formattedExp = expDate.format(formatObj);
 
         String[] quantExp = {Integer.toString(quantity), formattedExp};
-        this.dates = new HashMap<LocalDateTime, String[]>();
-        dates.put(buyDate, quantExp);
+        this.dates = new HashMap<String, String[]>();
+        dates.put(formattedBuy, quantExp);
 
     }
 

@@ -1,3 +1,5 @@
+package Entities;
+
 import java.util.HashMap;
 
 public class Recipe {
@@ -9,7 +11,7 @@ public class Recipe {
     private HashMap<String, Float> ingredients;
 
     /**
-     * Creates an instance of Food
+     * Creates an instance of Entities.Food
      * @param servings servings made per recipe
      * @param name recipe title
      * @param time time it takes to prepare recipe
@@ -30,6 +32,18 @@ public class Recipe {
             it += this.ingredients.get(ingredient) + " " + ingredient;
         }
         return it;
+    }
+
+    public String getTitle(){
+        return this.title;
+    }
+    public String getServings(){
+        return Integer.toString(this.recipeServings);
+    }
+
+
+    public HashMap<String, Float> getIngredients(){
+        return this.ingredients;
     }
 
     public String getRecipe() {

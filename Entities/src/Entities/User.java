@@ -1,5 +1,7 @@
-import java.lang.reflect.Array;
+package Entities;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class User {
 
@@ -11,7 +13,7 @@ public class User {
     private ArrayList<Food> shoppingList;
 
     /**
-     * Creates an instance of Food
+     * Creates an instance of Entities.User
      * @param user name of user
      * @param uName chosen user name for user
      * @param mail email associated with user
@@ -47,4 +49,18 @@ public class User {
     public ArrayList<Food> getList(){
         return this.shoppingList;
     }
+
+    public void addFood(Food newFood){
+        this.food.add(newFood);
+    }
+
+
+    public void addRecipe(Recipe newRecipe){
+        this.recipes.add(newRecipe);
+    }
+
+    public void removeRecipe(int index){
+        this.recipes.remove(index);
+    }
+
 }
