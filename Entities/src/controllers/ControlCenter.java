@@ -90,12 +90,8 @@ public class ControlCenter {
         RecipeManager rManager = new RecipeManager();
         FoodManager fManager = new FoodManager();
 
-        ArrayList<Food> foodList = new ArrayList<Food>();
-        ArrayList<Recipe> recipeList = new ArrayList<Recipe>();
-        ArrayList<Food> shoppingList = new ArrayList<Food>();
-
         String[] user_details = createUser(myObj);
-        User user = new User(user_details[0], user_details[1], user_details[2], foodList, recipeList, shoppingList);
+        User user = new User(user_details[0], user_details[1], user_details[2]);
 
         while (true){
             System.out.println("""
@@ -140,7 +136,7 @@ public class ControlCenter {
                 Recipe newRecipe = new Recipe(Integer.parseInt(recipe_details[0]), recipe_details[1], Integer.parseInt(recipe_details[2]), recipe_details[4], hashMap);
                 user.addRecipe(newRecipe);
             } else if (command.equals("displayRecipes")){
-                for(Recipe recipe: recipeList){
+                for(Recipe recipe: user.recipes){
                     System.out.println("=====" + recipe.getTitle() + "=====");
                     System.out.println("servings: " + recipe.getServings());
 

@@ -9,7 +9,7 @@ public class User {
     private String userName;
     private String email;
     private ArrayList<Food> food;
-    private ArrayList<Recipe> recipes;
+    public ArrayList<Recipe> recipes;
     private ArrayList<Food> shoppingList;
 
     /**
