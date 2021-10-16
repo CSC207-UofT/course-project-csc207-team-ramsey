@@ -27,9 +27,6 @@ public class ControlCenter {
 
         String currUser = myObj.nextLine();
 
-        System.out.println("Enter password: ");
-        myObj.nextLine();
-
         System.out.println("Welcome, " + currName);
 
         return new String[]{currUser, currName, currEmail};
@@ -49,7 +46,6 @@ public class ControlCenter {
         String unit = myObj.nextLine();
 
         System.out.println("What is the quantity: ");
-        myObj.nextLine();
 
         String quantity = myObj.nextLine();
 
