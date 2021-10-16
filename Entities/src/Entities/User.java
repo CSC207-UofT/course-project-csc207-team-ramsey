@@ -17,17 +17,14 @@ public class User {
      * @param user name of user
      * @param uName chosen user name for user
      * @param mail email associated with user
-     * @param uFood food belonging to user
-     * @param uRecipes recipes of user
-     * @param list shopping list for user
      */
-    public User(String user, String uName, String mail, ArrayList<Food> uFood, ArrayList<Recipe> uRecipes, ArrayList<Food> list) {
+    public User(String user, String uName, String mail) {
         this.userName = uName;
         this.name = user;
         this.email = mail;
-        this.food = uFood;
-        this.recipes = uRecipes;
-        this.shoppingList = list;
+        this.food = new ArrayList<Food>();
+        this.recipes = new ArrayList<Recipe>();
+        this.shoppingList = new ArrayList<Food>();
     }
 
     public String getUserName(){
