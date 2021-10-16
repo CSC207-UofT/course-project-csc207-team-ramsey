@@ -57,11 +57,7 @@ public class ControlCenter {
     }
 
     public static String[] createRecipe(Scanner myObj) {
-        System.out.println("""
-                Please, input the following separated by commas:\s
-                servings\s
-                name\s
-                time""");
+        System.out.println("Please, input the following separated by commas:\n servings\n name\n time");
         String csServeStep = myObj.nextLine();
         String[] serveStep = csServeStep.split(",");
 
@@ -69,7 +65,7 @@ public class ControlCenter {
         String instructions = myObj.nextLine();
 
         System.out.println("What are is your list and quantity of ingredients. " +
-                "\nPlease input in this format: \"ingrediant1:quantity1, ingrediant2:quantity2\"");
+                "\nPlease input in this format: \"ingredient1:quantity1, ingredient2:quantity2\"");
         String csIngredients = myObj.nextLine();
         String[] ingredients = csIngredients.split(",");
 
@@ -94,13 +90,7 @@ public class ControlCenter {
         User user = new User(user_details[0], user_details[1], user_details[2]);
 
         while (true){
-            System.out.println("""
-                    Please, input one of the following commands:\s
-                     -addNewFood\s
-                     -displayFood\s
-                     -addRecipe\s
-                     -displayRecipes\s
-                     -quit""");
+            System.out.println("Please, input one of the following commands:\n -addNewFood\n -displayFood\n -addRecipe\n -displayRecipes\n -quit");
             String command = myObj.nextLine();
 
             if (command.equals("addNewFood")){
