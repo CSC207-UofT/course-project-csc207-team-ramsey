@@ -6,3 +6,15 @@ Food - Users can start by adding all the ingredients/ foods that they have in th
 Recipe - Users may also add their own recipes where they can use the recipe function to search for recipes based on specific preferences, such as key ingredient, availability of ingredients, or based on the expiration date of items in the user’s pantry.
 
 Shopping List - If required items are not available, then item will be added to a shopping list for the user. 
+
+**Commands** 
+
+`addNewFood ` - adds a new food, requires food name, quantity, shelf life and unit, (doesn't work if food already exists)
+
+`displayFood` - displays all foods and quantities 
+
+`addRecipe` - adds a new recipe (requires new, servings, time, instructions, and ingredients:quantities)
+
+`displayRecipe` - displays all recipes 
+
+`quit` - quits program 
