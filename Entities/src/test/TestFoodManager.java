@@ -22,7 +22,7 @@ public class TestFoodManager {
 
     @Test(timeout = 50)
     public void TestMakeNewFoodInUser() {
-        foodManager.makeNewFood(user, "banana",5, 12);
+        foodManager.makeNewFood(user, "banana",5, 12, "whole");
         assertEquals(user.getFood().get(0).getName(), "banana");
     }
 
