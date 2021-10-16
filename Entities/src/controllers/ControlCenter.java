@@ -65,6 +65,9 @@ public class ControlCenter {
         String csIngredients = myObj.nextLine();
         String[] ingredients = csIngredients.split(",");
 
+        for (String step: serveStep){
+            step.trim();
+        }
         return new String[]{serveStep[0], serveStep[1], serveStep[2], csIngredients, instructions};
     }
 
