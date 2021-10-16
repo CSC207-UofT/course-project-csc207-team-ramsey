@@ -60,7 +60,12 @@ public class ControlCenter {
         System.out.println("What are the instructions for your recipe?");
         String instructions = myObj.nextLine();
 
-        return new String[]{serveStep[0], serveStep[1], serveStep[2], instructions};
+        System.out.println("What are is your list and quantity of ingredients. " +
+                "\nPlease input in this format: \"ingredient1:quantity1, ingredient2:quantity2\"");
+        String csIngredients = myObj.nextLine();
+        String[] ingredients = csIngredients.split(",");
+
+        return new String[]{serveStep[0], serveStep[1], serveStep[2], csIngredients, instructions};
     }
 
     public static void updateFood() {
@@ -96,17 +101,13 @@ public class ControlCenter {
             } else if (command.equals("addRecipe")){
                 String[] recipe_details = createRecipe(myObj);
 
-                System.out.println("What are is your list and quantity of ingredients. " +
-                        "\nPlease input in this format: \"ingredient1:quantity1, ingredient2:quantity2\"");
-                String csIngredients = myObj.nextLine();
-
-                String[] ingredients = csIngredients.split(",");
+                String[] ingredients = recipe_details[3].split(",");
 
                 HashMap<String, Float> hashMap
                         = new HashMap<String, Float>();
 
 
-                String[] parts = csIngredients.split(",");
+                String[] parts = recipe_details[3].split(",");
 
 
                 for (String part : parts) {
@@ -118,7 +119,7 @@ public class ControlCenter {
 
                     hashMap.put(stuRollNo, stuName);
                 }
-                Recipe newRecipe = new Recipe(Integer.parseInt(recipe_details[0]), recipe_details[1], Integer.parseInt(recipe_details[2]), recipe_details[3], hashMap);
+                Recipe newRecipe = new Recipe(Integer.parseInt(recipe_details[0]), recipe_details[1], Integer.parseInt(recipe_details[2]), recipe_details[4], hashMap);
                 user.addRecipe(newRecipe);
             } else if (command.equals("displayRecipes")){
                 for(Recipe recipe: user.recipes){
