@@ -13,6 +13,7 @@ public class Food {
     private int shelfLife;
     private String foodName;
     private int quantity;
+    private String unit;
     private HashMap<String, String[]> dates;
 
     /**
@@ -20,7 +21,7 @@ public class Food {
      * @param sl the shelf life of the food
      * @param name food name
      */
-    public Food(int sl, String name, int quantity) {
+    public Food(int sl, String name, int quantity, String unit) {
         this.shelfLife = sl;
         this.foodName = name;
 
@@ -36,7 +37,7 @@ public class Food {
 
     }
 
-    public int getQuanity(){
+    public int getQuantity(){
         int quantity = 0;
         for (String[] val : this.dates.values()) {
             quantity += Integer.parseInt(val[0]);
