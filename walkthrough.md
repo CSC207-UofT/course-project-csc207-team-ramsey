@@ -1,4 +1,4 @@
-Scenario Walk-Through
+### **Scenario Walk-Through**
 
 User opens the program for the first time and is prompted to create a username and
 password. ControlCentre receives the commands and creates a User entity. 
