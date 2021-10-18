@@ -3,7 +3,7 @@
 User opens the program for the first time and is prompted to create a username and
 password. ControlCentre receives the commands and creates a User entity. 
 Select an option from the main menu of what to do in the app (create food/recipe, 
-show food/shopping list, add ingredients, make a recipes). Create a new food, adding 
+show food/shopping list, add ingredients, make a recipe). Create a new food, adding 
 in the name, quantity, shelf life, unit, and date of purchase. ControlCentre takes in 
 the input and sends it to FoodManager to make a new food entity. The food is added to 
 User's food list. Add as much food as desired. Return to menu and create a new recipe, 
@@ -18,4 +18,4 @@ recipe to make. If the recipe contains ingredients that have not been added, the
 will be added to the User's shopping list through FoodManager. Otherwise, the user can select 
 the number of servings they want to make and the quantities will be adjusted through Recipe. Select 
 this recipe to make, the amount of ingredients used will be removed from the User's food through 
-RecipeManager.
+FoodManager.
