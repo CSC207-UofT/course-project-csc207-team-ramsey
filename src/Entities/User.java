@@ -1,62 +1,79 @@
 package Entities;
 
-import java.util.ArrayList;
-
+/**
+ * This class represents a user of the program
+ */
 public class User {
 
     private String name;
     private String userName;
     private String email;
-    private ArrayList<Food> food;
-    public ArrayList<Recipe> recipes;
-    private ArrayList<Food> shoppingList;
+    private Kitchen kitchen;
 
     /**
      * Creates an instance of Entities.User
      * @param user name of user
-     * @param uName chosen user name for user
+     * @param uName chosen username for user
      * @param mail email associated with user
      */
     public User(String user, String uName, String mail) {
         this.userName = uName;
         this.name = user;
         this.email = mail;
-        this.food = new ArrayList<Food>();
-        this.recipes = new ArrayList<Recipe>();
-        this.shoppingList = new ArrayList<Food>();
+        this.kitchen = new Kitchen();
+
     }
 
+    /**
+     * @return current userName
+     */
     public String getUserName(){
         return this.userName;
     }
 
+    /**
+     * @return current name
+     */
     public String getName(){
         return this.name;
     }
 
-    public ArrayList<Recipe> getRecipes(){
-        return this.recipes;
+    /**
+     * @return current email
+     */
+    public String getEmail(){
+        return this.email;
     }
 
-    public ArrayList<Food> getFood(){
-        return this.food;
+    /**
+     * @return current Kitchen
+     */
+    public Kitchen getKitchen(){
+        return this.kitchen;
     }
 
-    public ArrayList<Food> getList(){
-        return this.shoppingList;
+    /**
+     *  set the userName
+     * @param userName
+     */
+    public void setUserName(String userName){
+        this.userName = userName;
     }
 
-    public void addFood(Food newFood){
-        this.food.add(newFood);
+    /**
+     * set the name
+     * @param name
+     */
+    public void setName(String name){
+        this.name = name;
     }
 
-
-    public void addRecipe(Recipe newRecipe){
-        this.recipes.add(newRecipe);
-    }
-
-    public void removeRecipe(int index){
-        this.recipes.remove(index);
+    /**
+     * set the email
+     * @param email
+     */
+    public void setEmail(String email){
+        this.email = email;
     }
 
 }
