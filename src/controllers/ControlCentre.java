@@ -9,7 +9,7 @@ import use_cases.RecipeManager;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class ControlCenter {
+abstract class ControlCentre {
 
     public static String[] createUser(Scanner myObj) {
 

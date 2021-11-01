@@ -14,12 +14,12 @@ abstract class Food {
     private int quantity;
     private String unit;
     private HashMap<String, String[]> dates;
-
-    /**
-     * Creates an instance of Entities.Food.Food
-     * @param sl the shelf life of the food
-     * @param name food name
-     */
+//
+//    /**
+//     * Creates an instance of Entities.Food.Food
+//     * @param sl the shelf life of the food
+//     * @param name food name
+//     */
 //    public Food(int sl, String name, int quantity, String unit) {
 //        this.shelfLife = sl;
 //        this.foodName = name;
