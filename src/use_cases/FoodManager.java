@@ -2,7 +2,7 @@ package use_cases;
 
 import java.util.ArrayList;
 import Entities.User;
-import Entities.Food;
+import Entities.Food.Food;
 
 public class FoodManager {
 

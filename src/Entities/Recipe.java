@@ -11,7 +11,7 @@ public class Recipe {
     private HashMap<String, Float> ingredients;
 
     /**
-     * Creates an instance of Entities.Food
+     * Creates an instance of Entities.Food.Food
      * @param servings servings made per recipe
      * @param name recipe title
      * @param time time it takes to prepare recipe

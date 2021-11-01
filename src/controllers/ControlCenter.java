@@ -1,6 +1,6 @@
 package controllers;
 
-import Entities.Food;
+//import Entities.Food.Food;
 import Entities.Recipe;
 import Entities.User;
 import use_cases.FoodManager;
@@ -80,60 +80,60 @@ public class ControlCenter {
     }
 
     public static void main(String[] args) {
-        Scanner myObj = new Scanner(System.in);
-        RecipeManager rManager = new RecipeManager();
-        FoodManager fManager = new FoodManager();
-
-        String[] user_details = createUser(myObj);
-        User user = new User(user_details[0], user_details[1], user_details[2]);
-
-        while (true){
-            System.out.println("Please, input one of the following commands:\n -addNewFood\n -displayFood\n -addRecipe\n -displayRecipes\n -quit");
-            String command = myObj.nextLine();
-
-            if (command.equals("addNewFood")){
-                String[] food_details = createFood(myObj);
-                fManager.makeNewFood(user, food_details[0], Integer.parseInt(food_details[1]), Integer.parseInt(food_details[2]), food_details[3]);
-
-            } else if (command.equals("displayFood")){
-                for (Food food : user.getFood()){
-                    System.out.println(food.getName() + ": " + food.getQuantity());
-                }
-                System.out.println("\n");
-            } else if (command.equals("addRecipe")){
-                String[] recipe_details = createRecipe(myObj);
-
-                String[] ingredients = recipe_details[3].split(",");
-
-                HashMap<String, Float> hashMap
-                        = new HashMap<String, Float>();
-
-
-                String[] parts = recipe_details[3].split(",");
-
-
-                for (String part : parts) {
-
-                    String[] ingData = part.split(":");
-
-                    String stuRollNo = ingData[0].trim();
-                    Float stuName = Float.parseFloat(ingData[1].trim());
-
-                    hashMap.put(stuRollNo, stuName);
-                }
-                Recipe newRecipe = new Recipe(Integer.parseInt(recipe_details[0]), recipe_details[1], Integer.parseInt(recipe_details[2]), recipe_details[4], hashMap);
-                user.addRecipe(newRecipe);
-            } else if (command.equals("displayRecipes")){
-                for(Recipe recipe: user.recipes){
-                    System.out.println("=====" + recipe.getTitle() + "=====");
-                    System.out.println("servings: " + recipe.getServings());
-
-                    System.out.println("\n");
-                }
-            } else if(command.equals("quit")){
-                System.exit(0);
-            }
-
-        }
+//        Scanner myObj = new Scanner(System.in);
+//        RecipeManager rManager = new RecipeManager();
+//        FoodManager fManager = new FoodManager();
+//
+//        String[] user_details = createUser(myObj);
+//        User user = new User(user_details[0], user_details[1], user_details[2]);
+//
+//        while (true){
+//            System.out.println("Please, input one of the following commands:\n -addNewFood\n -displayFood\n -addRecipe\n -displayRecipes\n -quit");
+//            String command = myObj.nextLine();
+//
+//            if (command.equals("addNewFood")){
+//                String[] food_details = createFood(myObj);
+//                fManager.makeNewFood(user, food_details[0], Integer.parseInt(food_details[1]), Integer.parseInt(food_details[2]), food_details[3]);
+//
+//            } else if (command.equals("displayFood")){
+//                for (Food food : user.getFood()){
+//                    System.out.println(food.getName() + ": " + food.getQuantity());
+//                }
+//                System.out.println("\n");
+//            } else if (command.equals("addRecipe")){
+//                String[] recipe_details = createRecipe(myObj);
+//
+//                String[] ingredients = recipe_details[3].split(",");
+//
+//                HashMap<String, Float> hashMap
+//                        = new HashMap<String, Float>();
+//
+//
+//                String[] parts = recipe_details[3].split(",");
+//
+//
+//                for (String part : parts) {
+//
+//                    String[] ingData = part.split(":");
+//
+//                    String stuRollNo = ingData[0].trim();
+//                    Float stuName = Float.parseFloat(ingData[1].trim());
+//
+//                    hashMap.put(stuRollNo, stuName);
+//                }
+//                Recipe newRecipe = new Recipe(Integer.parseInt(recipe_details[0]), recipe_details[1], Integer.parseInt(recipe_details[2]), recipe_details[4], hashMap);
+//                user.addRecipe(newRecipe);
+//            } else if (command.equals("displayRecipes")){
+//                for(Recipe recipe: user.recipes){
+//                    System.out.println("=====" + recipe.getTitle() + "=====");
+//                    System.out.println("servings: " + recipe.getServings());
+//
+//                    System.out.println("\n");
+//                }
+//            } else if(command.equals("quit")){
+//                System.exit(0);
+//            }
+//
+//        }
     }
 }
