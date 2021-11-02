@@ -7,7 +7,7 @@ import java.util.HashMap;
 /**
  * Represents a Entities.Food.Food for our fridge
  */
-abstract class Food {
+public abstract class Food {
     /** assuming shelfLife is in days */
     private int shelfLife;
     private String foodName;

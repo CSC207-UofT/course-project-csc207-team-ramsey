@@ -1,4 +1,4 @@
 package Entities.Food;
 
-abstract class FruitVegi extends Food {
+public class FruitVegi extends Food {
 }
