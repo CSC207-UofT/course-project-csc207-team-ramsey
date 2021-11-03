@@ -1,5 +1,6 @@
 package Entities;
 
+
 /**
  * This class represents a user of the program
  */
