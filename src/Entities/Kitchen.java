@@ -1,6 +1,7 @@
 package Entities;
 
 import java.util.ArrayList;
+import Entities.Food.Food;
 
 /**
  * This class represents a user's kitchen, where they would store a list of their
@@ -39,5 +40,23 @@ public class Kitchen {
         return this.shoppingList;
     }
 
+    /**
+     * @param newFood updated food list
+     */
+    public void setFood(ArrayList<Food> newFood) {
+        this.food = newFood;
+    }
+    /**
+     * @param newRecipes updated recipes list
+     */
+    public void setRecipes(ArrayList<Recipe> newRecipes) {
+        this.recipes = newRecipes;
+    }
 
+    /**
+     * @param newList updated shopping list
+     */
+    public void setShoppingList(ArrayList<Food> newList) {
+        this.shoppingList = newList;
+    }
 }
