@@ -7,23 +7,23 @@ import java.util.HashMap;
  */
 public class Recipe {
 
-    private int recipeServings;
     private String title;
+    private int recipeServings;
     private int prepTime;
     private String instructions;
     private HashMap<String, Float> ingredients;
 
     /**
      * Creates an instance of Entities.Food.Food
-     * @param servings servings made per recipe
      * @param name recipe title
+     * @param servings servings made per recipe
      * @param time time it takes to prepare recipe
      * @param steps steps to cook recipe
      * @param ingredients ingredients needed for recipe
      */
     public Recipe(int servings, String name, int time, String steps, HashMap<String, Float> ingredients) {
-        this.recipeServings = servings;
         this.title = name;
+        this.recipeServings = servings;
         this.prepTime = time;
         this.instructions = steps;
         this.ingredients = ingredients;
@@ -62,6 +62,45 @@ public class Recipe {
      */
     public HashMap<String, Float> getIngredients(){
         return this.ingredients;
+    }
+    /**
+     * set the title
+     * @param newTitle
+     */
+    public void setTitle(String newTitle){
+        this.title = newTitle;
+    }
+
+    /**
+     * set the servings
+     * @param newServings
+     */
+    public void setServings(int newServings){
+        this.recipeServings = newServings;
+    }
+
+    /**
+     * set the prepTime
+     * @param newPrepTime
+     */
+    public void setPrepTime(int newPrepTime){
+        this.prepTime = newPrepTime;
+    }
+
+    /**
+     * set the instructions
+     * @param newInstructions
+     */
+    public void setInstructions(String newInstructions){
+        this.instructions = newInstructions;
+    }
+
+    /**
+     * set the ingredients
+     * @param newIngredients
+     */
+    public void setIngredients(HashMap<String, Float> newIngredients){
+        this.ingredients = newIngredients;
     }
 
     /**
