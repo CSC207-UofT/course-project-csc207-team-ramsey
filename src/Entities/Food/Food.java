@@ -38,7 +38,9 @@ public abstract class Food {
         }
         return quantity;
     }
-
+    public String getInfo(){
+        return "";
+    }
     public String getName(){
         return this.foodName;
     }
@@ -46,10 +48,6 @@ public abstract class Food {
     public int getShelfLife(){
         return this.shelfLife;
     }
-
-//    public Date getDateAdded(){
-//
-//    }
 
     public String getUnit(){
         return this.unit;
@@ -59,12 +57,18 @@ public abstract class Food {
         this.foodName = name;
         return this.foodName;
     }
+//    public String setQuantity(int num, int quantity){
+//    }
 
-    void setQuantity(){}
+    public int setShelfLife(int newShelfLife){
+        this.shelfLife = newShelfLife;
+        return this.shelfLife;
+    }
 
-    void setShelfLife(){}
+    public String setUnit(String unit){
+        this.unit = unit;
+        return this.unit;
+    }
 
-    void setDate(){}
 
-    void setUnit(){}
 }
