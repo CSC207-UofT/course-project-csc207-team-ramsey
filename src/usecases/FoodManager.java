@@ -1,8 +1,8 @@
-package use_cases;
+package usecases;
 
 import java.util.ArrayList;
-import Entities.User;
-import Entities.Food.Food;
+import entities.User;
+import entities.food.Food;
 
 public class FoodManager {
 

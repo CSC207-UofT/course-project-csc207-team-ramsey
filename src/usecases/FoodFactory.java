@@ -1,6 +1,6 @@
-package use_cases;
+package usecases;
 
-import Entities.Food.*;
+import entities.food.*;
 
 public interface FoodFactory {
 

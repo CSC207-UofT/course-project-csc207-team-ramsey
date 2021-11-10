@@ -1,7 +1,7 @@
-package Entities;
+package entities;
 
 import java.util.ArrayList;
-import Entities.Food.Food;
+import entities.food.Food;
 
 /**
  * This class represents a user's kitchen, where they would store a list of their

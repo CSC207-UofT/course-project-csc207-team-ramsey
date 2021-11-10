@@ -1,4 +1,4 @@
-package Entities.Food;
+package entities.food;
 
 public class SoupsCond extends Food{
     public SoupsCond(int sl, String name, int quantity, String unit) {

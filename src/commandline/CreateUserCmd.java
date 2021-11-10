@@ -1,4 +1,4 @@
-package CommandLine;
+package commandline;
 
 public class CreateUserCmd {
 }

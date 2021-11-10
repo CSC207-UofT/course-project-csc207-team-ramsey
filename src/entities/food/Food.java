@@ -1,4 +1,4 @@
-package Entities.Food;
+package entities.food;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

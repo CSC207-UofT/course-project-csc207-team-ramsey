@@ -1,7 +1,7 @@
-package use_cases;
+package usecases;
 
-import Entities.Recipe;
-import Entities.User;
+import entities.Recipe;
+import entities.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;

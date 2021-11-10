@@ -1,9 +1,9 @@
 package test;
 
-import Entities.User;
+import entities.User;
 import org.junit.Before;
 import org.junit.Test;
-import use_cases.RecipeManager;
+import usecases.RecipeManager;
 
 import java.util.HashMap;
 

@@ -4,8 +4,8 @@ package test;
 import org.junit.Before;
 import org.junit.Test;
 
-import Entities.*;
-import use_cases.*;
+import entities.*;
+import usecases.*;
 
 import static org.junit.Assert.assertEquals;
 
