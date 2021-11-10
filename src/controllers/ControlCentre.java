@@ -1,15 +1,15 @@
 package controllers;
 
 /**
- * Abstract class for FoodControlCentre, RecipeControlCentre,
+ * Interface for FoodControlCentre, RecipeControlCentre,
  * UserControlCentre, and KitchenControlCentre
  */
-abstract class ControlCentre {
+interface ControlCentre {
 
-    abstract public void createEntity();
+    public void createEntity();
 
-    abstract public void deleteEntity();
+    public void deleteEntity();
 
-    abstract public void updateEntity();
+    public void updateEntity();
 
 }
