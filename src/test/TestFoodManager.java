@@ -20,10 +20,10 @@ public class TestFoodManager {
         foodManager = new FoodManager();
     }
 
-    @Test(timeout = 50)
-    public void TestMakeNewFoodInUser() {
-        foodManager.makeNewFood(user, "banana",5, 12, "whole");
-        assertEquals(user.getFood().get(0).getName(), "banana");
-    }
+//    @Test(timeout = 50)
+//    public void TestMakeNewFoodInUser() {
+//        foodManager.makeNewFood(user, "banana",5, 12, "whole");
+//        assertEquals(user.getFood().get(0).getName(), "banana");
+//    }
 
 }
