@@ -1,5 +1,7 @@
 package commandline;
 
+import java.util.List;
+
 public class CreateFoodCmd extends Command implements CommandExecute{
 
     public CreateFoodCmd() {
@@ -7,7 +9,7 @@ public class CreateFoodCmd extends Command implements CommandExecute{
     }
 
     @Override
-    public void execute() {
+    public void execute(List<String> arguments){
 
     }
 }
