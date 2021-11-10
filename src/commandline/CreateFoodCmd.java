@@ -37,7 +37,7 @@ public class CreateFoodCmd extends Command implements CommandExecute, FoodFactor
     }
 
     public void createFoodLineCall(Scanner s){
-        while (true){
+        do {
             System.out.println("What type of food is your food (grains, meats, fruitvegi, dairy)?: ");
             String foodType = s.nextLine();
 
@@ -53,7 +53,7 @@ public class CreateFoodCmd extends Command implements CommandExecute, FoodFactor
             System.out.println("What is the quantity? ");
             String quantity = s.nextLine();
 
-            ArrayList<String> arguments =  new ArrayList<String>();
+            ArrayList<String> arguments = new ArrayList<String>();
             arguments.add(foodType);
             arguments.add(foodName);
             arguments.add(sl);
@@ -63,16 +63,13 @@ public class CreateFoodCmd extends Command implements CommandExecute, FoodFactor
             String response = execute(arguments);
             System.out.println(response);
 
-            if (Objects.equals(response, "Your input is invalid")){
+            if (Objects.equals(response, "Your input is invalid")) {
                 System.out.println("Would you like to try again(y/n)");
             } else {
                 System.out.println("Would you like to add another food(y/n)");
             }
 
-            if (Objects.equals(s.nextLine(), "n")){
-                break;
-            }
-        }
+        } while (!Objects.equals(s.nextLine(), "n"));
     }
 
 }
