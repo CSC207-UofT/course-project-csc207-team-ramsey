@@ -1,4 +1,4 @@
-package Entities.Food;
+package entities.food;
 
 public class Grains extends Food{
     public Grains(int sl, String name, int quantity, String unit) {

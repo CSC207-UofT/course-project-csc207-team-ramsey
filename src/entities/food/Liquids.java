@@ -1,4 +1,4 @@
-package Entities.Food;
+package entities.food;
 
 public interface Liquids {
 }
