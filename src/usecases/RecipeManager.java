@@ -21,7 +21,7 @@ public class RecipeManager {
      * @param ingredients the required ingredients and their quantities
      * @return boolean showing whether recipe was added
      */
-    public boolean addNewRecipe(User user, int servings, String name, int time, String steps, HashMap<String, Float> ingredients){
+    public boolean addNewRecipe(User user, int servings, String name, int time, String steps, HashMap<String, Float> ingredients, String categoryCountry, String categoryTime){
 
         ArrayList<Recipe> curRecipes = user.getKitchen().getRecipes();
 
@@ -30,7 +30,7 @@ public class RecipeManager {
                 return false;
             }
         }
-        Recipe newRecipe = new Recipe(servings, name, time, steps, ingredients);
+        Recipe newRecipe = new Recipe(servings, name, time, steps, ingredients, categoryCountry, categoryTime);
         user.getKitchen().getRecipes().add(newRecipe);
         return true;
     }

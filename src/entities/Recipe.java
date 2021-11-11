@@ -12,6 +12,8 @@ public class Recipe {
     private int prepTime;
     private String instructions;
     private HashMap<String, Float> ingredients;
+    private String categoryCountry;
+    private String categoryTime;
 
     /**
      * Creates an instance of Entities.Food.Food
@@ -20,13 +22,18 @@ public class Recipe {
      * @param time time it takes to prepare recipe
      * @param steps steps to cook recipe
      * @param ingredients ingredients needed for recipe
+     * @param categoryCountry the category of the recipe by country
+     * @param categoryTime the category of the recipe by time
      */
-    public Recipe(int servings, String name, int time, String steps, HashMap<String, Float> ingredients) {
+    public Recipe(int servings, String name, int time, String steps, HashMap<String, Float> ingredients, String categoryCountry, String categoryTime) {
         this.title = name;
         this.recipeServings = servings;
         this.prepTime = time;
         this.instructions = steps;
         this.ingredients = ingredients;
+        this.categoryCountry = categoryCountry;
+        this.categoryTime = categoryTime;
+
     }
 
     /**
