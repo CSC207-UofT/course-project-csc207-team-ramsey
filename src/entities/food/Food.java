@@ -3,6 +3,7 @@ package entities.food;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Represents a Entities.Food.Food for our fridge
@@ -18,6 +19,7 @@ public abstract class Food {
     public Food(int sl, String name, int quantity, String unit) {
         this.shelfLife = sl;
         this.foodName = name;
+        this.unit = unit;
 
         LocalDateTime buyDate = LocalDateTime.now();
         LocalDateTime expDate = buyDate.plusDays(shelfLife);
@@ -38,9 +40,14 @@ public abstract class Food {
         }
         return quantity;
     }
-    public String getInfo(){
-        return "";
+    public StringBuilder getInfo(){
+        StringBuilder returnString = new StringBuilder();
+        for (Map.Entry<String, String[]> entry : dates.entrySet()){
+            returnString.append("Bought Date: ").append(entry.getKey()).append("Expiration Date: ").append(entry.getValue()[1]).append("quantity: ").append(entry.getValue()[0]).append("\n");
+        }
+        return returnString;
     }
+
     public String getName(){
         return this.foodName;
     }
