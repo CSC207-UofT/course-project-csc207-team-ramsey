@@ -16,7 +16,7 @@ public class FoodControlCentre extends ControlCentre implements FoodFactory {
     }
 
     public StringBuilder showFood(Food food){
-        return food.getInfo();
+        return food.getInfoQuantity();
     }
 
     public void deleteEntity() {
