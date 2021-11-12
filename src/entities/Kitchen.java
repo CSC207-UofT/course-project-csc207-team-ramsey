@@ -59,4 +59,8 @@ public class Kitchen {
     public void setShoppingList(ArrayList<Food> newList) {
         this.shoppingList = newList;
     }
+
+    public void addFoodtoList(Food newFood) {
+        this.food.add(newFood);
+    }
 }
