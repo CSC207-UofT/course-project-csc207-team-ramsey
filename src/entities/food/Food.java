@@ -43,7 +43,7 @@ public abstract class Food {
     public StringBuilder getInfoQuantity(){
         StringBuilder returnString = new StringBuilder();
         for (Map.Entry<String, String[]> entry : this.dates.entrySet()){
-            returnString.append("Bought Date: ").append(entry.getKey()).append("\n").append("Expiration Date: ").append(entry.getValue()[1]).append("quantity: ").append(entry.getValue()[0]).append("\n");
+            returnString.append("Bought Date: ").append(entry.getKey()).append(", Expiration Date: ").append(entry.getValue()[1]).append(", Quantity: ").append(entry.getValue()[0]).append("\n");
         }
         return returnString;
     }
