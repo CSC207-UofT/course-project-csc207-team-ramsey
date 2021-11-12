@@ -40,11 +40,18 @@ public abstract class Food {
         }
         return quantity;
     }
-    public StringBuilder getInfo(){
+    public StringBuilder getInfoQuantity(){
         StringBuilder returnString = new StringBuilder();
-        for (Map.Entry<String, String[]> entry : dates.entrySet()){
-            returnString.append("Bought Date: ").append(entry.getKey()).append("Expiration Date: ").append(entry.getValue()[1]).append("quantity: ").append(entry.getValue()[0]).append("\n");
+        for (Map.Entry<String, String[]> entry : this.dates.entrySet()){
+            returnString.append("Bought Date: ").append(entry.getKey()).append("\n").append("Expiration Date: ").append(entry.getValue()[1]).append("quantity: ").append(entry.getValue()[0]).append("\n");
         }
+        return returnString;
+    }
+
+    public StringBuilder getInfoFood(){
+        StringBuilder returnString = new StringBuilder();
+        returnString.append("Food Name: ").append(this.foodName).append("\n").append("Shelf Life: ").append(this.shelfLife).append("\n").append("Quantity: ").append(this.getQuantity()).append("\n").append("Unit: ").append(this.unit);
+
         return returnString;
     }
 
@@ -64,8 +71,12 @@ public abstract class Food {
         this.foodName = name;
         return this.foodName;
     }
-//    public String setQuantity(int num, int quantity){
-//    }
+    public StringBuilder setQuantity(String dateAdded, String quantity){
+        String[] modify = this.dates.get(dateAdded);
+        modify[0] = quantity;
+        this.dates.replace(dateAdded, modify);
+        return this.getInfoQuantity();
+    }
 
     public int setShelfLife(int newShelfLife){
         this.shelfLife = newShelfLife;
@@ -77,5 +88,27 @@ public abstract class Food {
         return this.unit;
     }
 
+    public StringBuilder addQuantity(String quantity){
+        LocalDateTime buyDate = LocalDateTime.now();
+        LocalDateTime expDate = buyDate.plusDays(shelfLife);
+        DateTimeFormatter formatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String formattedBuy = buyDate.format(formatObj);
+        String formattedExp = expDate.format(formatObj);
+
+        String[] quantExp = {quantity, formattedExp};
+        this.dates.put(formattedBuy, quantExp);
+
+        return this.getInfoQuantity();
+    }
+
+    public StringBuilder removeEntry(String dateAdded, String quantity){
+        this.dates.remove(dateAdded);
+        return this.getInfoQuantity();
+    }
+
+    public StringBuilder removeQuantity(String dateAdded, String quantity){
+        this.dates.remove(dateAdded);
+        return this.getInfoQuantity();
+    }
 
 }

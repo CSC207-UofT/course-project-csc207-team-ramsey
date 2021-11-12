@@ -5,6 +5,4 @@ package controllers;
  * UserControlCentre, and KitchenControlCentre
  */
 public abstract class ControlCentre {
-
-
 }
