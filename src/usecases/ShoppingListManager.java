@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 
 
 public class ShoppingListManager {
-    
+
     /**
      * Add item to shoppingList, or update quantity needed if item is already in list
      * @param user
