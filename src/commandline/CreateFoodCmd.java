@@ -1,6 +1,7 @@
 package commandline;
 
 import controllers.ControlCentre;
+import entities.User;
 import entities.food.Food;
 import usecases.FoodFactory;
 
@@ -12,12 +13,12 @@ import java.util.Scanner;
 
 public class CreateFoodCmd extends Command implements CommandExecute, FoodFactory {
 
-    public CreateFoodCmd(ControlCentre receiver) {
+    public CreateFoodCmd(ControlCentre receiver, User user) {
         super(5, 5, receiver);
     }
 
     @Override
-    public String execute(ControlCentre receiver, List<String> arguments){
+    public String execute(ControlCentre receiver, List<String> arguments, User user){
         try {
             int sl = Integer.parseInt(arguments.get(2));
             int quantity = Integer.parseInt(arguments.get(3));
@@ -53,6 +54,7 @@ public class CreateFoodCmd extends Command implements CommandExecute, FoodFactor
 
             System.out.println("What is the quantity? ");
             String quantity = s.nextLine();
+            
 
             ArrayList<String> arguments = new ArrayList<String>();
             arguments.add(foodType);
@@ -61,7 +63,7 @@ public class CreateFoodCmd extends Command implements CommandExecute, FoodFactor
             arguments.add(quantity);
             arguments.add(unit);
 
-            String response = execute(this.receiver, arguments);
+            String response = execute(this.receiver, arguments, null);
             System.out.println(response);
 
             if (Objects.equals(response, "Your input is invalid")) {

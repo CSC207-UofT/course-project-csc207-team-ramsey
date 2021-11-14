@@ -1,9 +1,8 @@
 package entities.food;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Represents a Entities.Food.Food for our fridge
@@ -14,22 +13,22 @@ public abstract class Food {
     private String foodName;
     private int quantity;
     private String unit;
-    private HashMap<String, String[]> dates;
+    private Hashtable<String, String[]> dates;
 
     public Food(int sl, String name, int quantity, String unit) {
         this.shelfLife = sl;
         this.foodName = name;
         this.unit = unit;
 
-        LocalDateTime buyDate = LocalDateTime.now();
-        LocalDateTime expDate = buyDate.plusDays(shelfLife);
+        LocalDate buyDate = LocalDate.now();
+        LocalDate expDate = buyDate.plusDays(shelfLife);
         DateTimeFormatter formatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String formattedBuy = buyDate.format(formatObj);
         String formattedExp = expDate.format(formatObj);
 
         String[] quantExp = {Integer.toString(quantity), formattedExp};
-        this.dates = new HashMap<String, String[]>();
-        dates.put(formattedBuy, quantExp);
+        this.dates = new Hashtable<String, String[]>();
+        this.dates.put(formattedBuy, quantExp);
 
     }
 
@@ -42,8 +41,10 @@ public abstract class Food {
     }
     public StringBuilder getInfoQuantity(){
         StringBuilder returnString = new StringBuilder();
+        int count = 1;
         for (Map.Entry<String, String[]> entry : this.dates.entrySet()){
-            returnString.append("Bought Date: ").append(entry.getKey()).append(", Expiration Date: ").append(entry.getValue()[1]).append(", Quantity: ").append(entry.getValue()[0]).append("\n");
+            returnString.append(count).append(" - Bought Date: ").append(entry.getKey()).append(", Expiration Date: ").append(entry.getValue()[1]).append(", Quantity: ").append(entry.getValue()[0]).append("\n");
+            count ++;
         }
         return returnString;
     }
@@ -89,9 +90,9 @@ public abstract class Food {
     }
 
     public StringBuilder addQuantity(String quantity){
-        LocalDateTime buyDate = LocalDateTime.now();
-        LocalDateTime expDate = buyDate.plusDays(shelfLife);
-        DateTimeFormatter formatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate buyDate = LocalDate.now();
+        LocalDate expDate = buyDate.plusDays(shelfLife);
+        DateTimeFormatter formatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedBuy = buyDate.format(formatObj);
         String formattedExp = expDate.format(formatObj);
 
@@ -101,14 +102,50 @@ public abstract class Food {
         return this.getInfoQuantity();
     }
 
-    public StringBuilder removeEntry(String dateAdded, String quantity){
+    public StringBuilder removeEntry(String dateAdded){
         this.dates.remove(dateAdded);
         return this.getInfoQuantity();
     }
 
-    public StringBuilder removeQuantity(String dateAdded, String quantity){
-        this.dates.remove(dateAdded);
+    public StringBuilder addEntry(String dateAdded, String quantity){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate buyDate = LocalDate.parse(dateAdded, formatter);
+        LocalDate expDate = buyDate.plusDays(shelfLife);
+        String formattedExp = expDate.format(formatter);
+
+        String[] quantityexpr = {quantity, formattedExp};
+
+        this.dates.put(dateAdded, quantityexpr);
         return this.getInfoQuantity();
     }
+
+    public StringBuilder removeQuantity(String quantity){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        ArrayList<LocalDate> data = new ArrayList<>();
+        for (Map.Entry<String, String[]> entry : this.dates.entrySet()){
+            LocalDate dateTime = LocalDate.parse(entry.getKey(), formatter);
+            data.add(dateTime);
+        }
+        Collections.sort(data);
+        int quantityFormatted = Integer.parseInt(quantity);
+
+        for (LocalDate buyDate : data) {
+            String keyVal = buyDate.format(formatter);
+            int entryQuantity = Integer.parseInt(this.dates.get(keyVal)[0]);
+            if (entryQuantity > quantityFormatted){
+                this.dates.get(keyVal)[0] = Integer.toString(entryQuantity - quantityFormatted);
+                return this.getInfoQuantity();
+            } else if (entryQuantity == quantityFormatted){
+                this.removeEntry(keyVal);
+                return this.getInfoQuantity();
+            } else {
+                quantityFormatted = quantityFormatted - entryQuantity;
+                this.removeEntry(keyVal);
+            }
+
+        }
+        return this.getInfoQuantity();
+    }
+
 
 }

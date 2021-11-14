@@ -15,6 +15,7 @@ public class FoodControlCentre extends ControlCentre implements FoodFactory {
         return kitchen.getFood();
     }
 
+    @Override
     public StringBuilder showFood(Food food){
         return food.getInfoQuantity();
     }
