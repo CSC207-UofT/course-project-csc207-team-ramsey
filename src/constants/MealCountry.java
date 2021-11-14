@@ -1,5 +1,7 @@
 package constants;
 
+import entities.Recipe;
+
 public enum MealCountry {
     AMERICAN,
     ITALIAN,
@@ -15,6 +17,17 @@ public enum MealCountry {
                 return true;
             }
         }
+        return false;
+    }
+
+    public static boolean containsCategory(Recipe recipe) {
+
+        for (MealCountry c :MealCountry.values()) {
+            if (c.name().equalsIgnoreCase(recipe.getCategoryCountry())) {
+                return true;
+            }
+        }
+
         return false;
     }
 }
