@@ -63,4 +63,8 @@ public class Kitchen {
     public void addFoodtoList(Food newFood) {
         this.food.add(newFood);
     }
+
+    public void addRecipetoList(Recipe newRecipe){
+        this.recipes.add(newRecipe);
+    }
 }
