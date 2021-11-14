@@ -1,5 +1,7 @@
 package constants;
 
+import entities.Recipe;
+
 public enum MealTime {
     BREAKFAST,
     BRUNCH,
@@ -13,6 +15,17 @@ public enum MealTime {
                 return true;
             }
         }
+        return false;
+    }
+
+    public static boolean containsCategory(Recipe recipe) {
+
+        for (MealTime c :MealTime.values()) {
+            if (c.name().equalsIgnoreCase(recipe.getCategoryTime())) {
+                return true;
+            }
+        }
+
         return false;
     }
 }
