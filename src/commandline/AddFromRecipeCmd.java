@@ -1,11 +1,11 @@
 package commandline;
 
 import controllers.ControlCentre;
-import controllers.ShoppingListControlCentre;
+import controllers.KitchenControlCentre;
 import entities.food.Food;
 import entities.Recipe;
+import entities.User;
 import usecases.FoodFactory;
-import usecases.ShoppingListManager;
 
 
 import java.util.ArrayList;
@@ -14,15 +14,16 @@ import java.util.HashMap;
 
 import java.util.Scanner;
 
-public class AddFromRecipeCmd extends Command implements CommandExecute, FoodFactory {
+public class AddFromRecipeCmd extends Command implements CommandExecute {
 
     public AddFromRecipeCmd(ControlCentre receiver) {
         super(5, 5, receiver);
     }
 
-    public void createFoodLineCall(Scanner s, Recipe recipe) {
+    public void createFoodCall(Scanner s, Recipe recipe, User user) {
 
         HashMap<String, Float> recipeIngredients = recipe.getIngredients();
+
 
         for (String foodName : recipeIngredients.keySet()) {
             System.out.println("This recipe requires " + foodName + ".");
@@ -39,14 +40,14 @@ public class AddFromRecipeCmd extends Command implements CommandExecute, FoodFac
                     " How much would you like to buy?: ");
             String quantity = s.nextLine();
 
-            ArrayList<String> arguments = new ArrayList<String>();
+            ArrayList<String> arguments = new ArrayList<>();
             arguments.add(foodType);
             arguments.add(foodName);
             arguments.add(sl);
             arguments.add(quantity);
             arguments.add(unit);
 
-            String response = execute(this.receiver, arguments);
+            String response = execute(this.receiver, arguments, user);
             System.out.println(response);
 
         }
@@ -54,8 +55,8 @@ public class AddFromRecipeCmd extends Command implements CommandExecute, FoodFac
     }
 
     @Override
-    public String execute(ControlCentre receiver, List<String> arguments) {
-        ShoppingListControlCentre kitchenControl = (ShoppingListControlCentre) receiver;
+    public String execute(ControlCentre receiver, List<String> arguments, User user) {
+        KitchenControlCentre kitchenControl = (KitchenControlCentre) receiver;
         try {
             int sl = Integer.parseInt(arguments.get(2));
             int quantity = Integer.parseInt(arguments.get(3));
@@ -66,7 +67,7 @@ public class AddFromRecipeCmd extends Command implements CommandExecute, FoodFac
                 if (newFood == null) {
                     return "Your input is invalid";
                 }
-                return "Your food has been added";
+                return "Your food has been added to your shopping list.";
             } catch (Exception e) {
                 return "Your input is invalid";
             }
