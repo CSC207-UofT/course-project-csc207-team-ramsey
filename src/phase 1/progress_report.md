@@ -38,7 +38,7 @@ Marco - RecipeSorter, RecipeManager, Recipe Entity updates, RecipeControlCentre,
 
 Tosha - Kitchen Entity, Kitchen ControlCentre, ShoppingList Manager, Kitchen Commands, progress report
 
-Mer - Food Entity updates, Food Manager, Food ControlCentre, Food Commands, design document
+Mer - Food Entity updates, Food Manager, Food ControlCentre, Food Commands, design document, Food Factory Design, abstract classes, food interfaces. 
 
 Martin - Progress remains same as phase0
 
