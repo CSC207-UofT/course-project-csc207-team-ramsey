@@ -31,5 +31,4 @@ public class KitchenControlCentre extends ControlCentre {
     public StringBuilder showFood(Food food) {
         return null;
     }
-
 }
