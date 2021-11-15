@@ -68,31 +68,30 @@ public class Kitchen {
      * helper method that returns a String representation of current food in kitchen (with amounta)
      * @return String foods
      */
-    public String showAllFood() {
+    public StringBuilder showAllFood() {
         StringBuilder foods = new StringBuilder();
-        foods.append("Food in Kitchen: " + "\n");
         for (Food food : this.food) {
-            foods.append(food.getName() + ": " + food.getQuantity() + " " + food.getUnit() + "\n");
+            foods.append("- " + food.getName() + ": " + food.getQuantity() + " " + food.getUnit() + "\n");
         }
-        return foods.toString();
+        return foods;
     }
 
-    public String showRecipes() {
+    public StringBuilder showRecipes() {
         StringBuilder recipes = new StringBuilder();
         recipes.append("Recipes in Kitchen: " + "\n");
         for (Recipe recipe : this.recipes) {
             recipes.append(recipe.getTitle() + "\n" + recipe.toString());
         }
-        return recipes.toString();
+        return recipes;
     }
 
-    public String showShoppingList() {
+    public StringBuilder showShoppingList() {
         StringBuilder shoppingList = new StringBuilder();
         shoppingList.append("Shopping List: " + "\n");
         for (Food food : this.shoppingList) {
             shoppingList.append(food.getName() + ": " + food.getQuantity() + " " + food.getUnit() + "\n");
         }
-        return shoppingList.toString();
+        return shoppingList;
     }
 
     public StringBuilder showKitchen(){
@@ -101,4 +100,7 @@ public class Kitchen {
         return kitchen;
     }
 
+    public void addRecipetoList(Recipe newRecipe){
+        this.recipes.add(newRecipe);
+    }
 }
