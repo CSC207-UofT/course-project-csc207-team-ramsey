@@ -1,6 +1,11 @@
 package entities;
 
 
+import entities.food.Food;
+import entities.Kitchen;
+
+import java.util.ArrayList;
+
 /**
  * This class represents a user of the program
  */
@@ -88,6 +93,13 @@ public class User {
      */
     public void setEmail(String email){
         this.email = email;
+    }
+
+    /**
+     * @param newKitchen updated food list
+     */
+    public void setKitchen(Kitchen newKitchen) {
+        this.kitchen = newKitchen;
     }
 
 

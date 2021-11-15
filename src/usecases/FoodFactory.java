@@ -4,7 +4,7 @@ import entities.food.*;
 
 public interface FoodFactory {
 
-    public default Food getFood(String foodType, String foodName, int sl, int quantity, String unit){
+    public static Food getFood(String foodType, String foodName, int sl, int quantity, String unit){
         if(foodType == null){
             return null;
         }

@@ -2,9 +2,12 @@ package usecases;
 
 import entities.Recipe;
 import entities.User;
+import recipe_filter.mealCountry.*;
+import recipe_filter.mealTime.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * A RecipeManager that Manages the Recipes and the User Recipe List
@@ -21,7 +24,7 @@ public class RecipeManager {
      * @param ingredients the required ingredients and their quantities
      * @return boolean showing whether recipe was added
      */
-    public boolean addNewRecipe(User user, int servings, String name, int time, String steps, HashMap<String, Float> ingredients){
+    public boolean addNewRecipe(User user, int servings, String name, int time, String steps, HashMap<String, Float> ingredients, String categoryCountry, String categoryTime){
 
         ArrayList<Recipe> curRecipes = user.getKitchen().getRecipes();
 
@@ -30,7 +33,7 @@ public class RecipeManager {
                 return false;
             }
         }
-        Recipe newRecipe = new Recipe(servings, name, time, steps, ingredients);
+        Recipe newRecipe = new Recipe(servings, name, time, steps, ingredients, categoryCountry, categoryTime);
         user.getKitchen().getRecipes().add(newRecipe);
         return true;
     }
@@ -142,4 +145,59 @@ public class RecipeManager {
         return false;
     }
 
+    public List<Recipe> getRecipeList(User user, String category){
+        if (category.equals("full")){
+            return user.getKitchen().getRecipes();
+        } else {
+            if (category.equalsIgnoreCase("Breakfast")){
+                BreakfastFilter breakfastFilter= new BreakfastFilter();
+                return breakfastFilter.apply(user.getKitchen().getRecipes());
+            }
+            if (category.equalsIgnoreCase("Brunch")){
+                BrunchFilter brunchFilter = new BrunchFilter();
+                return brunchFilter.apply(user.getKitchen().getRecipes());
+            }
+            if (category.equalsIgnoreCase("Lunch")){
+                LunchFilter lunchFilter = new LunchFilter();
+                return lunchFilter.apply(user.getKitchen().getRecipes());
+            }
+            if (category.equalsIgnoreCase("Dinner")){
+                DinnerFilter dinnerFilter = new DinnerFilter();
+                return dinnerFilter.apply(user.getKitchen().getRecipes());
+            }
+            if (category.equalsIgnoreCase("Dessert")){
+                DessertFilter dessertFilter = new DessertFilter();
+                return dessertFilter.apply(user.getKitchen().getRecipes());
+            }
+            if (category.equalsIgnoreCase("American")){
+                AmericanFilter americanFilter = new AmericanFilter();
+                return americanFilter.apply(user.getKitchen().getRecipes());
+            }
+            if (category.equalsIgnoreCase("Italian")){
+                ItalianFilter italianFilter = new ItalianFilter();
+                return italianFilter.apply(user.getKitchen().getRecipes());
+            }
+            if (category.equalsIgnoreCase("French")){
+                FrenchFilter frenchFilter = new FrenchFilter();
+                return frenchFilter.apply(user.getKitchen().getRecipes());
+            }
+            if (category.equalsIgnoreCase("Mexican")){
+                MexicanFilter mexicanFilter = new MexicanFilter();
+                return mexicanFilter.apply(user.getKitchen().getRecipes());
+            }
+            if (category.equalsIgnoreCase("Chinese")){
+                ChineseFilter chineseFilter = new ChineseFilter();
+                return chineseFilter.apply(user.getKitchen().getRecipes());
+            }
+            if (category.equalsIgnoreCase("Korean")){
+                KoreanFilter koreanFilter = new KoreanFilter();
+                return koreanFilter.apply(user.getKitchen().getRecipes());
+            }
+            if (category.equalsIgnoreCase("Japanese")){
+                JapaneseFilter japaneseFilter = new JapaneseFilter();
+                return japaneseFilter.apply(user.getKitchen().getRecipes());
+            }
+        }
+        return null;
+    }
 }
