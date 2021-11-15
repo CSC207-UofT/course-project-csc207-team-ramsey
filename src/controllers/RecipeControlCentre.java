@@ -54,6 +54,10 @@ public class RecipeControlCentre extends ControlCentre{
         return this.recipeManager.showRecipe(this.user, recipeName);
     }
 
+    public void deleteRecipe(String recipeName){
+        recipeManager.removeRecipe(this.user, recipeName);
+    }
+
     public boolean checkRecipesNotEmpty(){
         return !(this.user.getKitchen().getRecipes().isEmpty());
     }
