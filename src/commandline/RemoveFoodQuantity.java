@@ -22,28 +22,15 @@ public class RemoveFoodQuantity extends Command implements CommandExecute{
 
     public void removeFoodQuantityLineCall(Scanner s){
         do {
-            System.out.println("What type of food is your food (grains, meats, fruitvegi, dairy)?: ");
-            String foodType = s.nextLine();
-
-            System.out.println("What is the name of your food?: ");
+            System.out.println("What is the name of the food you used?: ");
             String foodName = s.nextLine();
 
-            System.out.println("What is the shelf life of your food?: ");
-            String sl = s.nextLine();
-
-            System.out.println("What is the unit (whole, ml, grams?: ");
-            String unit = s.nextLine();
-
-            System.out.println("What is the quantity? ");
-            String quantity = s.nextLine();
+            System.out.println("How much of the food did you use? (Format: quantity units): ");
+            String quantityData = s.nextLine();
 
 
             ArrayList<String> arguments = new ArrayList<String>();
-            arguments.add(foodType);
             arguments.add(foodName);
-            arguments.add(sl);
-            arguments.add(quantity);
-            arguments.add(unit);
 
         } while (!Objects.equals(s.nextLine(), "n"));
     }
