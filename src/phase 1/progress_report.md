@@ -34,15 +34,15 @@ Our design patterns have also allowed us to address previous issues we were havi
 
 Everyone in our group worked on the specification and UML together. 
 
-Marco - RecipeSorter, RecipeManager, Recipe Entity updates, RecipeControlCentre, Recipe Commands, Constants
+Marco - RecipeSorter, RecipeManager, Recipe Entity updates, RecipeControlCentre, Recipe Commands, Constants, Filter Design Pattern, design document
 
 Tosha - Kitchen Entity, Kitchen ControlCentre, ShoppingList Manager, Kitchen Commands, progress report
 
 Mer - Food Entity updates, Food Manager, Food ControlCentre, Food Commands, design document
 
-Martin - Food and Recipe Sorters (???)
+Martin - Progress remains same as phase0
 
-Sora - UserEntity updates, UserManager, UserControlCentre, UserCommands
+Sora - UserEntity updates, UserManager, UserControlCentre, UserCommands, specification
 
 Since we all meet, our tasks tend to get a bit more entangled, but we all helped each other to complete as much as we can!
 
