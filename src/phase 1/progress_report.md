@@ -1,4 +1,5 @@
 Summary
+
 Our project allows people to store and sort their foods and recipes so that they can easily buy necessary ingredients, understand what recipes they can make, and helps track foods that may expire soon. We have 3 entity classes (User, Kitchen, and Food (an abstract class)), 7 use case classes (FoodManager, RecipeManager, FoodFactory, FoodSorter, RecipeSorter, ShoppingListManager, and userManager), 1 abstract ControlCentre class with 4 child classes (FoodControlCentre, KitchenControlCentre, RecipeControlCentre, and UserControlCentre), 18 Commonds that allow the user to request and input information, and 3 constants for recipe sorting (Constants, MealCountry, MealTime). Users should be able to use features such as creating and editing account details, adding new foods/recipes, see their foods/recipes, sorting their recipes and foods, creating and adding items to their shopping list, and adding/removing food from their kitchen based on the food they buy from their shopping list and the recipes they make. 
 
 Questions
