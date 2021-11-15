@@ -65,9 +65,25 @@ enums in order to easily keep track of the new categories we include for recipes
 
 ###### Packaging strategies
 
-We decided to package our project by layer rather than feature.  We made packages for
-our constants, command line, controllers, use cases, entities, filters, and tests. This allows us as developers to keep 
+We packaged everything by layer. We have a package for entities, one for usecases, which includes an interface used for the factory method, one for controllers, and one for the 
+commandline. This commandline is a package for the classes involved in the UI and the controllers. They directly communicate with the command line (except Command and CommandExecute, but they are there
+because all the commands extends Command and implement CommandExecute). These classes also call functions from the use cases, where the package driver is only for communicating with the UI.
+We decided to organize it this way because many of the classes in the layer are similar and extend a parent class. This allows us as developers to keep 
 track of Clean Architecture and easily identify the segregation of our program layers. However, we've also come to realize
 that this can separate a lot of components for an individual feature. For example, when we implement a new feature, we
 have to make new classes in multiple different files. 
+
+###### Design patterns
+We used 3 design patterns in our project so far:
+
+##### Factory Design Pattern
+
+The factory design pattern is used to create the different types of food. The FoodFactory is an interface that creates the child class based on the food type given by the user
+
+##### Command Design Pattern
+
+
+##### Filter Design Pattern
+
+
 
