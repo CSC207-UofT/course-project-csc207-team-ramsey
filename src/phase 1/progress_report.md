@@ -1,9 +1,11 @@
-Summary
+### Phase 1 Progress Report
+
+###### Summary
 
 Our project allows people to store and sort their foods and recipes so that they can easily buy necessary ingredients, understand what recipes they can make, and helps track foods that may expire soon. We have 3 entity classes (User, Kitchen, and Food (an abstract class)), 7 use case classes (FoodManager, RecipeManager, FoodFactory, FoodSorter, RecipeSorter, ShoppingListManager, and userManager), 1 abstract ControlCentre class with 4 child classes (FoodControlCentre, KitchenControlCentre, RecipeControlCentre, and UserControlCentre), 18 Commonds that allow the user to request and input information, and 3 constants for recipe sorting (Constants, MealCountry, MealTime). Users should be able to use features such as creating and editing account details, adding new foods/recipes, see their foods/recipes, sorting their recipes and foods, creating and adding items to their shopping list, and adding/removing food from their kitchen based on the food they buy from their shopping list and the recipes they make. 
 
 
-Questions
+###### Questions
 
 There are some instances where our controllers call on entities right now, is there a better way to fulfil these functions? 
 
@@ -11,7 +13,7 @@ How can we implement design patterns in the next responsibilities we need to add
 
 
 
-What Has Worked Well in Our Group
+###### What Has Worked Well in Our Group
 
 Our group communication continues to work very well. We meet up multiple times per week to discuss what everyone has been up to, ask questions, and decide what needs to be 
 done next. 
@@ -20,7 +22,7 @@ We have intentionally been addressing previous issues and questions from Phase0,
 
 
 
-What Has Worked Well With Our Design
+###### What Has Worked Well With Our Design
 
 Implemening design patterns has allowed our code to function in the way we envisioned without making it too messy and helping follow the SOLID design principles; it has helped keep everything organized and create a natural flow of responsibilities. 
 
@@ -28,7 +30,7 @@ Our design patterns have also allowed us to address previous issues we were havi
 
 
 
-What Each of Us Have Been Working On + What's Next
+###### What Each of Us Have Been Working On + What's Next
 
 Everyone in our group worked on the specification and UML together. 
 
