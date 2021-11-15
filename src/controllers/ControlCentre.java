@@ -12,4 +12,6 @@ interface ControlCentre {
 
     public void updateEntity();
 
+    public void run(String order);
+
 }
