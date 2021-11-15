@@ -1,3 +1,20 @@
+# UML Diagram
+
+https://lucid.app/lucidchart/0d1ddbfb-ae9b-4d1e-828f-1430f31d79cf/edit?viewport_loc=-5508%2C-3814%2C13750%2C6379%2CHWEp-vi-RSFO&invitationId=inv_9deaeeae-f89a-4712-ae82-0f4b53070412
+
+# Design Patterns
+
+## Factory Pattern
+
+We used the factory pattern in order to instantiate the foods in our program. 
+
+## Command Pattern
+
+The command pattern was used for our command line interface.
+
+## Filter Pattern
+
+We used the filter pattern to make a sorter for our user's recipe list.
 ### Phase 2 - Design Document
 
 ###### Major Design Decisions
@@ -24,11 +41,33 @@ calls the functions from the entity class. This instance occurs between the Food
 use cases the hashtable used to store the values would have to be replaced each time, which we thought was very memory 
 intensive. So we are currently trying to find a way around that, so that our entity class only includes getters and setters.
 
-###### SOLID design principles
+###### SOLID and Design Patterns
 
-SOLID design principles was something we didn't consider as much for Phase 0, but tried to pay more attention to during Phase 1.
+SOLID
+Our design was made to closely adhere to the Single Responsibility Principle and Open Closed Principle, and the design 
+patterns we used should reflect this design choice.
+
+Firstly, we used to factory method to move our food creation into one place within the program, which makes the code 
+easier to support. With this pattern, we can easily introduce new types of foods into the program without breaking our 
+code (OCP). The disadvantage of this pattern, though, is that it can make our code drastically more complicated, since 
+we needed to introduce many new subclasses for our Entity.
+
+Secondly, we used the command design pattern in order to encapsulate our command line interface. We used this pattern 
+because we wanted to implement reversible operations with easy extensibility. Since we have a separate Command class 
+for each of of our user actions, we adhere to SRP; furthermore, the OCP is followed since we can easily introduce new 
+commands to our application.
+
+Thirdly, we used the filter command in order to easily allow our user to sort their list of recipes.  We used this 
+design pattern since we believed it would be useful to create individual classes to filter our recipe list depending 
+on each recipe category we have listed (following SRP). Also, since we can simply implement a new filter class whenever
+we want to add a new recipe category we are also closely following OCP. In addition, we've integrated the pattern with
+enums in order to easily keep track of the new categories we include for recipes.
 
 ###### Packaging strategies
 
-###### Design patterns
+We decided to package our project by layer rather than feature.  We made packages for
+our constants, command line, controllers, use cases, entities, filters, and tests. This allows us as developers to keep 
+track of Clean Architecture and easily identify the segregation of our program layers. However, we've also come to realize
+that this can separate a lot of components for an individual feature. For example, when we implement a new feature, we
+have to make new classes in multiple different files. 
 
