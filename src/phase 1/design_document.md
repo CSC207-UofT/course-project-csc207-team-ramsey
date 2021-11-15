@@ -1,21 +1,22 @@
-# UML Diagram
+# Phase 2 - Design Document
+
+### UML Diagram
 
 https://lucid.app/lucidchart/0d1ddbfb-ae9b-4d1e-828f-1430f31d79cf/edit?viewport_loc=-5508%2C-3814%2C13750%2C6379%2CHWEp-vi-RSFO&invitationId=inv_9deaeeae-f89a-4712-ae82-0f4b53070412
 
-# Design Patterns
+### Design Patterns
 
-## Factory Pattern
+#### Factory Pattern
 
-We used the factory pattern in order to instantiate the foods in our program. 
+We used the factory pattern in order to instantiate the foods in our program.
 
-## Command Pattern
+#### Command Pattern
 
 The command pattern was used for our command line interface.
 
-## Filter Pattern
+#### Filter Pattern
 
 We used the filter pattern to make a sorter for our user's recipe list.
-### Phase 2 - Design Document
 
 ###### Major Design Decisions
 
@@ -71,19 +72,7 @@ because all the commands extends Command and implement CommandExecute). These cl
 We decided to organize it this way because many of the classes in the layer are similar and extend a parent class. This allows us as developers to keep 
 track of Clean Architecture and easily identify the segregation of our program layers. However, we've also come to realize
 that this can separate a lot of components for an individual feature. For example, when we implement a new feature, we
-have to make new classes in multiple different files. 
-
-###### Design patterns
-We used 3 design patterns in our project so far:
-
-##### Factory Design Pattern
-
-The factory design pattern is used to create the different types of food. The FoodFactory is an interface that creates the child class based on the food type given by the user
-
-##### Command Design Pattern
-
-
-##### Filter Design Pattern
+have to make new classes in multiple different files.
 
 
 

@@ -14,4 +14,6 @@ public abstract class ControlCentre {
         return this.user;
     }
     public abstract StringBuilder showFood(Food food);
+
+    public abstract Food createEntity(String s, String s1, int sl, int quantity, String s2);
 }

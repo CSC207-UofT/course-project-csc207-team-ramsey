@@ -24,7 +24,7 @@ public class CreateFoodCmd extends Command implements CommandExecute, FoodFactor
             int quantity = Integer.parseInt(arguments.get(3));
 
             try {
-                Food newFood = getFood(arguments.get(0), arguments.get(1), sl, quantity, arguments.get(4));
+                Food newFood = receiver.createEntity(arguments.get(0), arguments.get(1), sl, quantity, arguments.get(4));
                 if (newFood == null){
                     return "Your input is invalid";
                 }
