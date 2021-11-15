@@ -27,6 +27,10 @@ public class KitchenControlCentre extends ControlCentre {
         return user.getKitchen().showShoppingList();
     }
 
+    public StringBuilder getRecipeList(User user){
+        return user.getKitchen().showRecipes();
+    }
+
     @Override
     public StringBuilder showFood(Food food) {
         return null;

@@ -20,6 +20,7 @@ public class Kitchen {
     }
 
     /**
+     * Getter to return food list
      * @return current food list
      */
     public ArrayList<Food> getFood(){
@@ -27,6 +28,7 @@ public class Kitchen {
     }
 
     /**
+     * Getter to return recipe list
      * @return current recipe list
      */
     public ArrayList<Recipe> getRecipes(){
@@ -34,6 +36,7 @@ public class Kitchen {
     }
 
     /**
+     * Getter to return shopping list
      * @return current shopping list
      */
     public ArrayList<Food> getShoppingList(){
@@ -41,12 +44,14 @@ public class Kitchen {
     }
 
     /**
+     * Setter to update food list
      * @param newFood updated food list
      */
     public void setFood(ArrayList<Food> newFood) {
         this.food = newFood;
     }
     /**
+     * Setter to update recipes list
      * @param newRecipes updated recipes list
      */
     public void setRecipes(ArrayList<Recipe> newRecipes) {
@@ -54,6 +59,7 @@ public class Kitchen {
     }
 
     /**
+     * Setter to update shopping list
      * @param newList updated shopping list
      */
     public void setShoppingList(ArrayList<Food> newList) {
@@ -65,8 +71,8 @@ public class Kitchen {
     }
 
     /**
-     * helper method that returns a String representation of current food in kitchen (with amounta)
-     * @return String foods
+     * helper method that returns a StringBuilder representation of current food in kitchen (with amounts)
+     * @return StringBuilder foods
      */
     public StringBuilder showAllFood() {
         StringBuilder foods = new StringBuilder();
@@ -76,27 +82,39 @@ public class Kitchen {
         return foods;
     }
 
+    /**
+     * helper method that returns a StringBuilder representation of current recipes in kitchen
+     * @return StringBuilder recipes
+     */
     public StringBuilder showRecipes() {
         StringBuilder recipes = new StringBuilder();
-        recipes.append("Recipes in Kitchen: " + "\n");
         for (Recipe recipe : this.recipes) {
-            recipes.append(recipe.getTitle() + "\n" + recipe.toString());
+            recipes.append(recipe.getTitle() + "\n" + recipe.recToString());
         }
         return recipes;
     }
 
+    /**
+     * helper method that returns a StringBuilder representation of a shopping list
+     * @return StringBuilder shoppingList
+     */
     public StringBuilder showShoppingList() {
         StringBuilder shoppingList = new StringBuilder();
-        shoppingList.append("Shopping List: " + "\n");
         for (Food food : this.shoppingList) {
             shoppingList.append(food.getName() + ": " + food.getQuantity() + " " + food.getUnit() + "\n");
         }
         return shoppingList;
     }
 
+    /**
+     * helper method that returns a StringBuilder representation of a kitchen
+     * @return StringBuilder kitchen
+     */
     public StringBuilder showKitchen(){
         StringBuilder kitchen = new StringBuilder();
-        kitchen.append(this.showAllFood() + this.showRecipes() + this.showShoppingList());
+        kitchen.append("Food in Kitchen: " + "\n" + this.showAllFood());
+        kitchen.append("Recipes in Kitchen: " + "\n" + this.showRecipes());
+        kitchen.append("Shopping List: " + "\n" + this.showShoppingList());
         return kitchen;
     }
 

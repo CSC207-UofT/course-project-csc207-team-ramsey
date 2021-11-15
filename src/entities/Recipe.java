@@ -150,7 +150,7 @@ public class Recipe {
     /**
      * @return String representation of te recipe
      */
-    public String toString() {
+    public String recToString() {
         String servings = "\n Servings: " + Integer.toString(this.recipeServings);
         String prep = "\n Prep Time: " + Integer.toString(this.prepTime);
         String i = "\n Ingredients: \n" + this.addIngredients();
