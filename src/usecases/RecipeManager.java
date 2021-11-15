@@ -145,6 +145,12 @@ public class RecipeManager {
         return false;
     }
 
+    /**
+     * gets a user's list of Recipes
+     * @param user
+     * @param category
+     * @return either a full list of Recipes or a list or Recipes of a specific category
+     */
     public List<Recipe> getRecipeList(User user, String category){
         if (category.equals("full")){
             return user.getKitchen().getRecipes();
@@ -196,6 +202,20 @@ public class RecipeManager {
             if (category.equalsIgnoreCase("Japanese")){
                 JapaneseFilter japaneseFilter = new JapaneseFilter();
                 return japaneseFilter.apply(user.getKitchen().getRecipes());
+            }
+        }
+        return null;
+    }
+
+    /**
+     * get a String that shows the information of a recipe
+     * @param user
+     * @param recipeName
+     */
+    public String showRecipe(User user, String recipeName){
+        for (Recipe recipe: user.getKitchen().getRecipes()){
+            if (recipe.getTitle().equals(recipeName)){
+                return recipe.toString();
             }
         }
         return null;
