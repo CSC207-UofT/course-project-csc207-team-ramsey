@@ -70,23 +70,6 @@ public class Recipe {
     public HashMap<String, Float> getIngredients(){
         return this.ingredients;
     }
-
-    /**
-     * get the categoryCountry
-     * @return String
-     */
-    public String getCategoryCountry(){
-        return this.categoryCountry;
-    }
-
-    /**
-     * get the categoryTime
-     * @return String
-     */
-    public String getCategoryTime(){
-        return this.categoryTime;
-    }
-
     /**
      * set the title
      * @param newTitle
@@ -127,24 +110,16 @@ public class Recipe {
         this.ingredients = newIngredients;
     }
 
-    public void setCategoryCountry(String newCategory){
-        this.categoryCountry = newCategory;
-    }
-
-    public void setCategoryTime(String newCategoryTime){
-        this.categoryTime = newCategoryTime;
-    }
-
     /**
      * helper method that returns a String representation of current ingredients
      * @return String ingredients
      */
     public String addIngredients() {
-        StringBuilder it = new StringBuilder();
+        String it = "";
         for (String ingredient : this.ingredients.keySet()) {
-            it.append(this.ingredients.get(ingredient)).append(" ").append(ingredient);
+            it += this.ingredients.get(ingredient) + " " + ingredient;
         }
-        return it.toString();
+        return it;
     }
 
     /**
