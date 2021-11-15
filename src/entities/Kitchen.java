@@ -7,6 +7,7 @@ import entities.food.Food;
  * This class represents a user's kitchen, where they would store a list of their
  * food, recipes, and shoppingList
  */
+
 public class Kitchen {
 
     private ArrayList<Food> food;
@@ -35,6 +36,7 @@ public class Kitchen {
         return this.recipes;
     }
 
+
     /**
      * Getter to return shopping list
      * @return current shopping list
@@ -43,6 +45,7 @@ public class Kitchen {
         return this.shoppingList;
     }
 
+
     /**
      * Setter to update food list
      * @param newFood updated food list
@@ -50,6 +53,8 @@ public class Kitchen {
     public void setFood(ArrayList<Food> newFood) {
         this.food = newFood;
     }
+
+
     /**
      * Setter to update recipes list
      * @param newRecipes updated recipes list
@@ -57,6 +62,7 @@ public class Kitchen {
     public void setRecipes(ArrayList<Recipe> newRecipes) {
         this.recipes = newRecipes;
     }
+
 
     /**
      * Setter to update shopping list
@@ -66,9 +72,15 @@ public class Kitchen {
         this.shoppingList = newList;
     }
 
+
+    /**
+     * Add food to food list
+     * @param newFood updated shopping list
+     */
     public void addFoodtoList(Food newFood) {
         this.food.add(newFood);
     }
+
 
     /**
      * helper method that returns a StringBuilder representation of current food in kitchen (with amounts)
@@ -82,6 +94,7 @@ public class Kitchen {
         return foods;
     }
 
+
     /**
      * helper method that returns a StringBuilder representation of current recipes in kitchen
      * @return StringBuilder recipes
@@ -93,6 +106,7 @@ public class Kitchen {
         }
         return recipes;
     }
+
 
     /**
      * helper method that returns a StringBuilder representation of a shopping list
@@ -106,6 +120,7 @@ public class Kitchen {
         return shoppingList;
     }
 
+
     /**
      * helper method that returns a StringBuilder representation of a kitchen
      * @return StringBuilder kitchen
@@ -118,6 +133,10 @@ public class Kitchen {
         return kitchen;
     }
 
+    /**
+     * Add new recipe to recipe list
+     * @param newRecipe updated shopping list
+     */
     public void addRecipetoList(Recipe newRecipe){
         this.recipes.add(newRecipe);
     }
