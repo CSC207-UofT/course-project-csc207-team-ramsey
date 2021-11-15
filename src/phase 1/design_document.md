@@ -30,5 +30,22 @@ SOLID design principles was something we didn't consider as much for Phase 0, bu
 
 ###### Packaging strategies
 
+We packaged everything by layer. We have a package for entities, one for usecases, which includes an interface used for the factory method, one for controllers, and one for the 
+commandline. This commandline is a package for the classes involved in the UI and the controllers. They directly communicate with the command line (except Command and CommandExecute, but they are there
+because all the commands extends Command and implement CommandExecute). These classes also call functions from the use cases, where the package driver is only for communicating with the UI.
+We decided to organize it this way because many of the classes in the layer are similar and extend a parent class. 
+
 ###### Design patterns
+We used 3 design patterns in our project so far:
+
+##### Factory Design Pattern
+
+The factory design pattern is used to create the different types of food. The FoodFactory is an interface that creates the child class based on the food type given by the user
+
+##### Command Design Pattern
+
+
+##### Filter Design Pattern
+
+
 
