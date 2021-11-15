@@ -101,4 +101,7 @@ public class Kitchen {
         return kitchen;
     }
 
+    public void addRecipetoList(Recipe newRecipe){
+        this.recipes.add(newRecipe);
+    }
 }

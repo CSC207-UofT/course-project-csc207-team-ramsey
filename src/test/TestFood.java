@@ -24,10 +24,15 @@ public class TestFood {
     public void TestGetInfoQuantity() {
         FoodControlCentre foodControlCentre = new FoodControlCentre();
         Food g = foodControlCentre.createEntity("FruitVegi", "Banana", 5, 10, "Whole");
-        System.out.println(g.getInfoQuantity());
         System.out.println(g.getInfoFood());
 
         g.addQuantity("5");
+        g.addEntry("2022-11-14", "12");
+        g.removeEntry("14-11-2021");
+
+        System.out.println(g.getInfoQuantity());
+        g.removeQuantity("12");
+
         System.out.println(g.getInfoQuantity());
 
     }
