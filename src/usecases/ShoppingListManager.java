@@ -1,13 +1,10 @@
 package usecases;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
 
-import entities.Recipe;
 import entities.User;
 import entities.food.Food;
 import entities.Kitchen;
-import usecases.FoodFactory;
 import java.time.LocalDateTime;
 
 /**
@@ -24,11 +21,9 @@ public class ShoppingListManager {
      * @return true if item was successfully added to list
      */
     public boolean addFood(User user, Food newFood) {
-                           // String type, String name, int quantity, int shelfLife, String unit) {
+
         ArrayList<Food> shoppingList = user.getKitchen().getShoppingList();
         Kitchen kitchen = user.getKitchen();
-
-        // Food newFood = FoodFactory.getFood(type, name, shelfLife, quantity, unit);
 
         // check if food is already in list
         for (Food food : shoppingList) {
@@ -96,63 +91,6 @@ public class ShoppingListManager {
         return (user.getKitchen().getShoppingList().contains(item));
     }
 
-    /**
-     * Return unowned ingredients from a recipe
-     *
-     * @param user
-     * @param recipe
-     * @return true if items were successfully added
-     */
-
-    public HashMap<String, Float> getRecipeFood(User user, Recipe recipe) {
-        HashMap<String, Float> ingredients = recipe.getIngredients();
-        HashMap<String, Float> newFoods = new HashMap<String, Float>();
-
-        for (String food : recipe.getIngredients().keySet()) {
-            for (Food kitchenFood : user.getKitchen().getFood()) {
-                if (kitchenFood.getName() == food && kitchenFood.getQuantity() < ingredients.get(food)) {
-                    newFoods.put(food, ingredients.get(food));
-                }
-            }
-        }
-        return newFoods;
-    }
-
-//    public boolean addFromRecipe(User user, Recipe recipe) {
-//        ArrayList<Food> shoppingList = user.getKitchen().getShoppingList();
-//        Kitchen kitchen = user.getKitchen();
-//        HashMap<String, Float> ingredients = recipe.getIngredients();
-//        // iterate through recipe ingredients
-//        for (String food : recipe.getIngredients().keySet()) {
-//            boolean newFood = true;
-//            // check if ingredient is in kitchen
-//            for (Food kitchenFood : user.getKitchen().getFood()) {
-//                // if food is in kitchen, make another instance for shopping list
-//                if (kitchenFood.getName() == food) {
-//                    newFood = false;
-//                    int quantity = Math.round(ingredients.get(food));
-//                    Food addFood = FoodFactory.getFood(kitchenFood.getType(), food, kitchenFood.getShelfLife(), quantity, kitchenFood.getUnit());
-//                    shoppingList.add(addFood);
-//                }
-//            }
-//            if (newFood) {
-//                // false indicates food is new, ask user to enter an associated unit, type, and shelflife
-//                this.unfoundList.add(food);
-//            }
-
-//            }
-//            kitchen.setShoppingList(shoppingList);
-//            user.setKitchen(kitchen);
-//
-//        }
-//        return true;
-//    }
-//
-//    public ArrayList<String> getUnused() {
-//        return this.unfoundList;
-//    }
-//
-//}
 }
 
 
