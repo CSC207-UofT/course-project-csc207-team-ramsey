@@ -11,7 +11,7 @@ public class KitchenControlCentre extends ControlCentre {
     ShoppingListManager shoppingListManager;
 
     public KitchenControlCentre(User user) {
-        this.user = user;
+        super(user);
     }
 
     public void createFoodForList(String foodType, String foodName, int sl, int quantity, String unit) {
@@ -31,8 +31,4 @@ public class KitchenControlCentre extends ControlCentre {
         return user.getKitchen().showRecipes();
     }
 
-    @Override
-    public StringBuilder showFood(Food food) {
-        return null;
-    }
 }
