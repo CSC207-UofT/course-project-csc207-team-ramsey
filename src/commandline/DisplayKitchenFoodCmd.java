@@ -14,8 +14,8 @@ public class DisplayKitchenFoodCmd extends Command implements CommandExecute{
     }
 
     @Override
-    public String execute(ControlCentre receiver, List<String> arguments, User user) {
-        ArrayList<Food> foodList = user.getKitchen().getFood();
+    public String execute(List<String> arguments) {
+        ArrayList<Food> foodList = receiver.getUser().getKitchen().getFood();
         KitchenControlCentre kitchenControlCentre = (KitchenControlCentre) receiver;
 
         if (foodList == null || foodList.isEmpty()){
@@ -23,7 +23,7 @@ public class DisplayKitchenFoodCmd extends Command implements CommandExecute{
         } else {
             StringBuilder foods = new StringBuilder();
             foods.append("You currently have the following food in your kitchen: " + "\n");
-            return kitchenControlCentre.getFoodList(user).toString();
+            return kitchenControlCentre.getFoodList(receiver.getUser()).toString();
         }
     }
 }
