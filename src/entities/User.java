@@ -1,6 +1,11 @@
 package entities;
 
 
+import entities.food.Food;
+import entities.Kitchen;
+
+import java.util.ArrayList;
+
 /**
  * This class represents a user of the program
  */
@@ -10,6 +15,7 @@ public class User {
     private String userName;
     private String email;
     private Kitchen kitchen;
+    private String password;
 
     /**
      * Creates an instance of Entities.User
@@ -17,12 +23,12 @@ public class User {
      * @param uName chosen username for user
      * @param mail email associated with user
      */
-    public User(String user, String uName, String mail) {
+    public User(String user, String uName, String mail, String password) {
         this.userName = uName;
         this.name = user;
         this.email = mail;
         this.kitchen = new Kitchen();
-
+        this.password = password;
     }
 
     /**
@@ -61,6 +67,18 @@ public class User {
         this.userName = userName;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean passwordMatches(String password) {
+        return this.password.equals(password);
+    }
+
     /**
      * set the name
      * @param name
@@ -76,5 +94,13 @@ public class User {
     public void setEmail(String email){
         this.email = email;
     }
+
+    /**
+     * @param newKitchen updated food list
+     */
+    public void setKitchen(Kitchen newKitchen) {
+        this.kitchen = newKitchen;
+    }
+
 
 }

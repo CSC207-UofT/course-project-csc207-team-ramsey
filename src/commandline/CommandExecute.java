@@ -1,6 +1,11 @@
 package commandline;
 
+import controllers.ControlCentre;
+import entities.User;
+
+import java.util.List;
+
 public interface CommandExecute {
-    void execute();
+    String execute(ControlCentre receiver, List<String> arguments);
 
 }
