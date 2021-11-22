@@ -16,7 +16,7 @@ public class RemoveFoodQuantity extends Command implements CommandExecute{
     }
 
     @Override
-    public String execute(ControlCentre receiver, List<String> arguments, User user) {
+    public String execute(List<String> arguments) {
         return null;
     }
 

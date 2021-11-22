@@ -17,13 +17,11 @@ public class DisplayRecipesCmd extends Command implements CommandExecute{
 
     /**
      * execute DisplayRecipesCmd
-     * @param receiver
      * @param arguments
-     * @param user
      * @return a String message for DisplayRecipeCmd
      */
     @Override
-    public String execute(ControlCentre receiver, List<String> arguments, User user) {
+    public String execute(List<String> arguments) {
         RecipeControlCentre recipeControlCentre = (RecipeControlCentre) receiver;
 
         List<Recipe> recipeList = recipeControlCentre.getRecipeList(arguments.get(0));
@@ -72,12 +70,12 @@ public class DisplayRecipesCmd extends Command implements CommandExecute{
 
             if (input.equals("full")){
                 fullOrCat.add("full");
-                System.out.println(execute(this.receiver, fullOrCat));
+                System.out.println(execute(fullOrCat));
                 successful = true;
             } else {
                 if (checkedCategories(input)){
                     fullOrCat.add(input);
-                    System.out.println(execute(this.receiver, fullOrCat));
+                    System.out.println(execute(fullOrCat));
                     successful = true;
                 } else {
                     System.out.println("One or more of your categories appears to be inconsistent with out database. Please, try again.");
