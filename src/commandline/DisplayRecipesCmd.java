@@ -7,7 +7,6 @@ import controllers.RecipeControlCentre;
 import entities.Recipe;
 import entities.User;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class DisplayRecipesCmd extends Command implements CommandExecute{
@@ -16,7 +15,13 @@ public class DisplayRecipesCmd extends Command implements CommandExecute{
         super(0, 0, receiver);
     }
 
-
+    /**
+     * execute DisplayRecipesCmd
+     * @param receiver
+     * @param arguments
+     * @param user
+     * @return a String message for DisplayRecipeCmd
+     */
     @Override
     public String execute(ControlCentre receiver, List<String> arguments, User user) {
         RecipeControlCentre recipeControlCentre = (RecipeControlCentre) receiver;
@@ -36,9 +41,13 @@ public class DisplayRecipesCmd extends Command implements CommandExecute{
         }
     }
 
+    /**
+     * initiate the command line call for CreateRecipeCmd
+     * @param s
+     */
     public void displayRecipeLineCall(Scanner s){
         System.out.println("""
-                Would you like to see all your recipes or recipes from one of the following categories:" +
+                Would you like to see all your recipes or recipes from one of the following categories: +
                 - American
                 - Italian
                 - French
@@ -73,12 +82,15 @@ public class DisplayRecipesCmd extends Command implements CommandExecute{
                 } else {
                     System.out.println("One or more of your categories appears to be inconsistent with out database. Please, try again.");
                 }
-
             }
         }
-
     }
 
+    /**
+     * a helper method to check if user's inputed category matches a category from category enums
+     * @param category
+     * @return
+     */
     private static boolean checkedCategories(String category){
 
         if (MealCountry.matchIgnoreCase(category)){

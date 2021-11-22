@@ -16,13 +16,13 @@ public class TestFood {
     FoodControlCentre foodControlCentre;
     @Before
     public void setUp() {
-        FoodControlCentre foodControlCentre = new FoodControlCentre();
         Kitchen kitchen = new Kitchen();
     }
 
     @Test(timeout = 50)
     public void TestGetInfoQuantity() {
-        FoodControlCentre foodControlCentre = new FoodControlCentre();
+        User user = new User("ADA", "FSES", "ASDAW", "ADW");
+        FoodControlCentre foodControlCentre = new FoodControlCentre(user);
         Food g = foodControlCentre.createEntity("FruitVegi", "Banana", 5, 10, "Whole");
         System.out.println(g.getInfoFood());
 

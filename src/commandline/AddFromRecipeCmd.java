@@ -20,7 +20,7 @@ public class AddFromRecipeCmd extends Command implements CommandExecute {
         super(5, 5, receiver);
     }
 
-    public void createFoodCall(Scanner s, Recipe recipe, User user) {
+    public void createFoodCall(Scanner s, Recipe recipe) {
 
         HashMap<String, Float> recipeIngredients = recipe.getIngredients();
 
@@ -47,7 +47,7 @@ public class AddFromRecipeCmd extends Command implements CommandExecute {
             arguments.add(quantity);
             arguments.add(unit);
 
-            String response = execute(this.receiver, arguments, user);
+            String response = execute(this.receiver, arguments);
             System.out.println(response);
 
         }
