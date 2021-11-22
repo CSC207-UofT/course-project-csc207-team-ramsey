@@ -18,7 +18,7 @@ public class RecipeControlCentre extends ControlCentre{
     RecipeManager recipeManager;
 
     public RecipeControlCentre(User user) {
-        this.user = user;
+        super(user);
         this.recipeManager = new RecipeManager();
     }
 
@@ -70,11 +70,4 @@ public class RecipeControlCentre extends ControlCentre{
         }
         return false;
     }
-
-    @Override
-    public StringBuilder showFood(Food food) {
-        return null;
-    }
-
-
 }
