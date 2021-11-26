@@ -1,7 +1,6 @@
 package controllers;
 
 import entities.User;
-import entities.food.Food;
 
 public abstract class ControlCentre {
     private final User user;
