@@ -5,7 +5,6 @@ import constants.MealTime;
 import controllers.ControlCentre;
 import controllers.RecipeControlCentre;
 import entities.Recipe;
-import entities.User;
 
 import java.util.*;
 
@@ -17,14 +16,14 @@ public class DisplayRecipesCmd extends Command implements CommandExecute{
 
     /**
      * execute DisplayRecipesCmd
-     * @param arguments
+     * @param arguments is the input arguments for DisplayRecipeCmd
      * @return a String message for DisplayRecipeCmd
      */
     @Override
     public String execute(List<String> arguments) {
         RecipeControlCentre recipeControlCentre = (RecipeControlCentre) receiver;
 
-        List<Recipe> recipeList = recipeControlCentre.getRecipeList(arguments.get(0));
+        List<Recipe> recipeList = recipeControlCentre.getListByCategory(arguments.get(0));
 
         if (recipeList == null || recipeList.isEmpty()){
             return "You have no recipes in this category.";
@@ -41,7 +40,7 @@ public class DisplayRecipesCmd extends Command implements CommandExecute{
 
     /**
      * initiate the command line call for CreateRecipeCmd
-     * @param s
+     * @param s is a Scanner object
      */
     public void displayRecipeLineCall(Scanner s){
         System.out.println("""
@@ -86,8 +85,8 @@ public class DisplayRecipesCmd extends Command implements CommandExecute{
 
     /**
      * a helper method to check if user's inputed category matches a category from category enums
-     * @param category
-     * @return
+     * @param category  is  the input category from the user
+     * @return boolean for whether category exists
      */
     private static boolean checkedCategories(String category){
 
