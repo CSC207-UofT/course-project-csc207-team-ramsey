@@ -15,7 +15,6 @@ public class LoginManager {
     /**
      * / The "output" of this use case.
      */
-
     public enum LoginResult {
         SUCCESS, FAILURE // Should we do NO_SUCH_USER as well as SUCCESS and FAILURE?
     }

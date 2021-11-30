@@ -99,13 +99,13 @@ public class RecipeControlCentre extends ControlCentre{
             return recipeManager.changeRecipeSteps(this.user, recipeName, change);
         }
         if (variable.equals("ingredients")){
-            return recipeManager.changeIngredients(this.user)
+            return recipeManager.changeIngredients(this.user);
         }
     }
 
     public boolean editRecipe(String recipeName, String ingredient, String variable, String change){
         if (variable.equals("ingredients")){
-            return recipeManager.changeIngredients(this.user)
+            return recipeManager.changeIngredients(this.user);
         }
     }
 }
