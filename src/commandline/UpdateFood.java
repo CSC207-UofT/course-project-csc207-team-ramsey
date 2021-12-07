@@ -11,19 +11,16 @@ import java.util.Scanner;
 public class UpdateFood extends Command implements CommandExecute{
 
 
-    private final User user;
-
-    public UpdateFood(int maxArguments, int minArguments, ControlCentre receiver, User user) {
+    public UpdateFood(int maxArguments, int minArguments, ControlCentre receiver) {
         super(maxArguments, minArguments, receiver);
-        this.user = user;
     }
 
     @Override
     public String execute(List<String> arguments) {
-        return receiver.updateFood(arguments.get(0), arguments.get(1), arguments.get(2), this.user);
+        return receiver.updateFood(arguments.get(0), arguments.get(1), arguments.get(2), receiver.getUser());
     }
 
-    public void updateFoodLineCall(Scanner s){
+    public void initiate(Scanner s){
         do {
 
             System.out.println("What food would you like to update?");

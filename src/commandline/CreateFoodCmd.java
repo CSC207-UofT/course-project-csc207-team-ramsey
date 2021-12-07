@@ -13,11 +13,9 @@ import java.util.Scanner;
 
 public class CreateFoodCmd extends Command implements CommandExecute, FoodFactory {
 
-    private final User user;
 
-    public CreateFoodCmd(ControlCentre receiver, User user) {
+    public CreateFoodCmd(ControlCentre receiver) {
         super(5, 5, receiver);
-        this.user = user;
     }
 
     @Override
@@ -31,7 +29,7 @@ public class CreateFoodCmd extends Command implements CommandExecute, FoodFactor
                 if (newFood == null){
                     return "Your input is invalid";
                 }
-                receiver.addFoodtoList(newFood, user.getKitchen());
+                receiver.addFoodtoList(newFood, receiver.getUser().getKitchen());
                 return "Your food has successfully been created";
             } catch (Exception e) {
                 return "Your input is invalid";
@@ -42,7 +40,7 @@ public class CreateFoodCmd extends Command implements CommandExecute, FoodFactor
         }
     }
 
-    public void createFoodLineCall(Scanner s){
+    public void initiate(Scanner s){
         do {
             System.out.println("What type of food is your food (grains, meats, fruitvegi, dairy)?: ");
             String foodType = s.nextLine();

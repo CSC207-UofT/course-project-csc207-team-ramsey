@@ -11,19 +11,16 @@ import java.util.Scanner;
 public class RemoveFoodQuantity extends Command implements CommandExecute{
 
 
-    private final User user;
-
-    public RemoveFoodQuantity(int maxArguments, int minArguments, ControlCentre receiver, User user) {
+    public RemoveFoodQuantity(int maxArguments, int minArguments, ControlCentre receiver) {
         super(maxArguments, minArguments, receiver);
-        this.user = user;
     }
 
     @Override
     public String execute(List<String> arguments) {
-        return receiver.removeFoodQuantity(arguments.get(0), arguments.get(1), user);
+        return receiver.removeFoodQuantity(arguments.get(0), arguments.get(1), receiver.getUser());
     }
 
-    public void removeFoodQuantityLineCall(Scanner s){
+    public void initiate(Scanner s){
         do {
             System.out.println("What is the name of the food you used?: ");
             String foodName = s.nextLine();
@@ -34,7 +31,7 @@ public class RemoveFoodQuantity extends Command implements CommandExecute{
             String quantity = quantityData[0];
             String unit = quantityData[1];
 
-            if ((receiver.findFood(foodName, user) != null) && (receiver.findFood(foodName, user).getUnit() == unit)){
+            if ((receiver.findFood(foodName, receiver.getUser()) != null) && (receiver.findFood(foodName, receiver.getUser()).getUnit() == unit)){
                 ArrayList<String> arguments = new ArrayList<String>();
                 arguments.add(foodName);
                 arguments.add(quantity);
