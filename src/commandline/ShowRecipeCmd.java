@@ -33,7 +33,7 @@ public class ShowRecipeCmd extends Command implements CommandExecute{
      * initiate the ShowRecipeCmd line call
      * @param s is a Scanner object
      */
-    public void showRecipeLineCall(Scanner s){
+    public void initiate(Scanner s){
         RecipeControlCentre recipeControlCentre = (RecipeControlCentre) this.receiver;
         boolean success = false;
 

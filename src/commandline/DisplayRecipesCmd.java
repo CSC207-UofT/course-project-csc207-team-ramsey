@@ -42,7 +42,7 @@ public class DisplayRecipesCmd extends Command implements CommandExecute{
      * initiate the command line call for CreateRecipeCmd
      * @param s is a Scanner object
      */
-    public void displayRecipeLineCall(Scanner s){
+    public void initiate(Scanner s){
         System.out.println("""
                 Would you like to see all your recipes or recipes from one of the following categories: +
                 - American
