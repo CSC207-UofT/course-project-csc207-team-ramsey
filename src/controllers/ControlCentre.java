@@ -5,6 +5,7 @@ import entities.User;
 import entities.food.Food;
 import usecases.FoodManager;
 
+
 public abstract class ControlCentre {
     private final User user;
 

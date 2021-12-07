@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class ShowFood extends Command implements CommandExecute{
 
-
     public ShowFood(int maxArguments, int minArguments, ControlCentre receiver) {
         super(1, 1, receiver);
     }
