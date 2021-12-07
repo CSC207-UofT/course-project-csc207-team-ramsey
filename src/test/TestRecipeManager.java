@@ -52,7 +52,6 @@ public class TestRecipeManager {
         assertEquals(user.getKitchen().getRecipes().get(0).getTitle(), "Good Curry");
     }
 
-
     @Test(timeout = 50)
     public void TestChangeRecipeServings(){
 
