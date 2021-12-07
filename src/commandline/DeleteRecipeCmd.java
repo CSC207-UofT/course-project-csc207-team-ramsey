@@ -34,7 +34,7 @@ public class DeleteRecipeCmd extends Command implements CommandExecute{
      * initiate line call for DeleteRecipeCmd
      * @param s is a Scanner object
      */
-    public void deleteRecipeLineCall(Scanner s){
+    public void initiate(Scanner s){
         System.out.println("Please, type which recipe you would like to delete or type exit to quit this command.");
 
         do {
