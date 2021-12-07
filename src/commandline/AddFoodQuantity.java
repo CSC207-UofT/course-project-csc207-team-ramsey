@@ -11,19 +11,16 @@ import java.util.Scanner;
 public class AddFoodQuantity extends Command implements CommandExecute{
 
 
-    private final User user;
-
-    public AddFoodQuantity(int maxArguments, int minArguments, ControlCentre receiver, User user) {
+    public AddFoodQuantity(int maxArguments, int minArguments, ControlCentre receiver) {
         super(maxArguments, minArguments, receiver);
-        this.user = user;
     }
 
     @Override
     public String execute(List<String> arguments) {
-        return receiver.addFoodQuantity(arguments.get(0), arguments.get(1), user);
+        return receiver.addFoodQuantity(arguments.get(0), arguments.get(1), receiver.getUser());
     }
 
-    public void addFoodQuantityLineCall(Scanner s){
+    public void initiate(Scanner s){
         do {
             System.out.println("What is the of the food you want add a entry for?");
             String foodName = s.nextLine();

@@ -26,7 +26,7 @@ public class ShowFood extends Command implements CommandExecute{
         return "There is no food matching that name";
     }
 
-    public void showFoodLineCall(Scanner s){
+    public void initiate(Scanner s){
         do {
             System.out.println("What is the of the food you want to see?");
             String foodName = s.nextLine();
