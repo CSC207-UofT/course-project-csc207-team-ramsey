@@ -24,7 +24,7 @@ public class AddFromRecipeCmd extends Command implements CommandExecute {
         System.out.println("Which recipe would you like to add food from?");
         String recipeName = s.nextLine();
 
-        HashMap<String, Float> ingreds = receiver.getRecipeIngredients(recipeName, receiver.getUser());
+        HashMap<String, Float> ingreds = ((KitchenControlCentre) receiver).getRecipeIngredients(recipeName, receiver.getUser());
 
         for (String ingredient : ingreds.keySet()) {
             System.out.println("This recipe requires " + ingredient + ".");
@@ -59,7 +59,7 @@ public class AddFromRecipeCmd extends Command implements CommandExecute {
 
             try {
                 Food newFood = FoodFactory.getFood(arguments.get(0), arguments.get(1), sl, quantity, arguments.get(4));
-                receiver.createFoodForList(arguments.get(0), arguments.get(1), sl, quantity, arguments.get(4));
+                ((KitchenControlCentre) receiver).createFoodForList(arguments.get(0), arguments.get(1), sl, quantity, arguments.get(4));
                 if (newFood == null) {
                     return "Your input is invalid";
                 }

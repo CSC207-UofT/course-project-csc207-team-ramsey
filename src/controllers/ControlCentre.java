@@ -32,8 +32,4 @@ public abstract class ControlCentre {
     public abstract String addFoodtoList(Food food, Kitchen kitchen);
 
     public abstract String addFoodQuantity(String foodName, String quantity, User user);
-
-    public abstract HashMap<String, Float> getRecipeIngredients(String recipeName, User user);
-
-    public abstract Food createFoodForList(String foodType, String foodName, int sl, int quantity, String unit);
 }
