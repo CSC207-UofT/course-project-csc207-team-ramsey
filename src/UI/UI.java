@@ -31,6 +31,11 @@ public class UI {
 
     public void receiveCommands(){
         do{
+            // list out possible commands
+            System.out.println("""
+                    Please, input one of the following commands to continue:
+                         
+                    """);
             String command = this.s.nextLine();
             for(String commandNames : Constants.COMMANDS_DIC.keySet()){
                 if (command.equals(commandNames)){
@@ -40,7 +45,7 @@ public class UI {
         } while(!Objects.equals(this.s.nextLine(), "exit"));
     }
 
-    public void execute(){
+    public void executeProgram(){
         runLogin();
         System.out.println("");
         receiveCommands();
