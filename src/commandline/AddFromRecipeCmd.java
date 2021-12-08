@@ -51,39 +51,6 @@ public class AddFromRecipeCmd extends Command implements CommandExecute {
 
     }
 
-    public void initiate(Scanner s, Recipe recipe) {
-
-        HashMap<String, Float> recipeIngredients = recipe.getIngredients();
-
-        for (String foodName : recipeIngredients.keySet()) {
-            System.out.println("This recipe requires " + foodName + ".");
-            System.out.println("What type of food is this (grains, meats, fruitvegi, dairy)?: ");
-            String foodType = s.nextLine();
-
-            System.out.println("What is the shelf life of this food?: ");
-            String sl = s.nextLine();
-
-            System.out.println("What is the unit (whole, ml, grams?) of this food?: ");
-            String unit = s.nextLine();
-
-            System.out.println("This recipe needs " + recipeIngredients.get(foodName) + " " + unit + " of " + foodName + "." + "\n" +
-                    " How much would you like to buy?: ");
-            String quantity = s.nextLine();
-
-            ArrayList<String> arguments = new ArrayList<>();
-            arguments.add(foodType);
-            arguments.add(foodName);
-            arguments.add(sl);
-            arguments.add(quantity);
-            arguments.add(unit);
-
-            String response = execute(arguments);
-            System.out.println(response);
-
-        }
-
-    }
-
     @Override
     public String execute(List<String> arguments) {
         try {
