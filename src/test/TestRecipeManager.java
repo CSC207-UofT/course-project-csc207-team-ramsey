@@ -17,8 +17,9 @@ public class TestRecipeManager {
 
     @Before
     public void setUp() {
-        user = new User("Bob", "Bob", "bob@user.ca");
+        user = new User("Bob", "Bob", "bob@user.ca", "123");
         recipeManager = new RecipeManager();
+        recipeManager.addNewRecipe(user, 1,"Curry", 30, recipeInstructions, ingredients, "Chinese", "Dinner");
 
         recipeInstructions = "My awesome curry recipe!";
         ingredients = new HashMap<>();
@@ -26,70 +27,62 @@ public class TestRecipeManager {
         ingredients.put("Curry", 1.0F);
     }
 
-//    @Test(timeout = 50)
-//    public void TestMakeNewRecipeInUser() {
-//        recipeManager.addNewRecipe(user, 1,"Curry", 30, recipeInstructions, ingredients);
-//
-//        assertEquals(user.getKitchen().getRecipes().size(), 1);
-//        assertEquals(user.getKitchen().getRecipes().get(0).getTitle(), "Curry");
-//        assertEquals(user.getKitchen().getRecipes().get(0).getServings(), 1);
-//    }
-//
-//    @Test(timeout = 50)
-//    public void TestRemoveRecipe(){
-//        recipeManager.addNewRecipe(user, 1,"Curry", 30, recipeInstructions, ingredients);
-//
-//        assertEquals(user.getKitchen().getRecipes().size(), 1);
-//        recipeManager.removeRecipe(user, "Curry");
-//
-//        assertEquals(user.getKitchen().getRecipes().size(), 0);
-//    }
-//
-//    @Test(timeout = 50)
-//    public void TestChangeRecipeName(){
-//        recipeManager.addNewRecipe(user, 1,"Curry", 30, recipeInstructions, ingredients);
-//
-//        recipeManager.changeRecipeName(user, "Curry", "Good Curry");
-//
-//        assertEquals(user.getKitchen().getRecipes().get(0).getTitle(), "Good Curry");
-//    }
+    @Test(timeout = 50)
+    public void TestMakeNewRecipeInUser() {
+
+        assertEquals(user.getKitchen().getRecipes().size(), 1);
+        assertEquals(user.getKitchen().getRecipes().get(0).getTitle(), "Curry");
+        assertEquals(user.getKitchen().getRecipes().get(0).getServings(), Integer.toString(1));
+    }
+
+    @Test(timeout = 50)
+    public void TestRemoveRecipe(){
+
+        assertEquals(user.getKitchen().getRecipes().size(), 2);
+        recipeManager.removeRecipe(user, "Fried Rice");
+
+        assertEquals(user.getKitchen().getRecipes().size(), 1);
+    }
+
+    @Test(timeout = 50)
+    public void TestChangeRecipeName(){
+
+        recipeManager.changeRecipeName(user, "Curry", "Good Curry");
+
+        assertEquals(user.getKitchen().getRecipes().get(0).getTitle(), "Good Curry");
+    }
+
+    @Test(timeout = 50)
+    public void TestChangeRecipeServings(){
+
+        recipeManager.changeRecipeServings(user, "Curry", 2);
+        assertEquals(user.getKitchen().getRecipes().get(0).getServings(), Integer.toString(2));
+    }
+
+    @Test(timeout = 50)
+    public void TestChangeRecipePrepTime(){
+
+        recipeManager. changeRecipePrepTime(user, "Curry", 45);
+        assertEquals(user.getKitchen().getRecipes().get(0).getPrepTime(), 45);
+    }
+
+    @Test(timeout = 50)
+    public void TestChangeRecipeSteps(){
+
+        recipeManager.changeRecipeSteps(user, "Curry", "Cook the Curry!");
+
+        assertEquals(user.getKitchen().getRecipes().get(0).getInstructions(), "Cook the Curry!");
+    }
+
+    @Test(timeout = 50)
+    public void TestChangeIngredients(){
+        HashMap<String, Float> newIngredients = new HashMap<>();
+        newIngredients.put("curry powder", 50F);
 
 
-//    @Test(timeout = 50)
-//    public void TestChangeRecipeServings(){
-//        recipeManager.addNewRecipe(user, 1,"Curry", 30, recipeInstructions, ingredients);
-//
-//        recipeManager.changeRecipeServings(user, "Curry", 2);
-//        assertEquals(user.getKitchen().getRecipes().get(0).getServings(), 2);
-//    }
-//
-//    @Test(timeout = 50)
-//    public void TestChangeRecipePrepTime(){
-//        recipeManager.addNewRecipe(user, 1,"Curry", 30, recipeInstructions, ingredients);
-//
-//        recipeManager. changeRecipePrepTime(user, "Curry", 45);
-//        assertEquals(user.getKitchen().getRecipes().get(0).getPrepTime(), 45);
-//    }
-//
-//    @Test(timeout = 50)
-//    public void TestChangeRecipeSteps(){
-//        recipeManager.addNewRecipe(user, 1,"Curry", 30, recipeInstructions, ingredients);
-//
-//        recipeManager.changeRecipeSteps(user, "Curry", "Cook the Curry!");
-//
-//        assertEquals(user.getKitchen().getRecipes().get(0).getInstructions(), "Cook the Curry!");
-//    }
-//
-//    @Test(timeout = 50)
-//    public void TestChangeIngredients(){
-//        recipeManager.addNewRecipe(user, 1,"Curry", 30, recipeInstructions, ingredients);
-//        HashMap<String, Float> newIngredients = new HashMap<>();
-//        newIngredients.put("curry powder", 50F);
-//
-//
-//        recipeManager.changeIngredients(user, "Curry", newIngredients);
-//        assertEquals(user.getKitchen().getRecipes().get(0).getIngredients(), newIngredients);
-//    }
+        recipeManager.changeIngredients(user, "Curry", newIngredients);
+        assertEquals(user.getKitchen().getRecipes().get(0).getIngredients(), newIngredients);
+    }
 
 }
 

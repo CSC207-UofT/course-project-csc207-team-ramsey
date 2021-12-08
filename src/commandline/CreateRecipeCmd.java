@@ -13,7 +13,12 @@ public class CreateRecipeCmd extends Command implements CommandExecute{
         super(7, 7, receiver);
     }
 
-    public void createRecipeLineCall(Scanner s){
+
+    /**
+     * initiate line call for CreateRecipeCmd
+     * @param s is a Scanner object
+     */
+    public void initiate(Scanner s){
         do {
             String recipeTime = getRecipeTime(s);
 
@@ -42,7 +47,7 @@ public class CreateRecipeCmd extends Command implements CommandExecute{
             arguments.add(recipeCategory);
             arguments.add(recipeTime);
 
-            String response = execute(this.receiver, arguments);
+            String response = execute(arguments);
             System.out.println(response);
 
             if (Objects.equals(response, "Your input is invalid")) {
@@ -55,9 +60,14 @@ public class CreateRecipeCmd extends Command implements CommandExecute{
 
     }
 
+    /**
+     * execute CreateRecipeCmd
+     * @param arguments is the formatted input list from the user
+     * @return String message for command
+     */
     @Override
-    public String execute(ControlCentre receiver, List<String> arguments) {
-        RecipeControlCentre control = (RecipeControlCentre) receiver;
+    public String execute(List<String> arguments) {
+        RecipeControlCentre control = (RecipeControlCentre) this.receiver;
         try {
             int servings = Integer.parseInt(arguments.get(0));
             String name = arguments.get(1);
@@ -80,6 +90,11 @@ public class CreateRecipeCmd extends Command implements CommandExecute{
         }
     }
 
+    /**
+     * helper method to format the formatted ingredients String to a HashMap
+     * @param dicString is the parsed String from user ingredient inputs
+     * @return HashMap of ingredients and quantity
+     */
     private static HashMap<String, Float> formatIngrDic(String dicString){
 
         HashMap<String, Float> ingrDic = new HashMap<>();
@@ -92,6 +107,11 @@ public class CreateRecipeCmd extends Command implements CommandExecute{
         return ingrDic;
     }
 
+    /**
+     * helper method to get the MealTime category for the recipe
+     * @param s is a Scanner object
+     * @return String of ingredients and quantity
+     */
     private static String getRecipeTime(Scanner s){
         System.out.println("What meal type is your recipe? (breakfast, brunch, lunch, dinner, dessert)?: ");
 
@@ -109,6 +129,11 @@ public class CreateRecipeCmd extends Command implements CommandExecute{
         return recipeTime;
     }
 
+    /**
+     * helper method to get the MealCountry category of the recipe
+     * @param s is a scanner object
+     * @return String for MealCountry category
+     */
     private static String getCategory(Scanner s) {
         System.out.println("""
                 Which of the following recipe categories is your recipe?:
@@ -133,6 +158,11 @@ public class CreateRecipeCmd extends Command implements CommandExecute{
         return category;
     }
 
+    /**
+     * helper method to parse the ingredient input from user
+     * @param s is a scanner object
+     * @return String for ingredients and quanity
+     */
     private static String parseIngredients(Scanner s){
         StringBuilder ingredients = new StringBuilder();
         System.out.println("""

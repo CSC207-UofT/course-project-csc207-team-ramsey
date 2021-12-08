@@ -1,5 +1,7 @@
 package usecases;
 
+import constants.MealCountry;
+import constants.MealTime;
 import entities.Recipe;
 import entities.User;
 import recipe_filter.mealCountry.*;
@@ -38,6 +40,20 @@ public class RecipeManager {
         return true;
     }
 
+
+//    public boolean makeRecipe(User user, String recipeName){
+//        ArrayList<Recipe> recipeList = user.getKitchen().getRecipes();
+//        for (Recipe recipe : recipeList){
+//            if (recipe.getTitle().equals(recipeName)){
+//                if (checkEnoughFood(recipeName)){
+//
+//                } else {
+//
+//                }
+//            }
+//        }
+//    }
+
     /**
      * remove a recipe from the user's kitchen
      * @param user a user of the program
@@ -49,6 +65,21 @@ public class RecipeManager {
         for (int i =0; i < curRecipes.size(); i++){
             if (curRecipes.get(i).getTitle().equals(name)){
                 curRecipes.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * check if a recipe with a specific name is in the user's recipe list
+     * @param user a user of the program
+     * @param name the name of the recipe
+     * @return boolean for whether recipe is in list
+     */
+    public boolean checkInRecipeList(User user, String name){
+        for(Recipe recipe: user.getKitchen().getRecipes()){
+            if (recipe.getTitle().equals(name)){
                 return true;
             }
         }
@@ -147,8 +178,8 @@ public class RecipeManager {
 
     /**
      * gets a user's list of Recipes
-     * @param user
-     * @param category
+     * @param user a user of the program
+     * @param category is a category of the Recipe (either MealTime or MealCountry)
      * @return either a full list of Recipes or a list or Recipes of a specific category
      */
     public List<Recipe> getRecipeList(User user, String category){
@@ -209,8 +240,9 @@ public class RecipeManager {
 
     /**
      * get a String that shows the information of a recipe
-     * @param user
-     * @param recipeName
+     * @param user is a user of the program
+     * @param recipeName is the name of the recipe
+     * @return the string representation of the recipe
      */
     public String showRecipe(User user, String recipeName){
         for (Recipe recipe: user.getKitchen().getRecipes()){

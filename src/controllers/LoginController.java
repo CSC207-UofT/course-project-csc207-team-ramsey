@@ -11,7 +11,6 @@ import java.util.List;
 
 public class LoginController {
 
-
     private final LoginInputBoundary loginInputBoundary;
     private final LoginManager loginManager;
     private LoginManager.LoginResult result = LoginManager.LoginResult.FAILURE;
