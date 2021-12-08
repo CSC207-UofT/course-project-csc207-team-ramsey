@@ -40,7 +40,7 @@ public class EditRecipeDetailsCmd extends Command implements CommandExecute{
      * initiate line call for EditRecipeDetailsCmd
      * @param s is a Scanner object
      */
-    public void EditRecipeLineCall(Scanner s){
+    public void initiate(Scanner s){
 
         String cont = null;
         String[] options = new String[]{"name", "servings", "prep time", "instructions","ingredients", "country category", "meal time category"};

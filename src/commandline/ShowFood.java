@@ -16,24 +16,24 @@ public class ShowFood extends Command implements CommandExecute{
     }
 
     @Override
-    public String execute(ControlCentre receiver, List<String> arguments) {
+    public String execute(List<String> arguments) {
         ArrayList<Food> food = receiver.getUser().getKitchen().getFood();
         for (Food foodEntry : food){
             if (Objects.equals(foodEntry.getName(), arguments.get(0))){
-                return receiver.showFood(foodEntry).toString();
+                return receiver.showFood(foodEntry);
             }
         }
         return "There is no food matching that name";
     }
 
-    public void showFoodLineCall(Scanner s){
+    public void initiate(Scanner s){
         do {
             System.out.println("What is the of the food you want to see?");
             String foodName = s.nextLine();
             ArrayList<String> arguments = new ArrayList<String>();
             arguments.add(foodName);
 
-            String response = execute(this.receiver, arguments);
+            String response = execute(arguments);
             System.out.println(response);
 
             if (Objects.equals(response, "There is no food matching that name")) {

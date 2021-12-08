@@ -3,7 +3,6 @@ package commandline;
 import controllers.ControlCentre;
 import controllers.RecipeControlCentre;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -33,7 +32,7 @@ public class ShowRecipeCmd extends Command implements CommandExecute{
      * initiate the ShowRecipeCmd line call
      * @param s is a Scanner object
      */
-    public void showRecipeLineCall(Scanner s){
+    public void initiate(Scanner s){
         RecipeControlCentre recipeControlCentre = (RecipeControlCentre) this.receiver;
         boolean success = false;
 

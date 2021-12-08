@@ -13,12 +13,13 @@ import java.util.Scanner;
 
 public class CreateFoodCmd extends Command implements CommandExecute, FoodFactory {
 
+
     public CreateFoodCmd(ControlCentre receiver) {
         super(5, 5, receiver);
     }
 
     @Override
-    public String execute(ControlCentre receiver, List<String> arguments){
+    public String execute(List<String> arguments){
         try {
             int sl = Integer.parseInt(arguments.get(2));
             int quantity = Integer.parseInt(arguments.get(3));
@@ -28,6 +29,7 @@ public class CreateFoodCmd extends Command implements CommandExecute, FoodFactor
                 if (newFood == null){
                     return "Your input is invalid";
                 }
+                receiver.addFoodtoList(newFood, receiver.getUser().getKitchen());
                 return "Your food has successfully been created";
             } catch (Exception e) {
                 return "Your input is invalid";
@@ -38,7 +40,7 @@ public class CreateFoodCmd extends Command implements CommandExecute, FoodFactor
         }
     }
 
-    public void createFoodLineCall(Scanner s){
+    public void initiate(Scanner s){
         do {
             System.out.println("What type of food is your food (grains, meats, fruitvegi, dairy)?: ");
             String foodType = s.nextLine();
@@ -63,7 +65,7 @@ public class CreateFoodCmd extends Command implements CommandExecute, FoodFactor
             arguments.add(quantity);
             arguments.add(unit);
 
-            String response = execute(this.receiver, arguments);
+            String response = execute(arguments);
             System.out.println(response);
 
             if (Objects.equals(response, "Your input is invalid")) {

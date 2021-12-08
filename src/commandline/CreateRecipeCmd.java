@@ -13,12 +13,11 @@ public class CreateRecipeCmd extends Command implements CommandExecute{
         super(7, 7, receiver);
     }
 
-
     /**
      * initiate line call for CreateRecipeCmd
      * @param s is a Scanner object
      */
-    public void createRecipeLineCall(Scanner s){
+    public void initiate(Scanner s){
         do {
             String recipeTime = getRecipeTime(s);
 
