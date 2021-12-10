@@ -3,22 +3,24 @@ package controllers;
 
 import entities.Recipe;
 import entities.User;
+import usecases.FoodManager;
 import usecases.RecipeManager;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 /**
  * the controlCentre fo recipes
  */
-public class RecipeControlCentre extends ControlCentre{
+public class RecipeControlCentre{
     User user;
     RecipeManager recipeManager;
+    FoodManager foodManager;
 
     public RecipeControlCentre(User user) {
-        super(user);
+        this.user = user;
         this.recipeManager = new RecipeManager();
+        this.foodManager = new FoodManager();
     }
 
     /**
@@ -85,27 +87,5 @@ public class RecipeControlCentre extends ControlCentre{
         return false;
     }
 
-    public boolean editRecipe(String recipeName, String variable, String change){
-        if (variable.equals("name")){
-            return recipeManager.changeRecipeName(this.user, recipeName, change);
-        }
-        if (variable.equals("servings")){
-            return recipeManager.changeRecipeServings(this.user, recipeName, Integer.parseInt(change));
-        }
-        if (variable.equals("prep time")){
-            return recipeManager.changeRecipePrepTime(this.user, recipeName, Integer.parseInt(change));
-        }
-        if (variable.equals("instructions")){
-            return recipeManager.changeRecipeSteps(this.user, recipeName, change);
-        }
-        if (variable.equals("ingredients")){
-            return recipeManager.changeIngredients(this.user);
-        }
-    }
 
-    public boolean editRecipe(String recipeName, String ingredient, String variable, String change){
-        if (variable.equals("ingredients")){
-            return recipeManager.changeIngredients(this.user);
-        }
-    }
 }

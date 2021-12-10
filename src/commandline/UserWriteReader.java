@@ -1,7 +1,6 @@
 package commandline;
 
 import entities.UserList;
-
 import java.io.*;
 
 public class UserWriteReader implements WriteReader {
@@ -34,7 +33,7 @@ public class UserWriteReader implements WriteReader {
         UserList users = (UserList) input.readObject();
         input.close();
         return users;
-}
+    }
 }
 
 

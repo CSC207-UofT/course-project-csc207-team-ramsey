@@ -1,6 +1,5 @@
 package commandline;
 
-import controllers.ControlCentre;
 import controllers.RecipeControlCentre;
 
 import java.util.ArrayList;
@@ -8,9 +7,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class DeleteRecipeCmd extends Command implements CommandExecute{
+public class DeleteRecipeCmd<T> extends Command<T> implements CommandExecute{
 
-    public DeleteRecipeCmd(ControlCentre receiver) {
+    public DeleteRecipeCmd(T receiver) {
         super(1, 1, receiver);
     }
 
@@ -35,8 +34,9 @@ public class DeleteRecipeCmd extends Command implements CommandExecute{
      * @param s is a Scanner object
      */
     public void initiate(Scanner s){
-        System.out.println("Please, type which recipe you would like to delete or type exit to quit this command.");
+        System.out.println("Please, type which recipe you would like to delete.");
 
+        Object cont;
         do {
             String input = s.nextLine();
             ArrayList<String> inputList= new ArrayList<>();
@@ -50,8 +50,9 @@ public class DeleteRecipeCmd extends Command implements CommandExecute{
             } else {
                 System.out.println("Would you like to delete another recipe(y/n)");
             }
+            cont = s.nextLine();
 
 
-        } while (!Objects.equals(s.nextLine(), "n"));
+        } while (!Objects.equals(cont, "n"));
     }
 }

@@ -2,15 +2,14 @@ package commandline;
 
 import constants.MealCountry;
 import constants.MealTime;
-import controllers.ControlCentre;
 import controllers.RecipeControlCentre;
 import entities.Recipe;
 
 import java.util.*;
 
-public class DisplayRecipesCmd extends Command implements CommandExecute{
+public class DisplayRecipesCmd<T> extends Command<T> implements CommandExecute{
 
-    public DisplayRecipesCmd(ControlCentre receiver) {
+    public DisplayRecipesCmd(T receiver) {
         super(0, 0, receiver);
     }
 
@@ -26,7 +25,7 @@ public class DisplayRecipesCmd extends Command implements CommandExecute{
         List<Recipe> recipeList = recipeControlCentre.getListByCategory(arguments.get(0));
 
         if (recipeList == null || recipeList.isEmpty()){
-            return "You have no recipes in this category.";
+            return "You have no recipes here.";
         } else {
             StringBuilder message = new StringBuilder();
             message.append("You have the following recipes in this category: ");
@@ -77,7 +76,7 @@ public class DisplayRecipesCmd extends Command implements CommandExecute{
                     System.out.println(execute(fullOrCat));
                     successful = true;
                 } else {
-                    System.out.println("One or more of your categories appears to be inconsistent with out database. Please, try again.");
+                    System.out.println("One or more of your categories appears to be inconsistent with our database. Please, try again.");
                 }
             }
         }

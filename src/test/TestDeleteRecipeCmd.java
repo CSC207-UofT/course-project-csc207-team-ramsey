@@ -1,29 +1,27 @@
 package test;
 
-import commandline.CreateRecipeCmd;
+
+import commandline.DeleteRecipeCmd;
 import controllers.RecipeControlCentre;
 import entities.User;
-
 import org.junit.Before;
 import org.junit.Test;
 import usecases.RecipeManager;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestCreateRecipeCmd<T> {
+public class TestDeleteRecipeCmd {
     RecipeControlCentre recipeControlCentre;
     RecipeManager recipeManager;
     User user;
     String recipeInstructions;
     HashMap<String, Float> ingredients;
-    CreateRecipeCmd<RecipeControlCentre> createRecipeCmd;
+    DeleteRecipeCmd<RecipeControlCentre> deleteRecipeCmd;
 
     @Before
     public void setUp() {
@@ -36,19 +34,20 @@ public class TestCreateRecipeCmd<T> {
         ingredients = new HashMap<>();
         ingredients.put("apples", 1.0F);
         ingredients.put("Curry", 1.0F);
-        createRecipeCmd = new CreateRecipeCmd<RecipeControlCentre>(recipeControlCentre);
+        deleteRecipeCmd = new DeleteRecipeCmd<RecipeControlCentre>(recipeControlCentre);
     }
 
     @Test(timeout = 50)
-    public void TestCreateRecipeInitiate() {
+    public void TestDeleteRecipeInitiate() {
+        assertEquals(user.getKitchen().getRecipes().size(), 1);
         InputStream stdin = System.in;
-        System.setIn(new ByteArrayInputStream("Dinner\nItalian\nLasagne\n15\n2\ntomato:2\nbeef:50\ndone\nmake lasagne\nn\n".getBytes()));
+        System.setIn(new ByteArrayInputStream("Curry\nn\n".getBytes()));
 
-        createRecipeCmd.initiate(new Scanner(System.in));
+        deleteRecipeCmd.initiate(new Scanner(System.in));
 
         System.setIn(stdin);
 
-        assertEquals(user.getKitchen().getRecipes().get(1).getTitle(), "Lasagne");
+        assertEquals(user.getKitchen().getRecipes().size(), 0);
     }
 
 }

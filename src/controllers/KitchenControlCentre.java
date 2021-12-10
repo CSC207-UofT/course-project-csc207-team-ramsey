@@ -6,12 +6,12 @@ import usecases.FoodFactory;
 import usecases.ShoppingListManager;
 
 
-public class KitchenControlCentre extends ControlCentre {
+public class KitchenControlCentre {
     User user;
     ShoppingListManager shoppingListManager;
 
     public KitchenControlCentre(User user) {
-        super(user);
+        this.user = user;
     }
 
     public void createFoodForList(String foodType, String foodName, int sl, int quantity, String unit) {

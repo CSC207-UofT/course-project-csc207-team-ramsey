@@ -141,8 +141,9 @@ public class Recipe {
      */
     public String addIngredients() {
         StringBuilder it = new StringBuilder();
+        it.append("\t");
         for (String ingredient : this.ingredients.keySet()) {
-            it.append(this.ingredients.get(ingredient)).append(" ").append(ingredient);
+            it.append(ingredient).append(this.ingredients.get(ingredient));
         }
         return it.toString();
     }
@@ -151,11 +152,11 @@ public class Recipe {
      * @return String representation of te recipe
      */
     public String recToString() {
-        String servings = "\n Servings: " + Integer.toString(this.recipeServings);
-        String prep = "\n Prep Time: " + Integer.toString(this.prepTime);
+        String servings = "\n Servings: " + this.recipeServings;
+        String prep = "\n Prep Time: " + this.prepTime;
         String i = "\n Ingredients: \n" + this.addIngredients();
         String steps = "\n Steps: " + this.instructions;
-        return this.title + "\n" + servings + prep + i + steps;
+        return this.title + servings + prep + i + steps;
     }
 
 }

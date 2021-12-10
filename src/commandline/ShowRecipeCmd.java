@@ -1,14 +1,13 @@
 package commandline;
 
-import controllers.ControlCentre;
 import controllers.RecipeControlCentre;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ShowRecipeCmd extends Command implements CommandExecute{
-    public ShowRecipeCmd(ControlCentre receiver) {
+public class ShowRecipeCmd<T> extends Command<T> implements CommandExecute{
+    public ShowRecipeCmd(T receiver) {
         super(0, 0, receiver);
     }
 
@@ -50,6 +49,8 @@ public class ShowRecipeCmd extends Command implements CommandExecute{
                     success = true;
                 }
             }
+        } else {
+            System.out.println("no recipes to show.");
         }
 
     }

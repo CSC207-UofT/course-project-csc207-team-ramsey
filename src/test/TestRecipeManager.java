@@ -38,10 +38,10 @@ public class TestRecipeManager {
     @Test(timeout = 50)
     public void TestRemoveRecipe(){
 
-        assertEquals(user.getKitchen().getRecipes().size(), 2);
-        recipeManager.removeRecipe(user, "Fried Rice");
-
         assertEquals(user.getKitchen().getRecipes().size(), 1);
+        recipeManager.removeRecipe(user, "Curry");
+
+        assertEquals(user.getKitchen().getRecipes().size(), 0);
     }
 
     @Test(timeout = 50)
