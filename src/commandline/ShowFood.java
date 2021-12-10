@@ -1,6 +1,7 @@
 package commandline;
 
 import controllers.ControlCentre;
+import controllers.FoodControlCentre;
 import entities.User;
 import entities.food.Food;
 
@@ -9,18 +10,19 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class ShowFood extends Command implements CommandExecute{
+public class ShowFood<T> extends Command<T> implements CommandExecute{
 
-    public ShowFood(int maxArguments, int minArguments, ControlCentre receiver) {
+    public ShowFood(T receiver) {
         super(1, 1, receiver);
     }
 
     @Override
     public String execute(List<String> arguments) {
-        ArrayList<Food> food = receiver.getUser().getKitchen().getFood();
+        FoodControlCentre control = (FoodControlCentre) this.receiver;
+        ArrayList<Food> food = control.getUser().getKitchen().getFood();
         for (Food foodEntry : food){
             if (Objects.equals(foodEntry.getName(), arguments.get(0))){
-                return receiver.showFood(foodEntry);
+                return control.showFood(foodEntry);
             }
         }
         return "There is no food matching that name";

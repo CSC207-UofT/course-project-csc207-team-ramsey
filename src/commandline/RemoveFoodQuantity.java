@@ -1,6 +1,7 @@
 package commandline;
 
 import controllers.ControlCentre;
+import controllers.FoodControlCentre;
 import entities.User;
 
 import java.util.ArrayList;
@@ -8,19 +9,21 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class RemoveFoodQuantity extends Command implements CommandExecute{
+public class RemoveFoodQuantity<T> extends Command<T> implements CommandExecute{
 
 
-    public RemoveFoodQuantity(int maxArguments, int minArguments, ControlCentre receiver) {
-        super(maxArguments, minArguments, receiver);
+    public RemoveFoodQuantity(T receiver) {
+        super(2, 2, receiver);
     }
 
     @Override
     public String execute(List<String> arguments) {
-        return receiver.removeFoodQuantity(arguments.get(0), arguments.get(1), receiver.getUser());
+        FoodControlCentre control = (FoodControlCentre) this.receiver;
+        return control.removeFoodQuantity(arguments.get(0), arguments.get(1), control.getUser());
     }
 
     public void initiate(Scanner s){
+        FoodControlCentre control = (FoodControlCentre) this.receiver;
         do {
             System.out.println("What is the name of the food you used?: ");
             String foodName = s.nextLine();
@@ -31,7 +34,7 @@ public class RemoveFoodQuantity extends Command implements CommandExecute{
             String quantity = quantityData[0];
             String unit = quantityData[1];
 
-            if ((receiver.findFood(foodName, receiver.getUser()) != null) && (receiver.findFood(foodName, receiver.getUser()).getUnit() == unit)){
+            if ((control.findFood(foodName, control.getUser()) != null) && (Objects.equals(control.findFood(foodName, control.getUser()).getUnit(), unit))){
                 ArrayList<String> arguments = new ArrayList<String>();
                 arguments.add(foodName);
                 arguments.add(quantity);
