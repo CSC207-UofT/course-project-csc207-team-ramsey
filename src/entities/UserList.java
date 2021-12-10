@@ -30,4 +30,8 @@ public class UserList implements Serializable {
     public void upDateUser(User user){
         users.put(user.getUserName(), user);
     }
+
+    public void deleteUser(User user){
+        users.remove(user.getUserName());
+    }
 }
