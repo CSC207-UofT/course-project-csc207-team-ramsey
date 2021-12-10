@@ -1,13 +1,14 @@
 package usecases;
 
 import commandline.UserWriteReader;
+import controllers.LoginInputBoundary;
 import entities.User;
 import entities.UserList;
 
 import java.io.IOException;
 
-public class LoginManager {
-
+public class LoginManager implements LoginInputBoundary {
+    // Can be improved by making UserList Final and static since users are used in other class.
     private UserList users;
 
     UserWriteReader readWriter = new UserWriteReader();
@@ -23,31 +24,9 @@ public class LoginManager {
         try {
             this.users = readWriter.readFromFile("users.ser");
         } catch (IOException e) {
-            System.out.println("Cannot load user data");
+            System.out.println("Cannot load user data, there is no user data in the file. Please signIn");
         } catch (ClassNotFoundException e) {
             System.out.println("The data from file does not match");
-        }
-    }
-
-    public void saveChanges(User user){
-        if(users == null){
-            users = new UserList();
-            users.add(user);
-            try {
-                readWriter.saveToFile("users.ser", users);
-            }catch (IOException e){
-                System.out.println("Cannot save the changes, user's changes and new list did not save");
-            }
-        } else if
-        (this.users.getUser(user.getUserName()) != null){
-            users.upDateUser(user);
-        } else{
-            users.add(user);
-        }
-        try {
-            readWriter.saveToFile("users.ser", users);
-        }catch (IOException e){
-            System.out.println("Cannot save the changes, user's changes and new list did not save");
         }
     }
 
@@ -68,7 +47,11 @@ public class LoginManager {
         } else {
             return LoginResult.FAILURE;
         }
-    //need to add check same username
+        //need to add check same username
+    }
+
+    public UserList getUsers() {
+        return users;
     }
 
     @Override
@@ -76,5 +59,13 @@ public class LoginManager {
         return users.toString();
     }
 
+    public static void main(String[] args) {
+        LoginManager loginManager = new LoginManager();
+        User user = new User("123","123","123","123");
+        System.out.println(loginManager.users.getUser("123"));
 
+//        User user = new User("123","123","123","123");
+//        loginManager.saveChanges(user);
+        loginManager.users.getUser("456");
+    }
 }

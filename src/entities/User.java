@@ -4,12 +4,13 @@ package entities;
 import entities.food.Food;
 import entities.Kitchen;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * This class represents a user of the program
  */
-public class User {
+public class User implements Serializable {
 
     private String name;
     private String userName;
