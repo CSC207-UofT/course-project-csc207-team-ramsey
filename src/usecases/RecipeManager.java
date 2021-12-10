@@ -247,7 +247,7 @@ public class RecipeManager {
     public String showRecipe(User user, String recipeName){
         for (Recipe recipe: user.getKitchen().getRecipes()){
             if (recipe.getTitle().equals(recipeName)){
-                return recipe.toString();
+                return recipe.recToString()String();
             }
         }
         return null;
