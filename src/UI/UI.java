@@ -2,52 +2,60 @@ package UI;
 
 import constants.Constants;
 import controllers.*;
-import entities.Kitchen;
 import entities.User;
-
-import java.util.Objects;
 import java.util.Scanner;
 
 public class UI {
     public Scanner s;
-    private FoodControlCentre foodControlCentre;
-    private KitchenControlCentre kitchenControlCentre;
+
+    private final Constants constants;
     private LoginController loginController;
-    private UserControlCentre userControlCentre;
-    private RecipeControlCentre recipeControlCentre;
 
-    public UI(FoodControlCentre foodControlCentre, KitchenControlCentre kitchenControlCentre, LoginController loginController, UserControlCentre userControlCentre, RecipeControlCentre recipeControlCentre){
-        this.foodControlCentre = foodControlCentre;
-        this.kitchenControlCentre = kitchenControlCentre;
-        this.loginController = loginController;
-        this.userControlCentre = userControlCentre;
-        this.recipeControlCentre = recipeControlCentre;
+    public UI(User user){
+
+        KitchenControlCentre kitchenControlCentre = new KitchenControlCentre(user);
+        UserControlCentre userControlCentre = new UserControlCentre();
+        RecipeControlCentre recipeControlCentre = new RecipeControlCentre(user);
         this.s = new Scanner(System.in);
-    }
-
-    public User runLogin(){
-
+        this.constants = new Constants(kitchenControlCentre, userControlCentre, recipeControlCentre);
+        this.constants.populateConstants();
     }
 
     public void receiveCommands(){
-        do{
-            // list out possible commands
-            System.out.println("""
-                    Please, input one of the following commands to continue:
-                         
-                    """);
+
+        // list out possible commands
+        System.out.println("Please, input one of the following commands to continue:");
+        System.out.println("\t- exit");
+        for(String command: this.constants.COMMANDS_DIC.keySet()){
+            System.out.println("\t- " + command);
+        }
+        while(true){
+            boolean success = false;
+            System.out.print("$ ");
             String command = this.s.nextLine();
-            for(String commandNames : Constants.COMMANDS_DIC.keySet()){
-                if (command.equals(commandNames)){
-                    Constants.COMMANDS_DIC.get(commandNames).initiate(this.s);
+            if (command.equals("showCommands")) {
+                System.out.println("Please, input one of the following commands to continue:");
+                System.out.println("\t- exit");
+                for (String cmd : this.constants.COMMANDS_DIC.keySet()) {
+                    System.out.println("\t- " + cmd);
                 }
             }
-        } while(!Objects.equals(this.s.nextLine(), "exit"));
+            for(String commandNames : this.constants.COMMANDS_DIC.keySet()){
+                if (command.equals(commandNames)){
+                    this.constants.COMMANDS_DIC.get(commandNames).initiate(this.s);
+                    success = true;
+                }
+            }
+            if (command.equals("exit")){
+                break;
+            } else if (success = false){
+                System.out.println("inputted command does not exist.\n");
+            }
+
+        }
     }
 
-    public void executeProgram(){
-        runLogin();
-        System.out.println("");
-        receiveCommands();
-    }
+
 }
+
+
