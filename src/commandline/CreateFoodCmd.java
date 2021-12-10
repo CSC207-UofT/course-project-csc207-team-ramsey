@@ -1,6 +1,7 @@
 package commandline;
 
 import controllers.ControlCentre;
+import controllers.FoodControlCentre;
 import entities.User;
 import entities.food.Food;
 import usecases.FoodFactory;
@@ -11,25 +12,26 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class CreateFoodCmd extends Command implements CommandExecute, FoodFactory {
+public class CreateFoodCmd<T> extends Command<T> implements CommandExecute, FoodFactory {
 
 
-    public CreateFoodCmd(ControlCentre receiver) {
+    public CreateFoodCmd(T receiver) {
         super(5, 5, receiver);
     }
 
     @Override
     public String execute(List<String> arguments){
+        FoodControlCentre control = (FoodControlCentre) this.receiver;
         try {
             int sl = Integer.parseInt(arguments.get(2));
             int quantity = Integer.parseInt(arguments.get(3));
 
             try {
-                Food newFood = receiver.createEntity(arguments.get(0), arguments.get(1), sl, quantity, arguments.get(4));
+                Food newFood = control.createEntity(arguments.get(0), arguments.get(1), sl, quantity, arguments.get(4));
                 if (newFood == null){
                     return "Your input is invalid";
                 }
-                receiver.addFoodtoList(newFood, receiver.getUser().getKitchen());
+                control.addFoodtoList(newFood, control.getUser().getKitchen());
                 return "Your food has successfully been created";
             } catch (Exception e) {
                 return "Your input is invalid";
