@@ -14,9 +14,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class AddFromRecipeCmd extends Command implements CommandExecute {
+public class AddFromRecipeCmd<T> extends Command<T> implements CommandExecute, FoodFactory {
 
-    public AddFromRecipeCmd(ControlCentre receiver) {
+    public AddFromRecipeCmd(T receiver) {
         super(5, 5, receiver);
     }
 
@@ -24,7 +24,7 @@ public class AddFromRecipeCmd extends Command implements CommandExecute {
         System.out.println("Which recipe would you like to add food from?");
         String recipeName = s.nextLine();
 
-        HashMap<String, Float> ingreds = ((KitchenControlCentre) receiver).getRecipeIngredients(recipeName, receiver.getUser());
+        HashMap<String, Float> ingreds = ((KitchenControlCentre) receiver).getRecipeIngredients(recipeName, ((KitchenControlCentre) receiver).getUser());
 
         for (String ingredient : ingreds.keySet()) {
             System.out.println("This recipe requires " + ingredient + ".");
@@ -53,6 +53,7 @@ public class AddFromRecipeCmd extends Command implements CommandExecute {
 
     @Override
     public String execute(List<String> arguments) {
+
         try {
             int sl = Integer.parseInt(arguments.get(2));
             int quantity = Integer.parseInt(arguments.get(3));
