@@ -23,6 +23,10 @@ public class UserManager {
         user.setPassword(newPassword);
     }
 
+    public void changeUserName(String username, User user){
+        user.setUserName(username);
+    }
+
     public void saveUserChange(User user) throws Exception{
         if (users == null) {
             users = new UserList();
