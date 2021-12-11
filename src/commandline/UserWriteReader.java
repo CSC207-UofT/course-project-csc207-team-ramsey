@@ -12,16 +12,11 @@ public class UserWriteReader implements WriteReader {
         OutputStream buffer = new BufferedOutputStream(file);
         ObjectOutput output = new ObjectOutputStream(buffer);
 
-        // serialize the Map
         output.writeObject(users);
         output.close();
     }
 
-        //传出信息，写入文本， 将一个新创建的user的信息写入文本
 
-    //public userList readUser(){
-     //从文本中读取信息，拉出文本写入userlist并且对userlist进行操作
-    // }
 
 
     public UserList readFromFile(String filePath) throws IOException, ClassNotFoundException {

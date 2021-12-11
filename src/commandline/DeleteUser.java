@@ -11,17 +11,16 @@ public class DeleteUser {
 
     public DeleteUser(){}
 
-    public int initiate(User user) throws Exception {
-        System.out.println("Are you sure you want to delete your account?, Please enter Yes if you really want to delete your account"
-        );
+    public void initiate(User user) throws Exception {
+        System.out.println("Are you sure you want to delete your account?, Please enter Yes if you really want to delete your account");
         String check = scanner.next();
         if(check.equals("Yes")){
             System.out.println("1");
+            // Does not throw Exception because user have to log in before delete the account
             userControlCentre.deleteUserAccount(user);
-            return 1;
+            System.exit(0);
         } else{
             System.out.println("We didnt delete your account and thank you for keeping using our app");
-            return 0;
         }
     }
 

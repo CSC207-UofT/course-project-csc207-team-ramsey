@@ -14,7 +14,9 @@ public class UserControlCentre {
 
     public User createNewUser(String username, String name, String email, String password) throws Exception {
         if (userManager.checkUserNameAva(username)) {
-            return userManager.createNewUser(username, password, email, name);
+            User user = userManager.createNewUser(username, password, email, name);
+            userManager.saveUserChange(user);
+            return user;
         } else {
             throw new Exception("The username already exist, please change a username");
         }

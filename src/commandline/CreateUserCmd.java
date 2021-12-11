@@ -1,6 +1,7 @@
 package commandline;
 
 import controllers.LoginController;
+import controllers.UserControlCentre;
 import entities.User;
 import usecases.LoginManager;
 import usecases.UserManager;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 
 public class CreateUserCmd{
     private Scanner scanner = new Scanner(System.in);
-    private UserManager userManager = new UserManager();
+    private UserControlCentre userControlCentre = new UserControlCentre();
 
     public User execute() throws Exception {
         System.out.println("Please enter the user name you want");
@@ -21,15 +22,17 @@ public class CreateUserCmd{
         String email = scanner.next();
         System.out.println("please enter your name");
         String name = scanner.next();
-        if (userManager.checkUserNameAva(username)){
-            return userManager.createNewUser(username, password, email, name);
-        } else{
-            throw new Exception("The username has already registered");
+        try{
+            return userControlCentre.createNewUser(username, password, email, name);
+        } catch (Exception e){
+            throw new Exception("Username has already registered");
         }
     }
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws Exception {
+        CreateUserCmd createUserCmd = new CreateUserCmd();
+        createUserCmd.execute();
+        UserControlCentre userControlCentre = new UserControlCentre();
     }
 }
 

@@ -63,7 +63,6 @@ public class LoginManager implements LoginInputBoundary {
         LoginManager loginManager = new LoginManager();
         User user = new User("123","123","123","123");
         System.out.println(loginManager.users.getUser("123"));
-
 //        User user = new User("123","123","123","123");
 //        loginManager.saveChanges(user);
         loginManager.users.getUser("456");
