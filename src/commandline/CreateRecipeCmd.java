@@ -4,6 +4,7 @@ import constants.MealCountry;
 import constants.MealTime;
 import controllers.RecipeControlCentre;
 
+
 import java.util.*;
 
 public class CreateRecipeCmd<T> extends Command<T> implements CommandExecute{
@@ -25,10 +26,29 @@ public class CreateRecipeCmd<T> extends Command<T> implements CommandExecute{
             String recipeTitle = s.nextLine();
 
             System.out.println("How long does it take to complete your recipe in minutes?: ");
-            String time = s.nextLine();
+
+            boolean num1 = false;
+            String time = null;
+            while (!num1){
+                time = s.nextLine();
+                if (isNumeric(time)){
+                    num1 = true;
+                } else {
+                    System.out.println("This needs to be a number.");
+                }
+            }
 
             System.out.println("How many people can your recipe serve?: ");
-            String servings = s.nextLine();
+            boolean num = false;
+            String servings= null;
+            while (!num){
+                servings = s.nextLine();
+                if (isNumeric(servings)){
+                    num = true;
+                } else {
+                    System.out.println("This needs to be a number.");
+                }
+            }
 
             String ingredients = parseIngredients(s);
 
@@ -172,6 +192,13 @@ public class CreateRecipeCmd<T> extends Command<T> implements CommandExecute{
             String ingredient = s.nextLine();
             ingredient = ingredient.replaceAll("\\s+",
                     "");
+            String[] ingrList = ingredient.split(":");
+            if(!ingredient.equals("done")){
+                if (!isNumeric(ingrList[1])){
+                    System.out.println("The amount needs to be a number.");
+                    continue;
+                }
+            }
             if (ingredient.equals("done")){
                 done = true;
             } else if (ingredients.isEmpty()){
@@ -183,6 +210,15 @@ public class CreateRecipeCmd<T> extends Command<T> implements CommandExecute{
         }
         return ingredients.toString();
 
+    }
+
+    private static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
     }
 
 
