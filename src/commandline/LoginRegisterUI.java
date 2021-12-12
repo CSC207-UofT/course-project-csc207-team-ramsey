@@ -14,7 +14,11 @@ public class LoginRegisterUI {
             switch (order) {
                 case "Login" -> {
                     LoginSignInUI loginSignInUI = new LoginSignInUI();
-                    return loginSignInUI.initiate();
+                    try{
+                        return loginSignInUI.initiate();
+                    } catch (NullPointerException e){
+                        System.out.println("your account with the associated username is not in our data");
+                    }
                 }
                 case "Register" -> {
                     CreateUserCmd createUserCmd = new CreateUserCmd();
