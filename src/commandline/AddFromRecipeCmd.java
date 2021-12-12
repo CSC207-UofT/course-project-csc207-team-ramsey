@@ -10,60 +10,57 @@ import usecases.FoodFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collection;
 import java.util.HashMap;
-
 import java.util.Scanner;
 
-public class AddFromRecipeCmd extends Command implements CommandExecute {
+public class AddFromRecipeCmd<T> extends Command<T> implements CommandExecute, FoodFactory {
 
-    public AddFromRecipeCmd(ControlCentre receiver) {
+    public AddFromRecipeCmd(T receiver) {
         super(5, 5, receiver);
     }
 
-    public void createFoodCall(Scanner s, Recipe recipe) {
+    public void initiate(Scanner s){
+        System.out.println("Which recipe would you like to add food from?");
+        String recipeName = s.nextLine();
 
-        HashMap<String, Float> recipeIngredients = recipe.getIngredients();
+        HashMap<String, Float> ingreds = ((KitchenControlCentre) receiver).getRecipeIngredients(recipeName, ((KitchenControlCentre) receiver).getUser());
 
-
-        for (String foodName : recipeIngredients.keySet()) {
-            System.out.println("This recipe requires " + foodName + ".");
-            System.out.println("What type of food is this (grains, meats, fruitvegi, dairy)?: ");
+        for (String ingredient : ingreds.keySet()) {
+            System.out.println("This recipe requires " + ingredient + ".");
+            System.out.println("What type of food is this (grains, meats, fruitvegi, dairy)?");
             String foodType = s.nextLine();
 
-            System.out.println("What is the shelf life of this food?: ");
+            System.out.println("What is the shelf life of this food?");
             String sl = s.nextLine();
 
-            System.out.println("What is the unit (whole, ml, grams?) of this food?: ");
+            System.out.println("What is the unit (whole, ml, grams?) of this food?");
             String unit = s.nextLine();
 
-            System.out.println("This recipe needs " + recipeIngredients.get(foodName) + " " + unit + " of " + foodName + "." + "\n" +
-                    " How much would you like to buy?: ");
+            System.out.println("This recipe needs " + ingreds.get(ingredient) + " " + unit + " of " + ingredient + "." + "\n" +
+                    " How much would you like to buy?");
             String quantity = s.nextLine();
 
             ArrayList<String> arguments = new ArrayList<>();
             arguments.add(foodType);
-            arguments.add(foodName);
+            arguments.add(ingredient);
             arguments.add(sl);
             arguments.add(quantity);
             arguments.add(unit);
-
-            String response = execute(this.receiver, arguments);
-            System.out.println(response);
-
         }
 
     }
 
     @Override
-    public String execute(ControlCentre receiver, List<String> arguments, User user) {
-        KitchenControlCentre kitchenControl = (KitchenControlCentre) receiver;
+    public String execute(List<String> arguments) {
+
         try {
             int sl = Integer.parseInt(arguments.get(2));
             int quantity = Integer.parseInt(arguments.get(3));
 
             try {
                 Food newFood = FoodFactory.getFood(arguments.get(0), arguments.get(1), sl, quantity, arguments.get(4));
-                kitchenControl.createFoodForList(arguments.get(0), arguments.get(1), sl, quantity, arguments.get(4));
+                ((KitchenControlCentre) receiver).createFoodForList(arguments.get(0), arguments.get(1), sl, quantity, arguments.get(4));
                 if (newFood == null) {
                     return "Your input is invalid";
                 }
@@ -76,6 +73,6 @@ public class AddFromRecipeCmd extends Command implements CommandExecute {
         }
     }
 
-
 }
+
 

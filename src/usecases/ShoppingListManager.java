@@ -3,6 +3,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import entities.User;
+import entities.Recipe;
 import entities.food.Food;
 import entities.Kitchen;
 import java.time.LocalDateTime;
@@ -91,6 +92,13 @@ public class ShoppingListManager {
         return (user.getKitchen().getShoppingList().contains(item));
     }
 
+    public Recipe getRecipeFromTitle(User user, String recipeName) {
+        for (Recipe recipe : user.getKitchen().getRecipes()) {
+            if (recipe.getTitle().equals(recipeName)) {
+                return recipe;
+            }
+        }
+        return null;
+    }
+
 }
-
-

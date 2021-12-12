@@ -21,7 +21,7 @@ public class TestShoppingListManager {
 
     @Before
     public void setUp() {
-        user = new User("Guy", "CoolUserGuy", "cooluseremail@aaaaaa.ca");
+        user = new User("Guy", "CoolUserGuy", "cooluseremail@aaaaaa.ca", "pass");
         shoppingListManager = new ShoppingListManager();
         exampleItem = FoodFactory.getFood("FRUITVEGI", "apple", 1, 14, "whole");
     }
