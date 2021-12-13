@@ -20,6 +20,10 @@ public class AddFromRecipeCmd<T> extends Command<T> implements CommandExecute, F
         super(5, 5, receiver);
     }
 
+    /**
+     * initiate line call for AddFromRecipe Command
+     * @param s a Scanner object to get input from user
+     */
     public void initiate(Scanner s){
         System.out.println("Which recipe would you like to add food from?");
         String recipeName = s.nextLine();
@@ -51,6 +55,11 @@ public class AddFromRecipeCmd<T> extends Command<T> implements CommandExecute, F
 
     }
 
+    /**
+     * execute AddFromRecipe
+     * @param arguments is the input arguments for the AddFromRecipeCmd
+     * @return String response message from command
+     */
     @Override
     public String execute(List<String> arguments) {
 

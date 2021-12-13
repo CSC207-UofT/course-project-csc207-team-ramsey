@@ -14,6 +14,11 @@ public class ShowKitchenRecipesCmd<T> extends Command<T> implements CommandExecu
     }
 
 
+    /**
+     * execute ShowKitchenRecipes
+     * @param arguments is the input arguments for the ShowKitchenRecipes Command
+     * @return String response message from command
+     */
     @Override
     public String execute(List<String> arguments) {
         if (arguments.get(0) == "YES") {
@@ -32,6 +37,10 @@ public class ShowKitchenRecipesCmd<T> extends Command<T> implements CommandExecu
         }
     }
 
+    /**
+     * initiate line call for ShowKitchenRecipes Command
+     * @param s a Scanner object to get input from user
+     */
     @Override
     public void initiate(Scanner s) {
         System.out.println("Would you like to see your full list? Input 'YES' or 'NO'.");

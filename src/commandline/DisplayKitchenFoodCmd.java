@@ -14,6 +14,11 @@ public class DisplayKitchenFoodCmd<T> extends Command<T> implements CommandExecu
         super(0, 0, receiver);
     }
 
+    /**
+     * execute DisplayKitchenFood
+     * @param arguments is the input arguments for the DisplayKitchenFood Command
+     * @return String response message from command
+     */
     @Override
     public String execute(List<String> arguments) {
         if (arguments.get(0) == "YES") {
@@ -32,6 +37,10 @@ public class DisplayKitchenFoodCmd<T> extends Command<T> implements CommandExecu
     }
 
 
+    /**
+     * initiate line call for DisplayKitchenFood Command
+     * @param s a Scanner object to get input from user
+     */
     @Override
     public void initiate(Scanner s) {
         System.out.println("Would you like to see all of the food in your kitchen? Input 'YES' or 'NO'.");
