@@ -18,6 +18,7 @@ public class DeleteUser {
             System.out.println("1");
             // Does not throw Exception because user have to log in before delete the account
             userControlCentre.deleteUserAccount(user);
+            System.out.println("you have logged out and your account has been deleted");
             System.exit(0);
         } else{
             System.out.println("We didnt delete your account and thank you for keeping using our app");

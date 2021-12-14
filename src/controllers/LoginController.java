@@ -18,7 +18,7 @@ public class LoginController {
         this.loginManager = new LoginManager();
     }
 
-    public void runLogin(String username, String password) {
+    public void runLogin(String username, String password){
         LoginManager.LoginResult result = loginManager.logIn(username, password);
         switch (result) {
             case SUCCESS -> {
