@@ -11,8 +11,12 @@ public class UserManager {
     private UserWriteReader readWriter = new UserWriteReader();
     private UserList users;
 
-    public UserManager(){
-        this.users = new LoginManager().getUsers();
+    public UserManager() throws Exception{
+        try {
+            this.users = new LoginManager().getUsers();
+        } catch (IOException e){
+            this.users = new UserList();
+        }
     }
 
     public void deleteUser(User user){
@@ -22,8 +26,10 @@ public class UserManager {
     public void changeUserPassword(String newPassword, User user){
         user.setPassword(newPassword);
     }
+    //改名这里需要更改design 不然的话存进user list里面的时候根据username指向的东西就变了，会存到另外一个地方，有bug.
 
     public void changeUserName(String username, User user){
+        user.setPreviousUserName();
         user.setUserName(username);
     }
 
@@ -36,15 +42,13 @@ public class UserManager {
             } catch (IOException e) {
                 System.out.println("Cannot save the changes, user's changes and new list did not save");
             }
-        } else if (users.getUser(user.getUserName()) != null) {
-            users.upDateUser(user);
-            try {
-                this.readWriter.saveToFile("users.ser", users);
-            } catch (IOException e) {
-                System.out.println("Cannot save the changes, user's changes and new list did not save");
-            }
         } else {
-            users.add(user);
+            if (users.getUser(user.getUserName()) == null) {
+                if (users.getUser(user.getPreviousUserName()) != null) {
+                    users.deleteUserByString(user.getPreviousUserName()); // delete the user with the previous username, happen when the user's username change
+                }
+                users.add(user);
+            }
             try {
                 this.readWriter.saveToFile("users.ser", users);
             } catch (IOException e) {
@@ -85,6 +89,9 @@ public class UserManager {
         return users.getUser(username);
     }
 
+    public void deleteUserOldUsername(){
+        //
+    }
     public UserList getUsers() {
         return users;
     }

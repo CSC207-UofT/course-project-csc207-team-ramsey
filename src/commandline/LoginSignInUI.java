@@ -9,7 +9,7 @@ public class LoginSignInUI {
 
     private LoginController loginController;
 
-    public LoginSignInUI(){
+    public LoginSignInUI() throws Exception{
         this.loginController = new LoginController();
     }
 

@@ -34,4 +34,8 @@ public class UserList implements Serializable {
     public void deleteUser(User user){
         users.remove(user.getUserName());
     }
+
+    public void deleteUserByString(String username){
+        users.remove(username);
+    }
 }

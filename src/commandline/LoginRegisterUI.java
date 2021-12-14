@@ -1,7 +1,10 @@
 package commandline;
 
+import controllers.UserDetailsController;
 import entities.User;
+import usecases.UserManager;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class LoginRegisterUI {
@@ -17,7 +20,9 @@ public class LoginRegisterUI {
                     try{
                         return loginSignInUI.initiate();
                     } catch (NullPointerException e){
-                        System.out.println("your account with the associated username is not in our data");
+                        System.out.println("your account with the associated username is not in our data, please reenter the command");
+                    } catch (IOException e){
+                        System.out.println("The data have some problems");
                     }
                 }
                 case "Register" -> {
@@ -33,6 +38,11 @@ public class LoginRegisterUI {
     public static void main(String[] args) throws Exception {
         LoginRegisterUI loginRegisterUI = new LoginRegisterUI();
         User user = loginRegisterUI.initiate();
+        UserManager userManager = new UserManager();
+        UserDetailsController userDetailsController = new UserDetailsController(user);
+        userDetailsController.changeUserName("555");
+        SaveUserChangeCmd saveUserChangeCmd = new SaveUserChangeCmd();
+        saveUserChangeCmd.saveUserChanges(user);
     }
 }
 

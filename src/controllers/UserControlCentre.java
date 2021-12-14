@@ -8,7 +8,7 @@ import usecases.UserManager;
 public class UserControlCentre {
     private UserManager userManager;
 
-    public UserControlCentre(){
+    public UserControlCentre() throws Exception {
         this.userManager = new UserManager();
     }
 

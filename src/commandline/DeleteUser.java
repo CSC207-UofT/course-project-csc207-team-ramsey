@@ -9,7 +9,7 @@ public class DeleteUser {
     private UserControlCentre userControlCentre = new UserControlCentre();
     private Scanner scanner = new Scanner(System.in);
 
-    public DeleteUser(){}
+    public DeleteUser() throws Exception {}
 
     public void initiate(User user) throws Exception {
         System.out.println("Are you sure you want to delete your account?, Please enter Yes if you really want to delete your account");
