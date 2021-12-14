@@ -32,9 +32,10 @@ public class KitchenControlCentre extends ControlCentre {
      * @param quantity the quantity of the new food
      * @param unit the unit for the new food
      */
-    public void createFoodForList(String foodType, String foodName, int sl, int quantity, String unit) {
+    public Food createFoodForList(String foodType, String foodName, int sl, int quantity, String unit) {
         Food add = FoodFactory.getFood(foodType, foodName, sl, quantity, unit);
         this.getUser().getKitchen().addFoodtoList(add);
+        return add;
     }
 
     /**

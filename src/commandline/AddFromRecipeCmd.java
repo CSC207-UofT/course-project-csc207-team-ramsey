@@ -2,6 +2,7 @@ package commandline;
 
 import controllers.ControlCentre;
 import controllers.KitchenControlCentre;
+import controllers.FoodControlCentre;
 import entities.food.Food;
 import entities.Recipe;
 import entities.User;
@@ -17,7 +18,7 @@ import java.util.Scanner;
 public class AddFromRecipeCmd<T> extends Command<T> implements CommandExecute, FoodFactory {
 
     public AddFromRecipeCmd(T receiver) {
-        super(5, 5, receiver);
+        super(10000, 5, receiver);
     }
 
     /**
@@ -29,6 +30,7 @@ public class AddFromRecipeCmd<T> extends Command<T> implements CommandExecute, F
         String recipeName = s.nextLine();
 
         HashMap<String, Float> ingreds = ((KitchenControlCentre) receiver).getRecipeIngredients(recipeName, ((KitchenControlCentre) receiver).getUser());
+        ArrayList<String> arguments = new ArrayList<>();
 
         for (String ingredient : ingreds.keySet()) {
             System.out.println("This recipe requires " + ingredient + ".");
@@ -45,7 +47,6 @@ public class AddFromRecipeCmd<T> extends Command<T> implements CommandExecute, F
                     " How much would you like to buy?");
             String quantity = s.nextLine();
 
-            ArrayList<String> arguments = new ArrayList<>();
             arguments.add(foodType);
             arguments.add(ingredient);
             arguments.add(sl);
@@ -63,25 +64,29 @@ public class AddFromRecipeCmd<T> extends Command<T> implements CommandExecute, F
     @Override
     public String execute(List<String> arguments) {
 
-        try {
-            int sl = Integer.parseInt(arguments.get(2));
-            int quantity = Integer.parseInt(arguments.get(3));
-
-            try {
-                Food newFood = FoodFactory.getFood(arguments.get(0), arguments.get(1), sl, quantity, arguments.get(4));
-                ((KitchenControlCentre) receiver).createFoodForList(arguments.get(0), arguments.get(1), sl, quantity, arguments.get(4));
-                if (newFood == null) {
-                    return "Your input is invalid";
-                }
-                return "Your food has been added to your shopping list.";
-            } catch (Exception e) {
+        StringBuilder returnMessage = new StringBuilder();
+        returnMessage.append("The following food has been added to your list: ");
+        int x = arguments.size();
+        int i = 0;
+        while (i != x) {
+            String type = arguments.get(i);
+            i += 1;
+            String name = arguments.get(i);
+            i += 1;
+            int sl = Integer.parseInt(arguments.get(i));
+            i += 1;
+            int quan = Integer.parseInt(arguments.get(i));
+            i += 1;
+            String foodUnit = arguments.get(i);
+            Food newFood = ((KitchenControlCentre) receiver).createFoodForList(type, name, sl, quan, foodUnit);
+            if (newFood == null) {
                 return "Your input is invalid";
-            }
-        } catch (NumberFormatException e) {
-            return "Your input is invalid";
+            } else {
+                returnMessage.append("\n - " + name);
+                }
+            i += 1;
         }
+        return returnMessage.toString();
     }
 
 }
-
-
