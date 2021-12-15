@@ -1,5 +1,6 @@
 package entities.food;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -8,8 +9,11 @@ import java.util.*;
 /**
  * This class represents an abstract class food, where the shelf life, quantity, unit, name, and expiration dates are saved
  */
+
 public abstract class Food {
 
+public abstract class Food implements Serializable {
+    /** assuming shelfLife is in days */
     private int shelfLife;
     private String foodName;
     private String unit;
@@ -175,3 +179,4 @@ public abstract class Food {
         return boughtDates.get(0);
     }
 }
+

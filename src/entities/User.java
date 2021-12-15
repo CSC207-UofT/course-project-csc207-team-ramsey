@@ -17,12 +17,15 @@ public class User implements Serializable {
     private String email;
     private Kitchen kitchen;
     private String password;
+    private String previousUserName;
 
     /**
+     *
      * Creates an instance of Entities.User
      * @param user name of user
-     * @param uName chosen username for user
-     * @param mail email associated with user
+     * @param uName user's username
+     * @param mail user's email
+     * @param password user's password
      */
     public User(String user, String uName, String mail, String password) {
         this.userName = uName;
@@ -30,6 +33,7 @@ public class User implements Serializable {
         this.email = mail;
         this.kitchen = new Kitchen();
         this.password = password;
+        this.previousUserName = "";
     }
 
     /**
@@ -37,6 +41,14 @@ public class User implements Serializable {
      */
     public String getUserName(){
         return this.userName;
+    }
+
+    public void setPreviousUserName(){
+        this.previousUserName = this.userName;
+    }
+
+    public String getPreviousUserName() {
+        return previousUserName;
     }
 
     /**
