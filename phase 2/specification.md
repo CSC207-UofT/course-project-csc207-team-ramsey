@@ -39,8 +39,13 @@ They will also be able to sort their foods based on which foods will expire the 
 
 Recipe - Users may also add their own recipes where they can use the recipe function to search for recipes based on specific preferences, such as key ingredient, availability of ingredients, or based on the expiration date of items in the user’s pantry.
 
-Shopping List - If required items are not available, then item will be added to a shopping list for the user.
+###### Kitchen + Shopping List
 
+Users will be able to store their recipes, food, and shopping list in their kitchen. In their kitchen, users are able 
+to see what food they currently have and select a recipe to make. If a recipe contains ingredients the user does not 
+currently have, they can add their unowned ingredients to their shopping list based on the recipe. The user can take the 
+items on the shopping list and add them to their kitchen after they obtain the items, upon which the items are removed from
+the shopping list. 
 ### New functionality
 
 We've added a User login, registration, and serialization using the Jackson Library. We've also added a few new commands to allow the user to
