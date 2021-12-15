@@ -182,7 +182,7 @@ public class CreateRecipeCmd<T> extends Command<T> implements CommandExecute {
      * @param s is a scanner object
      * @return String for ingredients and quanity
      */
-    private static String parseIngredients(Scanner s){
+    private static String parseIngredients(Scanner s) {
         StringBuilder ingredients = new StringBuilder();
         System.out.println("""
                 Please, input the ingredients for your recipe one at a time in the following format: ingredient:amount
@@ -190,29 +190,28 @@ public class CreateRecipeCmd<T> extends Command<T> implements CommandExecute {
                  Type "done" when you are finished.""");
 
         boolean done = false;
-        while (!done){
+        while (!done) {
             String ingredient = s.nextLine();
             ingredient = ingredient.replaceAll("\\s+",
                     "");
-            String[] ingrList = ingredient.split(":");
-            if(!ingredient.equals("done")){
-                if (!isNumeric(ingrList[1])){
-                    System.out.println("The amount needs to be a number.");
+            if (!ingredient.equals("done")) {
+                if (!ingredient.matches("^[a-zA-Z]+:+[0-9]+$")) {
+                    System.out.println("Your input is not formatted correctly.");
                     continue;
                 }
             }
-            if (ingredient.equals("done")){
-                done = true;
-            } else if (ingredients.isEmpty()){
-                ingredients.append(ingredient);
-            } else {
-                ingredients.append(",");
-                ingredients.append(ingredient);
+                if (ingredient.equals("done")) {
+                    done = true;
+                } else if (ingredients.isEmpty()) {
+                    ingredients.append(ingredient);
+                } else {
+                    ingredients.append(",");
+                    ingredients.append(ingredient);
+                }
             }
-        }
-        return ingredients.toString();
+            return ingredients.toString();
 
-    }
+        }
 
     private static boolean isNumeric(String str) {
         try {
