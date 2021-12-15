@@ -13,13 +13,13 @@ import java.util.HashMap;
  * the ControlCentre for handling Kitchen responsibilities
  */
 
-public class KitchenControlCentre extends ControlCentre {
-    ShoppingListManager shoppingListManager;
-    User user;
+public class KitchenControlCentre{
+    private final ShoppingListManager shoppingListManager;
+    private final User user;
 
 
     public KitchenControlCentre(User user) {
-        super(user);
+        this.user = user;
         this.shoppingListManager = new ShoppingListManager();
     }
 
@@ -31,9 +31,10 @@ public class KitchenControlCentre extends ControlCentre {
      * @param quantity the quantity of the new food
      * @param unit the unit for the new food
      */
-    public void createFoodForList(String foodType, String foodName, int sl, int quantity, String unit) {
+    public Food createFoodForList(String foodType, String foodName, int sl, int quantity, String unit) {
         Food add = FoodFactory.getFood(foodType, foodName, sl, quantity, unit);
         this.getUser().getKitchen().addFoodtoList(add);
+        return add;
     }
 
     /**

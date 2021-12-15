@@ -1,29 +1,40 @@
-//package test;
-//
-//
-//import org.junit.Before;
-//import org.junit.Test;
-//
-//import entities.*;
-//import usecases.*;
-//
-//import static org.junit.Assert.assertEquals;
-//
-//
-//public class TestFoodManager {
-//    FoodManager foodManager;
-//    User user;
-//
-//    @Before
-//    public void setUp() {
-//        user = new User("Bob", "Bob", "bob@user.ca");
-//        foodManager = new FoodManager();
-//    }
-//
-////    @Test(timeout = 50)
-////    public void TestMakeNewFoodInUser() {
-////        foodManager.makeNewFood(user, "banana",5, 12, "whole");
-////        assertEquals(user.getFood().get(0).getName(), "banana");
-////    }
-//
-//}
+package test;
+
+import controllers.FoodControlCentre;
+import entities.Kitchen;
+import entities.User;
+import entities.food.Food;
+import entities.food.FruitVegi;
+import org.junit.Before;
+import org.junit.Test;
+import usecases.FoodManager;
+
+import java.util.HashMap;
+
+public class TestFoodManager {
+    Kitchen kitchen;
+    FoodManager foodManager;
+    @Before
+    public void setUp() {
+        Kitchen kitchen = new Kitchen();
+        FoodManager foodManager = new FoodManager();
+    }
+
+    @Test(timeout = 50)
+    public void TestGetInfoQuantity() {
+        User user = new User("ADA", "FSES", "ASDAW", "ADW");
+        FoodControlCentre foodControlCentre = new FoodControlCentre(user);
+        Food g = foodControlCentre.createEntity("FruitVegi", "Banana", 5, 10, "Whole");
+        System.out.println(foodManager.getInfoFood(g));
+
+        g.addQuantity("5");
+        g.addEntry("2022-11-14", "12");
+        g.removeEntry("14-11-2021");
+
+        System.out.println(foodManager.getInfoQuantity(g));
+        foodManager.removeQuantity(g, "12");
+
+        System.out.println(foodManager.getInfoQuantity(g));
+
+    }
+}

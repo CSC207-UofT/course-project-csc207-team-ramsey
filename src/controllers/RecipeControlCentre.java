@@ -3,6 +3,7 @@ package controllers;
 
 import entities.Recipe;
 import entities.User;
+import usecases.FoodManager;
 import usecases.RecipeManager;
 
 import java.util.HashMap;
@@ -14,10 +15,12 @@ import java.util.List;
 public class RecipeControlCentre{
     User user;
     RecipeManager recipeManager;
+    FoodManager foodManager;
 
     public RecipeControlCentre(User user) {
         this.user = user;
         this.recipeManager = new RecipeManager();
+        this.foodManager = new FoodManager();
     }
 
     /**
@@ -61,7 +64,6 @@ public class RecipeControlCentre{
         return this.recipeManager.removeRecipe(this.user, recipeName);
     }
 
-
     /**
      * Checks if user's recipe list is not empty
      * @return boolean for whether recipe list is not empty
@@ -71,40 +73,66 @@ public class RecipeControlCentre{
     }
 
     /**
+     * checks if ingredient is in a specific recipe of user
+     * @param recipeName the recipe title
+     * @param ingredient the input ingredient
+     * @return boolean for whether ingredient is found
+     */
+    public boolean checkIsIngredient(String recipeName, String ingredient){
+        return this.recipeManager.isIngredient(this.user, recipeName, ingredient);
+    }
+
+    /**
      * checks if a recipe is in the user's kitchen
      * @param recipeName is the name of the recipe
      * @return boolean for whether the recipe is in the kitchen
      */
     public boolean checkInKitchen(String recipeName){
-        for (Recipe recipe :this.user.getKitchen().getRecipes()){
-            if (recipeName.equals(recipe.getTitle())){
-                return true;
-            }
+        return this.recipeManager.checkInKitchen(this.user, recipeName);
+    }
+
+
+    public boolean editRecipe(String recipeName, String variable, String change){
+        switch (variable) {
+            case "name":
+                recipeManager.changeRecipeName(this.user, recipeName, change);
+                break;
+            case "servings":
+                recipeManager.changeRecipeServings(this.user, recipeName, Integer.parseInt(change));
+                break;
+            case "prep time":
+                recipeManager.changeRecipePrepTime(this.user, recipeName, Integer.parseInt(change));
+                break;
+            case "instructions":
+                recipeManager.changeRecipeSteps(this.user, recipeName, change);
+                break;
+            case "country category":
+                recipeManager.changeCountryCategory(this.user, recipeName, change);
+                break;
+            case "meal time category":
+                recipeManager.changeTimeCategory(this.user, recipeName, change);
+                break;
+            default:
+                return false;
+        }
+        return true;
+    }
+
+    public boolean editRecipe(String recipeName,String variable, String originalIngr, String newIngredient, String newValue){
+        if (variable.equals("ingredients")){
+            recipeManager.changeIngredient(this.user, recipeName, originalIngr, newIngredient, newValue);
+            return true;
         }
         return false;
     }
 
-//    public boolean editRecipe(String recipeName, String variable, String change){
-//        if (variable.equals("name")){
-//            return recipeManager.changeRecipeName(this.user, recipeName, change);
-//        }
-//        if (variable.equals("servings")){
-//            return recipeManager.changeRecipeServings(this.user, recipeName, Integer.parseInt(change));
-//        }
-//        if (variable.equals("prep time")){
-//            return recipeManager.changeRecipePrepTime(this.user, recipeName, Integer.parseInt(change));
-//        }
-//        if (variable.equals("instructions")){
-//            return recipeManager.changeRecipeSteps(this.user, recipeName, change);
-//        }
-//        if (variable.equals("ingredients")){
-//            return recipeManager.changeIngredients(this.user);
-//        }
-//    }
-//
-//    public boolean editRecipe(String recipeName, String ingredient, String variable, String change){
-//        if (variable.equals("ingredients")){
-//            return recipeManager.changeIngredients(this.user);
-//        }
-//    }
+    /**
+     * @param recipeName the name of the recipe to search
+     * @return a HashMap of current ingredient of a recipe
+     */
+    public HashMap<String, Float> getIngredientMap(String recipeName){
+        return this.recipeManager.getIngredientMap(this.user, recipeName);
+    }
+
 }
+

@@ -1,7 +1,6 @@
 package usecases;
 
-import constants.MealCountry;
-import constants.MealTime;
+
 import entities.Recipe;
 import entities.User;
 import recipe_filter.mealCountry.*;
@@ -39,20 +38,6 @@ public class RecipeManager {
         user.getKitchen().getRecipes().add(newRecipe);
         return true;
     }
-
-
-//    public boolean makeRecipe(User user, String recipeName){
-//        ArrayList<Recipe> recipeList = user.getKitchen().getRecipes();
-//        for (Recipe recipe : recipeList){
-//            if (recipe.getTitle().equals(recipeName)){
-//                if (checkEnoughFood(recipeName)){
-//
-//                } else {
-//
-//                }
-//            }
-//        }
-//    }
 
     /**
      * remove a recipe from the user's kitchen
@@ -177,6 +162,67 @@ public class RecipeManager {
     }
 
     /**
+     * change a specific ingredient for a recipe
+     * @param user is a user of the program
+     * @param recipeName is the name of a recipe
+     * @param originalIngr is the original ingredient to be modified
+     * @param newIngredient is the new ingredient name
+     * @param newValue is the new value for the ingredient
+     * @return boolean for whether change succeeds
+     */
+    public boolean changeIngredient(User user, String recipeName,String originalIngr, String newIngredient, String newValue){
+        ArrayList<Recipe> curRecipes = user.getKitchen().getRecipes();
+        for (Recipe curRecipe : curRecipes) {
+            if (curRecipe.getTitle().equals(recipeName)) {
+                HashMap<String, Float> shallowCopy = new HashMap<>(curRecipe.getIngredients());
+                if (!newIngredient.equals(originalIngr)){
+                    shallowCopy.remove(originalIngr);
+                    shallowCopy.put(newIngredient, Float.parseFloat(newValue));
+                } else{
+                    shallowCopy.replace(originalIngr, Float.parseFloat(newValue));
+
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * change countryCategory of recipe
+     * @param user is a user of the program
+     * @param recipeName is the name of the recipe where change takes place
+     * @param change is the inputted change for the category
+     * @return boolean for whether operation was successful
+     */
+    public boolean changeCountryCategory(User user, String recipeName, String change){
+        for (Recipe recipe : user.getKitchen().getRecipes()){
+            if (recipe.getTitle().equals(recipeName)){
+                recipe.setCategoryCountry(change);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * change categoryTime of recipe
+     * @param user is a user of the program
+     * @param recipeName is the name of the recipe where change takes place
+     * @param change is the inputted change for the category
+     * @return boolean for whether operation was successful
+     */
+    public boolean changeTimeCategory(User user, String recipeName, String change){
+        for (Recipe recipe : user.getKitchen().getRecipes()){
+            if (recipe.getTitle().equals(recipeName)){
+                recipe.setCategoryTime(change);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * gets a user's list of Recipes
      * @param user a user of the program
      * @param category is a category of the Recipe (either MealTime or MealCountry)
@@ -252,4 +298,54 @@ public class RecipeManager {
         }
         return null;
     }
+
+    /**
+     * checks if ingredient is in a specific recipe of a user
+     * @param user is a user of the program
+     * @param recipeName is the name of the recipe
+     * @param ingredient is an ingredient
+     * @return boolean for whether ingredient is n the recipe of the user
+     */
+    public boolean isIngredient(User user, String recipeName, String ingredient){
+        for(Recipe recipe : user.getKitchen().getRecipes()){
+            if (recipeName.equals(recipe.getTitle())){
+                for(String ingr: recipe.getIngredients().keySet()){
+                    if (ingr.equals(ingredient)){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * checks if a recipe is in the user's kitchen
+     * @param recipeName is the name of the recipe
+     * @return boolean for whether the recipe is in the kitchen
+     */
+    public boolean checkInKitchen(User user, String recipeName){
+        for (Recipe recipe : user.getKitchen().getRecipes()){
+            if (recipeName.equals(recipe.getTitle())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @param user is a user of the program
+     * @param recipeName is the name of the inputted recipe search
+     * @return a HashMap containing the user ingredient info
+     */
+    public HashMap<String, Float> getIngredientMap(User user, String recipeName){
+        HashMap<String, Float> ingredients = null;
+        for (Recipe recipe: user.getKitchen().getRecipes()){
+            if (recipe.getTitle().equals(recipeName)){
+                ingredients = recipe.getIngredients();
+            }
+        }
+        return ingredients;
+    }
 }
+

@@ -1,8 +1,6 @@
 package commandline;
 
-import controllers.ControlCentre;
 import controllers.FoodControlCentre;
-import entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,10 +35,10 @@ public class AddFoodQuantity<T> extends Command<T> implements CommandExecute{
             String response = execute(arguments);
             System.out.println(response);
 
-            if (Objects.equals(response, "There is no food matching that name")) {
+            if (Objects.equals(response, "This food does not exist")) {
                 System.out.println("Would you like to try again(y/n)");
             } else {
-                System.out.println("Would you like to show another food(y/n)");
+                System.out.println("Would you like to add to another food(y/n)");
             }
 
         } while (!Objects.equals(s.nextLine(), "n"));

@@ -5,7 +5,16 @@ import entities.UserList;
 import java.io.*;
 
 public class UserWriteReader implements WriteReader {
+    /** File Reader and File writer
 
+
+
+    /**
+     *
+     * @param filePath chose the file path
+     * @param users users to save
+     * @throws IOException when there is some problem during writing data
+     */
     public void saveToFile(String filePath, Object users) throws IOException {
 
         OutputStream file = new FileOutputStream(filePath);
@@ -20,7 +29,12 @@ public class UserWriteReader implements WriteReader {
 
 
     public UserList readFromFile(String filePath) throws IOException, ClassNotFoundException {
-
+        /**
+         * Read from file
+         * @param filePath chose user file path
+         * @return The user list output from the file
+         * @throws IOException when there is some problem during reading data
+         */
         InputStream file = new FileInputStream(filePath);
         InputStream buffer = new BufferedInputStream(file);
         ObjectInput input = new ObjectInputStream(buffer);

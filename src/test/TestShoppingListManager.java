@@ -14,6 +14,10 @@ import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Class for testing the ShoppingListManager
+ */
+
 public class TestShoppingListManager {
     ShoppingListManager shoppingListManager;
     User user;

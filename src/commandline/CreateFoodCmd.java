@@ -1,8 +1,6 @@
 package commandline;
 
-import controllers.ControlCentre;
 import controllers.FoodControlCentre;
-import entities.User;
 import entities.food.Food;
 import usecases.FoodFactory;
 
@@ -31,7 +29,7 @@ public class CreateFoodCmd<T> extends Command<T> implements CommandExecute, Food
                 if (newFood == null){
                     return "Your input is invalid";
                 }
-                control.addFoodtoList(newFood, control.getUser().getKitchen());
+                control.addFoodToList(newFood, control.getUser().getKitchen());
                 return "Your food has successfully been created";
             } catch (Exception e) {
                 return "Your input is invalid";
