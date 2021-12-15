@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public interface WriteReader {
 
-    public void saveToFile(String filePath, Object users) throws IOException;
+    void saveToFile(String filePath, Object users) throws IOException;
 
-    public UserList readFromFile(String filePath) throws IOException, ClassNotFoundException;
+    UserList readFromFile(String filePath) throws IOException, ClassNotFoundException;
 }

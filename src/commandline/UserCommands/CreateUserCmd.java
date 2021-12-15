@@ -6,8 +6,8 @@ import entities.User;
 import java.util.Scanner;
 
 public class CreateUserCmd{
-    private Scanner scanner = new Scanner(System.in);
-    private UserControlCentre userControlCentre = new UserControlCentre();
+    private final Scanner scanner = new Scanner(System.in);
+    private final UserControlCentre userControlCentre = new UserControlCentre();
 
     /**
      * Create a user with user inputted details.
@@ -39,24 +39,3 @@ public class CreateUserCmd{
     }
 }
 
-//public class UserLoginUI {
-//
-//    public Object run(LoginController loginController) throws Exception{
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("Please enter LogIn if you already have an account, or enter SignIn to create a new account");
-//        if(scanner.next().equals("LogIn")){
-//            System.out.println("Please enter your username");
-//            String username = scanner.next();
-//            System.out.println("Please enter your password");
-//            String password = scanner.next();
-//            loginController.runLogin(username, password);
-//            try {
-//                return (User) loginController.returnUser(username);
-//            }
-//            catch(Exception e){
-//                System.out.println("Please try again or SingIn ");
-//            }
-//            return null;
-//        }
-//    }
-//}

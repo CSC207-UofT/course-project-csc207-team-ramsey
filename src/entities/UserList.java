@@ -25,7 +25,6 @@ public class UserList implements Serializable {
 
     /**
      * Remove the user in the user list.
-     * @param user
      */
     public void deleteUser(User user){
         users.remove(user.getUserName());
@@ -33,7 +32,6 @@ public class UserList implements Serializable {
 
     /**
      * Remove the user with associated username
-     * @param username
      */
     public void deleteUserByString(String username){
         users.remove(username);

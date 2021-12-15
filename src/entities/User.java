@@ -1,11 +1,9 @@
 package entities;
 
 
-import entities.food.Food;
 import entities.Kitchen;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * This class represents a user of the program
@@ -74,7 +72,6 @@ public class User implements Serializable {
 
     /**
      *  set the userName
-     * @param userName
      */
     public void setUserName(String userName){
         this.userName = userName;
@@ -94,7 +91,6 @@ public class User implements Serializable {
 
     /**
      * set the name
-     * @param name
      */
     public void setName(String name){
         this.name = name;
@@ -102,7 +98,6 @@ public class User implements Serializable {
 
     /**
      * set the email
-     * @param email
      */
     public void setEmail(String email){
         this.email = email;

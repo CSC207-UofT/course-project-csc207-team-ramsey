@@ -6,11 +6,9 @@ import org.junit.Test;
 import usecases.ShoppingListManager;
 import usecases.FoodFactory;
 import entities.food.Food;
-import entities.Recipe;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
@@ -62,17 +60,4 @@ public class TestShoppingListManager {
         assert !foodList.contains(exampleItem);
     }
 
-//    @Test(timeout = 50)
-//    public void TestAddFromRecipe() {
-//        ArrayList<Food> foodList = new ArrayList<Food>();
-//        Food flour = FoodFactory.getFood("GRAINS", "flour", 2000, 1, "grams");
-//        Food tomato = FoodFactory.getFood("FRUITVEGI", "tomato", 7, 4, "grams");
-//        HashMap<String, Float> ingredients = new HashMap<String, Float>();
-//        ingredients.put("Flour", 1.0F);
-//        ingredients.put("Tomato", 3.5F);
-//        Recipe recipe = new Recipe(2, "Test Recipes", 1,"Test Steps", ingredients, "Canada", "Quick");
-//        shoppingListManager.addFromRecipe(user, recipe);
-//        assertEquals(foodList, user.getKitchen().getShoppingList());
-//
-//    }
 }

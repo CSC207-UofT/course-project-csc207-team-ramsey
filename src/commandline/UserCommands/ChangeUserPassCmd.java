@@ -13,7 +13,6 @@ public class ChangeUserPassCmd<T> extends Command<T> implements CommandExecute {
 
     /**
      * Change username with the password that inputted by user
-     * @param arguments
      * @return String, a String that indicating the user's changes result.
      */
     @Override

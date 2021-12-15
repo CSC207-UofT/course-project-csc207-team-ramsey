@@ -13,9 +13,9 @@ import java.util.List;
  * the controlCentre fo recipes
  */
 public class RecipeControlCentre{
-    User user;
-    RecipeManager recipeManager;
-    FoodManager foodManager;
+    final User user;
+    final RecipeManager recipeManager;
+    final FoodManager foodManager;
 
     public RecipeControlCentre(User user) {
         this.user = user;

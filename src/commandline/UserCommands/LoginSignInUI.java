@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class LoginSignInUI {
 
-    private LoginController loginController;
+    private final LoginController loginController;
 
     /**
      * LoginSignIn

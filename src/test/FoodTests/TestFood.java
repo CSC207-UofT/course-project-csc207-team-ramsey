@@ -11,8 +11,6 @@ import usecases.*;
 
 import java.util.Objects;
 
-import static org.junit.Assert.assertEquals;
-
 
 public class TestFood {
     FoodManager foodManager;

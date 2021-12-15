@@ -7,7 +7,7 @@ import entities.UserList;
 import java.io.IOException;
 
 public class UserManager {
-    private UserWriteReader readWriter = new UserWriteReader();
+    private final UserWriteReader readWriter = new UserWriteReader();
     private UserList users;
 
     public UserManager() throws Exception{
@@ -57,10 +57,8 @@ public class UserManager {
      *          if yes-> delete the user associated with user's previous username
      * -> update the user into the userlist
      * -> try to save the file
-     * @param user
-     * @throws Exception
      */
-    public void saveUserChange(User user) throws Exception{
+    public void saveUserChange(User user) {
         if (users == null) {
             users = new UserList();
         } else {
@@ -118,7 +116,6 @@ public class UserManager {
 
     /**
      *
-     * @param username
      * @return a selected user with associate username
      */
 
@@ -137,8 +134,6 @@ public class UserManager {
 
     /**
      * some test cases. Please ignore it
-     * @param args
-     * @throws Exception
      */
     public static void main(String[] args) throws Exception {
         UserManager userManager = new UserManager();
