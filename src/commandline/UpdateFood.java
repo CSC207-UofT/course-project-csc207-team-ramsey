@@ -1,23 +1,23 @@
 package commandline;
 
-import controllers.ControlCentre;
-import entities.User;
+import controllers.FoodControlCentre;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class UpdateFood extends Command implements CommandExecute{
+public class UpdateFood<T> extends Command<T> implements CommandExecute{
 
 
-    public UpdateFood(int maxArguments, int minArguments, ControlCentre receiver) {
-        super(maxArguments, minArguments, receiver);
+    public UpdateFood(T receiver) {
+        super(3, 3, receiver);
     }
 
     @Override
-    public String execute(List<String> arguments) {
-        return receiver.updateFood(arguments.get(0), arguments.get(1), arguments.get(2), receiver.getUser());
+    public String execute(List<String> arguments){
+        FoodControlCentre control = (FoodControlCentre) this.receiver;
+        return control.updateFood(arguments.get(0), arguments.get(1), arguments.get(2), control.getUser());
     }
 
     public void initiate(Scanner s){
@@ -41,7 +41,7 @@ public class UpdateFood extends Command implements CommandExecute{
             String response = execute(arguments);
             System.out.println(response);
 
-            if (Objects.equals(response, "There is no food matching that name")) {
+            if (Objects.equals(response, "This food does not exist")){
                 System.out.println("Would you like to try again(y/n)");
             } else {
                 System.out.println("Would you like to show another food(y/n)");

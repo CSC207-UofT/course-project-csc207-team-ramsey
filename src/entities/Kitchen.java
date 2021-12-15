@@ -1,5 +1,6 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import entities.food.Food;
 
@@ -8,7 +9,7 @@ import entities.food.Food;
  * food, recipes, and shoppingList
  */
 
-public class Kitchen {
+public class Kitchen implements Serializable {
 
     private ArrayList<Food> food;
     private ArrayList<Recipe> recipes;
@@ -80,6 +81,8 @@ public class Kitchen {
     public void addFoodtoList(Food newFood) {
         this.food.add(newFood);
     }
+
+    public void removeFoodfromList(Food newFood){this.food.remove(newFood);}
 
 
     /**

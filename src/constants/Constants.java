@@ -12,7 +12,7 @@ public class Constants {
     public UserControlCentre userControlCentre;
     public RecipeControlCentre recipeControlCentre;
 
-    public Constants(KitchenControlCentre kitchenControlCentre, UserControlCentre userControlCentre, RecipeControlCentre recipeControlCentre){
+    public Constants(KitchenControlCentre kitchenControlCentre, UserControlCentre userControlCentre, RecipeControlCentre recipeControlCentre, FoodControlCentre foodControlCentre){
         this.kitchenControlCentre = kitchenControlCentre;
         this.userControlCentre = userControlCentre;
         this.recipeControlCentre = recipeControlCentre;

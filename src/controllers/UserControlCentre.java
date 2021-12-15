@@ -1,17 +1,35 @@
 package controllers;
 
+import commandline.LoginRegisterUI;
+import commandline.LoginSignInUI;
 import entities.User;
 import entities.UserList;
 import usecases.LoginManager;
 import usecases.UserManager;
 
+import java.io.IOException;
+
 public class UserControlCentre {
     private UserManager userManager;
 
-    public UserControlCentre(){
+    /**
+     * UserControlCentre for CreateNewUser, DeleteUserAccount,
+     * Initiate User Control centre and throw exception when there is an error when initiating the UserManager.
+     * @throws Exception IO Exception mostly
+     */
+    public UserControlCentre() throws Exception {
         this.userManager = new UserManager();
     }
 
+    /**
+     * Create New User and save the new user to the file, and return it for further Manipulating in the UI and CMD later.
+     * throw an Exception when username already exist.
+     * @param name user's password
+     * @param email user's email
+     * @param password user's password
+     * @return User the user with all the details above
+     * @throws Exception when username is already used
+     */
     public User createNewUser(String username, String name, String email, String password) throws Exception {
         if (userManager.checkUserNameAva(username)) {
             User user = userManager.createNewUser(username, password, email, name);
@@ -26,27 +44,53 @@ public class UserControlCentre {
         userManager.changeUserPassword(password, user);
     }
 
+    /**
+     * Delete user account and save the changes to the file
+     * @param user deleted user
+     */
     public void deleteUserAccount(User user) throws Exception {
         userManager.deleteUser(user);
         try {
             userManager.saveChangesDeleteUser();
-        } catch (Exception e){
-            System.out.println("The User changes has not been saved.");
+        } catch (IOException e){
+            //如果这里删除了user 在save changes里面会被重新加回来 所以也好像无所谓了 而且exit program的话不会保存。
+            //actually will never be reached.
+            throw new IOException("The User changes has not been saved.");
         }
     }
 
+    /**
+     * save the user's changes and rewrite the file.
+     * @param user changed user
+     * @throws Exception when there is an error when saving user
+     */
     public void saveUserChanges(User user) throws Exception {
         userManager.saveUserChange(user);
     }
 
+    /**
+     * get the selected user associated with the username
+     * @param username username
+     * @return User
+     */
     public User getSelectedUser(String username){
         return userManager.getSelectedUser(username);
     }
+
+    /**
+     * Test cases, please ignore
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
-        UserControlCentre userControlCentre = new UserControlCentre();
+        //UserControlCentre userControlCentre = new UserControlCentre();
         //userControlCentre.createNewUser("101112","123","123","123");
         //userControlCentre.userManager.saveChangesDeleteUser();
-        User user = userControlCentre.userManager.getSelectedUser("101112");
+        //User user = userControlCentre.userManager.getSelectedUser("101112");
+        //userControlCentre.deleteUserAccount(user);
+        LoginRegisterUI loginRegisterUI = new LoginRegisterUI();
+        User user = loginRegisterUI.initiate();
+        UserControlCentre userControlCentre = new UserControlCentre();
         userControlCentre.deleteUserAccount(user);
     }
 }

@@ -13,12 +13,13 @@ import java.util.HashMap;
  * the ControlCentre for handling Kitchen responsibilities
  */
 
-public class KitchenControlCentre extends ControlCentre {
-    ShoppingListManager shoppingListManager;
+public class KitchenControlCentre{
+    private final ShoppingListManager shoppingListManager;
+    private final User user;
 
 
     public KitchenControlCentre(User user) {
-        super(user);
+        this.user = user;
         this.shoppingListManager = new ShoppingListManager();
     }
 
