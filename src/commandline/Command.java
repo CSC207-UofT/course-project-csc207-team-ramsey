@@ -12,8 +12,4 @@ public abstract class Command<T>{
         this.minArguments = minArguments;
         this.receiver = receiver;
     }
-
-    public Boolean checkArguments(List<String> arguments) {
-        return arguments.size() < this.maxArguments && arguments.size() > minArguments;
-    }
 }
