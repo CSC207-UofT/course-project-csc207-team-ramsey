@@ -36,8 +36,11 @@ be a future feature that we would like to implement. Additionally, users
 will also be able to sort their foods based on their type (Grains, fruits and vegetables, meats, dariy, and soups and condiments.)
 They will also be able to sort their foods based on which foods will expire the soonest. 
 
-
-Recipe - Users may also add their own recipes where they can use the recipe function to search for recipes based on specific preferences, such as key ingredient, availability of ingredients, or based on the expiration date of items in the user’s pantry.
+### Recipe
+Users may also add their own recipes and keep track of them by with the dsplyRecipe command, which shows all the recipes
+in the user's kitchen and the showRecipe command, which shows all the details for a single recipe. When displaying the recipes,
+the user can also sort them by the provided categories in the MealCountry enum and Mealtime enum; allowing the user to easily view 
+their recipes of interest. The editRecipe command allows the user to change the details of a recipe when needed.
 
 ###### Kitchen + Shopping List
 

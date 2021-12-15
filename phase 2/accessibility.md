@@ -68,6 +68,17 @@ reversible (even for our delete commands). We could also use the Momento design 
 program states. Our CLI, also gives the user various warnings whenever their inputs do not follow. This undo method, would translate 
 to an undo button in our GUI. However, the GUI can also minimize hazards by making information more 
 
+#### 6) Low physical effort
+
+This principle demands that the developer ensures users can use the design both efficiently and comfortably without fatigue.
+As a CLI this principle is not adhered perfectly in our program. The user is required to perform several repetitive tasks
+through our commands which are significantly mentally taxing.
+
+#### 7) size and space for approach and use
+
+This requires  that the designer provides appropriate sizing and spacing for user interaction regardless of body size and mobility.
+The program is mostly accessibly for different body types; however, it is not physically accessible for individuals with low finger dexterity. 
+
 
 ### Target Market
 
@@ -81,3 +92,7 @@ consumer(Android, IOS).
 
 ### Other Demographic Considerations
 
+This program is less likely to be used for the younger and older demographic, as they may either not have proper acess to 
+technology or do not have the technical expertise to use the app. Also, people who do not cook at home will not have the need for 
+Ricetta. Of note, as a CLI, the limited accessibility makes the app to be easily used by many demographics at this stage; however,
+these considerations will be taken into consideration for further iterations of the app. 
