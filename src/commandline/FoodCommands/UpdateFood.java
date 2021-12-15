@@ -8,20 +8,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
-
+/**
+ * This class updates a food object
+ * @param <T> the receiver
+ */
 public class UpdateFood<T> extends Command<T> implements CommandExecute {
 
-
+    /**
+     * The constructor for this class
+     * @param receiver food control centre
+     */
     public UpdateFood(T receiver) {
         super(3, 3, receiver);
     }
-
+    /**
+     * Gets the arguments from initiate to give to the food controller
+     * @param arguments the user inputs
+     * @return a string for initiate to give back to the user
+     */
     @Override
     public String execute(List<String> arguments){
         FoodControlCentre control = (FoodControlCentre) this.receiver;
         return control.updateFood(arguments.get(0), arguments.get(1), arguments.get(2), control.getUser());
     }
 
+    /**
+     * a function that shows the users and gets inputs from the user
+     * @param s the scanner that reads inputs
+     */
     public void initiate(Scanner s){
         do {
 
@@ -35,7 +49,7 @@ public class UpdateFood<T> extends Command<T> implements CommandExecute {
             System.out.println("What is the new " + updateField);
             String updateItem = s.nextLine();
 
-            ArrayList<String> arguments = new ArrayList<String>();
+            ArrayList<String> arguments = new ArrayList<>();
             arguments.add(foodName);
             arguments.add(updateField);
             arguments.add(updateItem);

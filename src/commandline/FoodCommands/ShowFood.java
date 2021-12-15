@@ -9,19 +9,32 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
-
+/**
+ * This class shows food object
+ * @param <T> the receiver
+ */
 public class ShowFood<T> extends Command<T> implements CommandExecute {
-
+    /**
+     * The constructor for this class
+     * @param receiver food control centre
+     */
     public ShowFood(T receiver) {
         super(1, 1, receiver);
     }
-
+    /**
+     * Gets the arguments from initiate to give to the food controller
+     * @param arguments the user inputs
+     * @return a string for initiate to give back to the user
+     */
     @Override
     public String execute(List<String> arguments) {
         FoodControlCentre control = (FoodControlCentre) this.receiver;
         return control.showFood(arguments.get(0), control.getUser());
     }
-
+    /**
+     * a function that shows the users and gets inputs from the user
+     * @param s the scanner that reads inputs
+     */
     public void initiate(Scanner s){
         do {
             System.out.println("What is the of the food you want to see?");
