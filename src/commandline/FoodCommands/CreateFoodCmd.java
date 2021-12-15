@@ -12,13 +12,27 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * This class creates a new food
+ * @param <T> the receiver
+ */
+
 public class CreateFoodCmd<T> extends Command<T> implements CommandExecute, FoodFactory {
 
 
+    /**
+     * The constructor for this class
+     * @param receiver food control centre
+     */
     public CreateFoodCmd(T receiver) {
         super(5, 5, receiver);
     }
 
+    /**
+     * Gets the arguments from initiate to give to the food controller
+     * @param arguments the user inputs
+     * @return a string for initiate to give back to the user
+     */
     @Override
     public String execute(List<String> arguments){
         FoodControlCentre control = (FoodControlCentre) this.receiver;
@@ -42,6 +56,10 @@ public class CreateFoodCmd<T> extends Command<T> implements CommandExecute, Food
         }
     }
 
+    /**
+     * a function that shows the users and gets inputs from the user
+     * @param s the scanner that reads inputs
+     */
     public void initiate(Scanner s){
         do {
             System.out.println("What type of food is your food (grains, meats, fruitvegi, dairy)?: ");

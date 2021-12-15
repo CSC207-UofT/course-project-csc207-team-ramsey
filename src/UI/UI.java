@@ -1,9 +1,9 @@
 package UI;
 
-import commandline.DeleteRecipeCmd;
-import commandline.DeleteUser;
-import commandline.LoginRegisterUI;
-import commandline.SaveUserChangeCmd;
+import commandline.RecipeCommands.DeleteRecipeCmd;
+import commandline.UserCommands.DeleteUser;
+import commandline.UserCommands.LoginRegisterUI;
+import commandline.UserCommands.SaveUserChangeCmd;
 import constants.Constants;
 import controllers.*;
 import entities.User;
