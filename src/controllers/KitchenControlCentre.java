@@ -1,6 +1,5 @@
 package controllers;
 
-import entities.Kitchen;
 import entities.Recipe;
 import entities.User;
 import entities.food.Food;
@@ -8,7 +7,6 @@ import usecases.FoodFactory;
 import usecases.ShoppingListManager;
 
 import java.util.HashMap;
-import java.util.List;
 
 
 /**
@@ -16,7 +14,8 @@ import java.util.List;
  */
 
 public class KitchenControlCentre extends ControlCentre {
-    private final ShoppingListManager shoppingListManager;
+    ShoppingListManager shoppingListManager;
+    User user;
 
 
     public KitchenControlCentre(User user) {

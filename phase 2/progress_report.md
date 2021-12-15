@@ -1,51 +1,52 @@
-### Phase 1 Progress Report
+### Phase 2 Progress Report
 
 ###### Summary
 
-Our project allows people to store and sort their foods and recipes so that they can easily buy necessary ingredients, understand what recipes they can make, and helps track foods that may expire soon. We have 3 entity classes (User, Kitchen, and Food (an abstract class)), 7 use case classes (FoodManager, RecipeManager, FoodFactory, FoodSorter, RecipeSorter, ShoppingListManager, and userManager), 1 abstract ControlCentre class with 4 child classes (FoodControlCentre, KitchenControlCentre, RecipeControlCentre, and UserControlCentre), 18 Commonds that allow the user to request and input information, and 3 constants for recipe sorting (Constants, MealCountry, MealTime). Users should be able to use features such as creating and editing account details, adding new foods/recipes, see their foods/recipes, sorting their recipes and foods, creating and adding items to their shopping list, and adding/removing food from their kitchen based on the food they buy from their shopping list and the recipes they make. 
+Our project is a kitchen organizer that allows users to organize their food and recipes. It includes features such as stroring and sorting their recipes by category, creating shopping lists for food they need, adding un-owned food from a recipe to a shopping list, and tracking food expiration dates. The program contains 5 entity classes (Food (an abstract classO, Kitchen, Recipe, User, and UserList), 8 usecase classes (FoodManager, RecipeManager, FoodFactory, FoodSorter, RecipeSorter, ShoppingListManager, LoginManager, and userManager), an abstract ControlCentre class with 7 child classes (FoodControlCentre, KitchenControlCentre, LoginDController, LoginInputBoundary, RecipeControlCentre, UserControlCentre, and UserDetailsController), 31 Commonds that allow the user to request and input information, and 3 constants for recipe sorting (Constants, MealCountry, MealTime), and a UI class. Our program makes use of a vareity of design strategies, such as generics, and Design Patterns, such as the Factory Design Pattern, the Filter Design Pattern, and the Command Design Pattern.
 
 
 ###### Questions
 
-There are some instances where our controllers call on entities right now, is there a better way to fulfil these functions? 
+- How can we access the specific control centres we need in each command?
 
-How can we implement design patterns in the next responsibilities we need to add. 
-
-
-
-###### What Has Worked Well in Our Group
-
-Our group communication continues to work very well. We meet up multiple times per week to discuss what everyone has been up to, ask questions, and decide what needs to be 
-done next. 
-
-We have intentionally been addressing previous issues and questions from Phase0, such as issues with private vs public attributes, commandline setup, and design questions. 
-
+- How can we implement the initiate/execute structure in commands with only one function?
 
 
 ###### What Has Worked Well With Our Design
 
-Implemening design patterns has allowed our code to function in the way we envisioned without making it too messy and helping follow the SOLID design principles; it has helped keep everything organized and create a natural flow of responsibilities. 
+- The way that we packed our classes by each layer of the program allowed us to maintain a clear path for communication to be passed along while maintaining Clean Architecture and provided us with a clear outline for how we should divide up the functions of the program.
 
-Our design patterns have also allowed us to address previous issues we were having regarding the design of our program. For example, we were unsure how to address making instances of Food when there is so much variation between food categories and units and stuff, so we used the Factory Design Pattern to address this. 
+- Our design has incorporated various Design Patterns that have been helpful in solving any problems that come up as we were developing. For example, the filter design pattern was helpful in providing a method to sort recipes by categories. In addition to be generally helpful in providing functional help, these Design Patterns solutions have also helped adhere to SOLID principles
+
+- The choices we have made for our design (including the packaging methods and Design Patterns) has helped us maintain Clean Architecture, which was, at some points of our development, a challenge in certain portions of the program
 
 
+###### What Each of Us Have Been Working On Since Phase1
 
-###### What Each of Us Have Been Working On + What's Next
+Marco
+- Adding additional testing for all Recipe related commands and functions
+- Adding in more docstrings for previous work
+- Implementing UI class
+- Updating Recipe commands to include generics
+- Updated Constants
+- Significant Pull Request:
 
-Everyone in our group worked on the specification and UML together. 
+Mer
+- Adding testing for Food related responsibilities
+- Updating Food commands to include generics
+- Adding in more docstrings for Food classes
+- Significant Pull Request:
 
-Marco - RecipeSorter, RecipeManager, Recipe Entity updates, RecipeControlCentre, Recipe Commands, Constants, Filter Design Pattern, design document
+Tosha
+- Adding testing for Kitchen related commands and functions
+- Adding in more docstrings for previous work
+- Updating Kitchen commands to include generics and obey clean architecture
+- Adding tests for Kitchen Commands
+- Significant Pull Request:
 
-Tosha - Kitchen Entity, Kitchen ControlCentre, ShoppingList Manager, Kitchen Commands, progress report
-
-Mer - Food Entity updates, Food Manager, Food ControlCentre, Food Commands, design document, Food Factory Design, abstract classes, food interfaces. 
-
-Martin - Progress remains same as phase0
-
-Sora - UserEntity updates, UserManager, UserControlCentre, UserCommands, specification
-
-Since we all meet, our tasks tend to get a bit more entangled, but we all helped each other to complete as much as we can!
-
-We still plan to adding functionality to our program. We still want to work on, sorting recipes and foods by certain categories, being able to change serving sizes so that users can change how much of something they want to make, and sorting foods by their expiration date. 
-
-We will need to add in more commands that prompt the user to adjust serving sizes and make use of the expiration dates. We will also have to work on finding a solution to areas where SOLID principles have been violated. 
+Sora
+- Implementing User system
+- Serializing User
+- Updating User commands
+- Adding in User testing
+- Significant Pull Request: 
