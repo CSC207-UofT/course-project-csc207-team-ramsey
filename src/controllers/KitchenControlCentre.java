@@ -59,7 +59,7 @@ public class KitchenControlCentre{
      * @param user the user whose shopping list is being accessed
      * @return StringBuilder food in the User's shopping list
      */
-    public StringBuilder getShoppingList(User user) {
+    public String getShoppingList(User user) {
         return user.getKitchen().showShoppingList();
     }
 

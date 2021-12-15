@@ -115,12 +115,12 @@ public class Kitchen implements Serializable {
      * helper method that returns a StringBuilder representation of a shopping list
      * @return StringBuilder shoppingList
      */
-    public StringBuilder showShoppingList() {
+    public String showShoppingList() {
         StringBuilder shoppingList = new StringBuilder();
         for (Food food : this.shoppingList) {
             shoppingList.append(food.getName() + ": " + food.getQuantity() + " " + food.getUnit() + "\n");
         }
-        return shoppingList;
+        return shoppingList.toString();
     }
 
 

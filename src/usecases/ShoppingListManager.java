@@ -17,8 +17,8 @@ public class ShoppingListManager {
 
     /**
      * Add item to shoppingList, or update quantity needed if item is already in list
-     * @param user
-     * @param newFood
+     * @param user user adding new food
+     * @param newFood new food being added to list
      * @return true if item was successfully added to list
      */
     public boolean addFood(User user, Food newFood) {
@@ -53,7 +53,7 @@ public class ShoppingListManager {
     /**
      * Add all food from shoppingList into FoodManager
      *
-     * @param user
+     * @param user user buying food
      * @return true if items were successfully added
      */
     public boolean buyAllFood(User user) {
@@ -76,8 +76,8 @@ public class ShoppingListManager {
     /**
      * Remove item from shoppingList
      *
-     * @param user
-     * @param item
+     * @param user user removing item
+     * @param item item being removed from list
      * @return true if item was successfully deleted
      */
 
@@ -92,6 +92,14 @@ public class ShoppingListManager {
         return (user.getKitchen().getShoppingList().contains(item));
     }
 
+
+    /**
+     * Get recipe by title
+     *
+     * @param user user accessing recipe
+     * @param recipeName title of recipe being accessed
+     * @return recipe being accessed
+     */
     public Recipe getRecipeFromTitle(User user, String recipeName) {
         for (Recipe recipe : user.getKitchen().getRecipes()) {
             if (recipe.getTitle().equals(recipeName)) {
