@@ -10,15 +10,14 @@ import usecases.FoodManager;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.Objects;
 import java.util.Scanner;
-
-import static org.junit.Assert.assertEquals;
 
 public class TestCreateFoodCmd {
     FoodControlCentre foodControlCentre;
     FoodManager foodManager;
     User user;
-    CreateFoodCmd createFoodCmd;
+    CreateFoodCmd<FoodControlCentre> createFoodCmd;
 
     @Before
     public void setUp() {
@@ -27,7 +26,7 @@ public class TestCreateFoodCmd {
         foodManager = new FoodManager();
         foodControlCentre.createEntity("GRAINS","rice", 30, 10, "grams");
 
-        createFoodCmd = new CreateFoodCmd(foodControlCentre);
+        createFoodCmd = new CreateFoodCmd<>(foodControlCentre);
     }
 
     @Test(timeout = 50)
@@ -39,7 +38,7 @@ public class TestCreateFoodCmd {
 
         System.setIn(stdin);
 
-        //assertEquals(user.getKitchen().getRecipes().get(1).getTitle(), "Lasagne");
+        assert (Objects.equals(user.getKitchen().getFood().get(0).getName(), "rice"));
     }
 
 }

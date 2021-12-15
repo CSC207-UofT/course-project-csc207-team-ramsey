@@ -2,9 +2,21 @@ package usecases;
 
 import entities.food.*;
 
+/**
+ * a factory class interface that helps make foods depending on the type of food
+ */
 public interface FoodFactory {
 
-    public static Food getFood(String foodType, String foodName, int sl, int quantity, String unit){
+    /**
+     *
+     * @param foodType the type of food (grains, meats etc)
+     * @param foodName the name of the new food created
+     * @param sl the shelf life of the food
+     * @param quantity the initial quantity of the food
+     * @param unit the unit that the quantity is measured in
+     * @return a new food
+     */
+    static Food getFood(String foodType, String foodName, int sl, int quantity, String unit){
         if(foodType == null){
             return null;
         }
@@ -19,6 +31,9 @@ public interface FoodFactory {
         }
         else if(foodType.equalsIgnoreCase("DAIRY")) {
             return new Dairy(sl, foodName, quantity, unit);
+        }
+        else if(foodType.equalsIgnoreCase("SOUPSCOND")) {
+            return new SoupsCond(sl, foodName, quantity, unit);
         }
         return null;
     }

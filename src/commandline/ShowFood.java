@@ -1,8 +1,6 @@
 package commandline;
 
-import controllers.ControlCentre;
 import controllers.FoodControlCentre;
-import entities.User;
 import entities.food.Food;
 
 import java.util.ArrayList;
@@ -19,13 +17,7 @@ public class ShowFood<T> extends Command<T> implements CommandExecute{
     @Override
     public String execute(List<String> arguments) {
         FoodControlCentre control = (FoodControlCentre) this.receiver;
-        ArrayList<Food> food = control.getUser().getKitchen().getFood();
-        for (Food foodEntry : food){
-            if (Objects.equals(foodEntry.getName(), arguments.get(0))){
-                return control.showFood(foodEntry);
-            }
-        }
-        return "There is no food matching that name";
+        return control.showFood(arguments.get(0), control.getUser());
     }
 
     public void initiate(Scanner s){
@@ -38,7 +30,7 @@ public class ShowFood<T> extends Command<T> implements CommandExecute{
             String response = execute(arguments);
             System.out.println(response);
 
-            if (Objects.equals(response, "There is no food matching that name")) {
+            if (Objects.equals(response, "This food does not exist")) {
                 System.out.println("Would you like to try again(y/n)");
             } else {
                 System.out.println("Would you like to show another food(y/n)");

@@ -1,8 +1,6 @@
 package commandline;
 
-import controllers.ControlCentre;
 import controllers.FoodControlCentre;
-import entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +32,18 @@ public class RemoveFoodQuantity<T> extends Command<T> implements CommandExecute{
             String quantity = quantityData[0];
             String unit = quantityData[1];
 
-            if ((control.findFood(foodName, control.getUser()) != null) && (Objects.equals(control.findFood(foodName, control.getUser()).getUnit(), unit))){
-                ArrayList<String> arguments = new ArrayList<String>();
-                arguments.add(foodName);
-                arguments.add(quantity);
+            ArrayList<String> arguments = new ArrayList<String>();
+            arguments.add(foodName);
+            arguments.add(quantity);
 
-                execute(arguments);
+            String response = execute(arguments);
+
+            if (Objects.equals(response, "This food does not exist")) {
+                System.out.println("Would you like to try again(y/n)");
+            } else {
+                System.out.println("Would you like to remove another food(y/n)");
             }
+
         } while (!Objects.equals(s.nextLine(), "n"));
     }
 }
