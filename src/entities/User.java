@@ -20,10 +20,12 @@ public class User implements Serializable {
     private String previousUserName;
 
     /**
+     *
      * Creates an instance of Entities.User
      * @param user name of user
-     * @param uName chosen username for user
-     * @param mail email associated with user
+     * @param uName user's username
+     * @param mail user's email
+     * @param password user's password
      */
     public User(String user, String uName, String mail, String password) {
         this.userName = uName;
