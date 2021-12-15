@@ -39,7 +39,8 @@ Mer
 - Added classes and commands for sorting food
 - Refactoring packages 
 - Added constants for food commands
-- Significant Pull Request:
+- Significant Pull Request: https://github.com/CSC207-UofT/course-project-csc207-team-ramsey/pull/80
+- Significant Pull Request: https://github.com/CSC207-UofT/course-project-csc207-team-ramsey/pull/33/files
 
 Tosha
 - Adding testing for Kitchen related commands and functions
