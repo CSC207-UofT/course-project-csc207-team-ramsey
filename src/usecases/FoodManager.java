@@ -95,15 +95,12 @@ public class FoodManager {
         return kitchen.showKitchen().toString();
     }
 
-//    public String deleteFood(Food food, User user{
-//        for (Food element : user.getKitchen().getFood()){
-//            if (element == food){
-//                return food;
-//            }
-//        }
-//    }
-
+    public String removeFoodfromList(Food food, Kitchen kitchen){
+        kitchen.removeFoodfromList(food);
+        return kitchen.showKitchen().toString();
     }
+
+}
 
 
 

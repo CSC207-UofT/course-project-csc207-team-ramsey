@@ -1,6 +1,7 @@
 package commandline;
 
 import controllers.ControlCentre;
+import controllers.FoodControlCentre;
 import entities.User;
 
 import java.util.ArrayList;
@@ -8,16 +9,17 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class UpdateFood extends Command implements CommandExecute{
+public class UpdateFood<T> extends Command<T> implements CommandExecute{
 
 
-    public UpdateFood(int maxArguments, int minArguments, ControlCentre receiver) {
-        super(maxArguments, minArguments, receiver);
+    public UpdateFood(T receiver) {
+        super(3, 3, receiver);
     }
 
     @Override
-    public String execute(List<String> arguments) {
-        return receiver.updateFood(arguments.get(0), arguments.get(1), arguments.get(2), receiver.getUser());
+    public String execute(List<String> arguments){
+        FoodControlCentre control = (FoodControlCentre) this.receiver;
+        return control.updateFood(arguments.get(0), arguments.get(1), arguments.get(2), control.getUser());
     }
 
     public void initiate(Scanner s){

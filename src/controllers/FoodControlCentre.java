@@ -6,14 +6,12 @@ import entities.food.Food;
 import usecases.FoodFactory;
 import usecases.FoodManager;
 
-import java.util.ArrayList;
-
-public class FoodControlCentre extends ControlCentre {
+public class FoodControlCentre{
     private final FoodManager foodManager;
     private User user;
 
     public FoodControlCentre(User user) {
-        super(user);
+        this.user = user;
         this.foodManager = new FoodManager();
     }
 
@@ -26,17 +24,14 @@ public class FoodControlCentre extends ControlCentre {
         return newFood;
     }
 
-    @Override
     public String addFoodtoList(Food food, Kitchen kitchen){
         return this.foodManager.addFoodtoList(food, kitchen);
     }
 
-    @Override
     public String showFood(Food food){
         return this.foodManager.getInfoQuantity(food);
     }
 
-    @Override
     public String removeFoodQuantity(String foodName, String quantity, User user){
         return this.foodManager.removeQuantity(this.foodManager.findFood(foodName, user), quantity);
     }
@@ -45,20 +40,17 @@ public class FoodControlCentre extends ControlCentre {
         return this.foodManager.findFood(foodName, user);
     }
 
-    @Override
     public String updateFood(String foodName, String updateField, String updateItem, User user){
         return this.foodManager.updateFood(this.findFood(foodName, user), updateField, updateItem);
     }
-    @Override
+
     public String addFoodQuantity(String foodName, String quantity, User user){
         return this.foodManager.addFoodQuantity(this.findFood(foodName, user), quantity);
     }
 
-    public void deleteEntity() {
-
+    public String deleteEntity(String foodName, User user) {
+        Food food = this.findFood(foodName, user);
+        return this.foodManager.removeFoodfromList(food, user.getKitchen());
     }
 
-    public void updateEntity() {
-
-    }
 }
