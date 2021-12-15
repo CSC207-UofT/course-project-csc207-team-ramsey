@@ -10,8 +10,6 @@ import java.util.*;
  * This class represents an abstract class food, where the shelf life, quantity, unit, name, and expiration dates are saved
  */
 
-public abstract class Food {
-
 public abstract class Food implements Serializable {
     /** assuming shelfLife is in days */
     private int shelfLife;
