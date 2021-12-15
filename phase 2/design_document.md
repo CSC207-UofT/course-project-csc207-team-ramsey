@@ -145,4 +145,3 @@ on each recipe category we have listed (following SRP). Also, since we can simpl
 we want to add a new recipe category we are also closely following OCP. In addition, we've integrated the pattern with
 enums in order to easily keep track of the new categories we include for recipes.
 We used the filter pattern to make a sorter for our user's recipe list.
-
