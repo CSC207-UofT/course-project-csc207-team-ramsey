@@ -10,6 +10,7 @@ https://lucid.app/lucidchart/0d1ddbfb-ae9b-4d1e-828f-1430f31d79cf/edit?viewport_
 
 We used the factory pattern in order to instantiate the foods in our program.
 
+
 #### Command Pattern
 
 The command pattern was used for our command line interface.
