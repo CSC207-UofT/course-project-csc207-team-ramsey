@@ -1,11 +1,12 @@
 package entities;
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  * This class represents a Recipe which a User may want to make.
  * Recipes are stored in the User's Kitchen
  */
-public class Recipe {
+public class Recipe implements Serializable {
 
     private String title;
     private int recipeServings;

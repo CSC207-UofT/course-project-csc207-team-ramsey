@@ -20,13 +20,13 @@ public class LoginManager implements LoginInputBoundary {
         SUCCESS, FAILURE // Should we do NO_SUCH_USER as well as SUCCESS and FAILURE?
     }
 
-    public LoginManager() {
+    public LoginManager() throws Exception {
         try {
             this.users = readWriter.readFromFile("users.ser");
         } catch (IOException e) {
-            System.out.println("Cannot load user data, there is no user data in the file. Please signIn");
+            throw new IOException("Cannot load user data, Please contact us for helping");
         } catch (ClassNotFoundException e) {
-            System.out.println("The data from file does not match");
+            throw new ClassNotFoundException("The data from file does not match");
         }
     }
 
@@ -59,7 +59,8 @@ public class LoginManager implements LoginInputBoundary {
         return users.toString();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
         LoginManager loginManager = new LoginManager();
         User user = new User("123","123","123","123");
         System.out.println(loginManager.users.getUser("123"));

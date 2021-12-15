@@ -14,7 +14,7 @@ public class LoginController {
     private LoginManager.LoginResult result = LoginManager.LoginResult.FAILURE;
 
 
-    public LoginController(){
+    public LoginController() throws Exception{
         this.loginManager = new LoginManager();
     }
 

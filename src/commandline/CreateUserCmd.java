@@ -13,6 +13,9 @@ public class CreateUserCmd{
     private Scanner scanner = new Scanner(System.in);
     private UserControlCentre userControlCentre = new UserControlCentre();
 
+    public CreateUserCmd() throws Exception {
+    }
+
     public User execute() throws Exception {
         System.out.println("Please enter the user name you want");
         String username = scanner.next();
