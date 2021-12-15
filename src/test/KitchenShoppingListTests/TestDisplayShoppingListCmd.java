@@ -1,4 +1,4 @@
-package test;
+package test.KitchenShoppingListTests;
 
 import commandline.KitchenShoppingListCommands.DisplayShoppingListCmd;
 import controllers.KitchenControlCentre;

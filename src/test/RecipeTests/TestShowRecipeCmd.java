@@ -1,4 +1,4 @@
-package test;
+package test.RecipeTests;
 
 import commandline.RecipeCommands.DisplayRecipesCmd;
 import controllers.RecipeControlCentre;
@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestDisplayRecipesCmd {
+public class TestShowRecipeCmd {
     RecipeControlCentre recipeControlCentre;
     RecipeManager recipeManager;
     User user;
@@ -39,7 +39,7 @@ public class TestDisplayRecipesCmd {
     }
 
     @Test(timeout = 50)
-    public void TestDisplayRecipesInitiate() {
+    public void TestShowRecipesInitiate() {
         InputStream stdin = System.in;
         System.setIn(new ByteArrayInputStream("full\n".getBytes()));
 

@@ -1,6 +1,6 @@
-package test;
+package test.RecipeTests;
 
-import commandline.RecipeCommands.DisplayRecipesCmd;
+import commandline.RecipeCommands.CreateRecipeCmd;
 import controllers.RecipeControlCentre;
 import entities.User;
 import org.junit.Before;
@@ -8,21 +8,19 @@ import org.junit.Test;
 import usecases.RecipeManager;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestShowRecipeCmd {
+public class TestCreateRecipeCmd {
     RecipeControlCentre recipeControlCentre;
     RecipeManager recipeManager;
     User user;
     String recipeInstructions;
     HashMap<String, Float> ingredients;
-    DisplayRecipesCmd<RecipeControlCentre> displayRecipesCmd;
+    CreateRecipeCmd createRecipeCmd;
 
     @Before
     public void setUp() {
@@ -35,28 +33,19 @@ public class TestShowRecipeCmd {
         ingredients = new HashMap<>();
         ingredients.put("apples", 1.0F);
         ingredients.put("Curry", 1.0F);
-        displayRecipesCmd = new DisplayRecipesCmd<RecipeControlCentre>(recipeControlCentre);
+        createRecipeCmd = new CreateRecipeCmd(recipeControlCentre);
     }
 
     @Test(timeout = 50)
-    public void TestShowRecipesInitiate() {
+    public void TestCreateRecipeInitiate() {
         InputStream stdin = System.in;
-        System.setIn(new ByteArrayInputStream("full\n".getBytes()));
+        System.setIn(new ByteArrayInputStream("Dinner\nItalian\nLasagne\n15\n2\ntomato:2\nbeef:50\ndone\nmake lasagne\nn\n".getBytes()));
 
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(byteArrayOutputStream);
-        PrintStream stdout = System.out;
-        System.setOut(ps);
-
-        displayRecipesCmd.initiate(new Scanner(System.in));
+        createRecipeCmd.initiate(new Scanner(System.in));
 
         System.setIn(stdin);
-        System.setOut(stdout);
 
-        String outputText = byteArrayOutputStream.toString();
-        String[] lines = outputText.split("\\n");
-
-        assertEquals(lines[lines.length-1].trim(), "-Curry");
+        assertEquals(user.getKitchen().getRecipes().get(1).getTitle(), "Lasagne");
     }
-}
 
+}

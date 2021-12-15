@@ -1,4 +1,4 @@
-package test;
+package test.FoodTests;
 
 
 import entities.food.Food;

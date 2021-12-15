@@ -1,4 +1,4 @@
-package test;
+package test.FoodTests;
 
 import controllers.FoodControlCentre;
 import entities.Kitchen;

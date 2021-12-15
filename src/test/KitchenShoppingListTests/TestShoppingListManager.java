@@ -1,4 +1,4 @@
-package test;
+package test.KitchenShoppingListTests;
 
 import entities.User;
 import org.junit.Before;
