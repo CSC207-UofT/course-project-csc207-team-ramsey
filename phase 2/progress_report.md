@@ -29,6 +29,8 @@ Marco
 - Implementing UI class
 - Updating Recipe commands to include generics
 - Updated Constants
+- Accessibility.md
+- specification.md
 - Significant Pull Request:
 
 Mer
@@ -39,6 +41,8 @@ Mer
 - Added classes and commands for sorting food
 - Refactoring packages 
 - Added constants for food commands
+- design_document.md
+- specification.md
 - Significant Pull Request: https://github.com/CSC207-UofT/course-project-csc207-team-ramsey/pull/80
 - Significant Pull Request: https://github.com/CSC207-UofT/course-project-csc207-team-ramsey/pull/33/files
 
@@ -47,6 +51,9 @@ Tosha
 - Adding in more docstrings for previous work
 - Updating Kitchen commands to include generics and obey clean architecture
 - Adding tests for Kitchen Commands
+- Add in Constants
+- progress_report.md
+- specification.md
 - Significant Pull Request:
 
 Sora
@@ -54,4 +61,5 @@ Sora
 - Serializing User
 - Updating User commands
 - Adding in User testing
+- specification.md
 - Significant Pull Request: 
