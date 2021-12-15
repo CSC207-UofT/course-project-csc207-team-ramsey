@@ -1,6 +1,6 @@
 package test;
 
-import commandline.AddFromRecipeCmd;
+import commandline.RecipeCommands.AddFromRecipeCmd;
 import controllers.KitchenControlCentre;
 import entities.Recipe;
 import entities.User;

@@ -1,7 +1,6 @@
 package usecases;
 
-import commandline.UserWriteReader;
-import commandline.WriteReader;
+import commandline.UserCommands.UserWriteReader;
 import entities.User;
 import entities.UserList;
 

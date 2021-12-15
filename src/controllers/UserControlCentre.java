@@ -1,10 +1,7 @@
 package controllers;
 
-import commandline.LoginRegisterUI;
-import commandline.LoginSignInUI;
+import commandline.UserCommands.LoginRegisterUI;
 import entities.User;
-import entities.UserList;
-import usecases.LoginManager;
 import usecases.UserManager;
 
 import java.io.IOException;

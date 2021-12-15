@@ -1,6 +1,6 @@
 package test;
 
-import commandline.DisplayRecipesCmd;
+import commandline.RecipeCommands.DisplayRecipesCmd;
 import controllers.RecipeControlCentre;
 import entities.User;
 import org.junit.Before;

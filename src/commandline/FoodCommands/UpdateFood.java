@@ -1,5 +1,7 @@
-package commandline;
+package commandline.FoodCommands;
 
+import commandline.Command;
+import commandline.CommandExecute;
 import controllers.FoodControlCentre;
 
 import java.util.ArrayList;
@@ -7,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class UpdateFood<T> extends Command<T> implements CommandExecute{
+public class UpdateFood<T> extends Command<T> implements CommandExecute {
 
 
     public UpdateFood(T receiver) {

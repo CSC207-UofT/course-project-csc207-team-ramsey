@@ -1,5 +1,7 @@
-package commandline;
+package commandline.KitchenShoppingListCommands;
 
+import commandline.Command;
+import commandline.CommandExecute;
 import controllers.KitchenControlCentre;
 import entities.Recipe;
 

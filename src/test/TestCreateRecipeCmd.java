@@ -1,9 +1,8 @@
 package test;
 
-import commandline.CreateRecipeCmd;
+import commandline.RecipeCommands.CreateRecipeCmd;
 import controllers.RecipeControlCentre;
 import entities.User;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import usecases.RecipeManager;

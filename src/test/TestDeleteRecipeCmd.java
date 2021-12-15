@@ -1,7 +1,7 @@
 package test;
 
 
-import commandline.DeleteRecipeCmd;
+import commandline.RecipeCommands.DeleteRecipeCmd;
 import controllers.RecipeControlCentre;
 import entities.User;
 import org.junit.Before;

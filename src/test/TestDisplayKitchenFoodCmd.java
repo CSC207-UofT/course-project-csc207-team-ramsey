@@ -1,6 +1,6 @@
 package test;
 
-import commandline.DisplayKitchenFoodCmd;
+import commandline.KitchenShoppingListCommands.DisplayKitchenFoodCmd;
 import controllers.KitchenControlCentre;
 import entities.food.Food;
 import entities.User;

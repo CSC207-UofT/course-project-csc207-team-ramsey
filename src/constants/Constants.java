@@ -1,5 +1,10 @@
 package constants;
 import commandline.*;
+import commandline.FoodCommands.*;
+import commandline.RecipeCommands.CreateRecipeCmd;
+import commandline.RecipeCommands.DeleteRecipeCmd;
+import commandline.RecipeCommands.DisplayRecipesCmd;
+import commandline.RecipeCommands.ShowRecipeCmd;
 import controllers.*;
 
 import java.util.Hashtable;
@@ -11,11 +16,13 @@ public class Constants {
     public KitchenControlCentre kitchenControlCentre;
     public UserControlCentre userControlCentre;
     public RecipeControlCentre recipeControlCentre;
+    public FoodControlCentre foodControlCentre;
 
     public Constants(KitchenControlCentre kitchenControlCentre, UserControlCentre userControlCentre, RecipeControlCentre recipeControlCentre, FoodControlCentre foodControlCentre){
         this.kitchenControlCentre = kitchenControlCentre;
         this.userControlCentre = userControlCentre;
         this.recipeControlCentre = recipeControlCentre;
+        this.foodControlCentre = foodControlCentre;
     }
 
     public void populateConstants(){
@@ -26,6 +33,14 @@ public class Constants {
 
 
         //for FoodControlCentre
+        COMMANDS_DIC.put("create food", new CreateFoodCmd<>(this.foodControlCentre));
+        COMMANDS_DIC.put("add quantity", new AddFoodQuantity<>(this.foodControlCentre));
+        COMMANDS_DIC.put("delete food", new DeleteFood<>(this.foodControlCentre));
+        COMMANDS_DIC.put("remove quantity", new RemoveFoodQuantity<>(this.foodControlCentre));
+        COMMANDS_DIC.put("show food", new ShowFood<>(this.foodControlCentre));
+        COMMANDS_DIC.put("sort food by category", new SortFoodByCategory<>(this.foodControlCentre));
+        COMMANDS_DIC.put("sort food by expiration", new SortFoodByExpiration<>(this.foodControlCentre));
+        COMMANDS_DIC.put("update food", new UpdateFood<>(this.foodControlCentre));
 
         //for KitchenControlCentre
 

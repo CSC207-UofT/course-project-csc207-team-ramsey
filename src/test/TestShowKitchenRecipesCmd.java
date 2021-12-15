@@ -1,12 +1,11 @@
 package test;
 
-import commandline.ShowKitchenRecipesCmd;
+import commandline.KitchenShoppingListCommands.ShowKitchenRecipesCmd;
 import controllers.KitchenControlCentre;
 import entities.Recipe;
 import entities.User;
 import org.junit.Before;
 import org.junit.Test;
-import usecases.RecipeManager;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

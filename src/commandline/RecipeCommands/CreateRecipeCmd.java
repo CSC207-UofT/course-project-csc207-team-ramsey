@@ -1,5 +1,7 @@
-package commandline;
+package commandline.RecipeCommands;
 
+import commandline.Command;
+import commandline.CommandExecute;
 import constants.MealCountry;
 import constants.MealTime;
 import controllers.RecipeControlCentre;
@@ -7,7 +9,7 @@ import controllers.RecipeControlCentre;
 
 import java.util.*;
 
-public class CreateRecipeCmd<T> extends Command<T> implements CommandExecute{
+public class CreateRecipeCmd<T> extends Command<T> implements CommandExecute {
     public CreateRecipeCmd(T receiver) {
         super(7, 7, receiver);
     }

@@ -1,5 +1,7 @@
-package commandline;
+package commandline.FoodCommands;
 
+import commandline.Command;
+import commandline.CommandExecute;
 import controllers.FoodControlCentre;
 import entities.food.Food;
 
@@ -8,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class ShowFood<T> extends Command<T> implements CommandExecute{
+public class ShowFood<T> extends Command<T> implements CommandExecute {
 
     public ShowFood(T receiver) {
         super(1, 1, receiver);

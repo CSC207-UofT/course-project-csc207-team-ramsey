@@ -1,6 +1,6 @@
 package test;
 
-import commandline.CreateFoodCmd;
+import commandline.FoodCommands.CreateFoodCmd;
 
 import controllers.FoodControlCentre;
 import entities.User;

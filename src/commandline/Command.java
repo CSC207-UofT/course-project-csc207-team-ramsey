@@ -5,7 +5,7 @@ import java.util.List;
 public abstract class Command<T>{
     protected final int maxArguments;
     protected final int minArguments;
-    T receiver;
+    protected T receiver;
 
     public Command(int maxArguments, int minArguments, T receiver) {
         this.maxArguments = maxArguments;

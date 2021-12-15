@@ -1,6 +1,6 @@
 package usecases;
 
-import commandline.UserWriteReader;
+import commandline.UserCommands.UserWriteReader;
 import controllers.LoginInputBoundary;
 import entities.User;
 import entities.UserList;
