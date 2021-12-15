@@ -1,6 +1,7 @@
 package constants;
 import commandline.*;
 import commandline.FoodCommands.*;
+import commandline.KitchenShoppingListCommands.*;
 import commandline.RecipeCommands.*;
 import controllers.*;
 
@@ -41,6 +42,11 @@ public class Constants {
 
 
         //for KitchenControlCentre
+        COMMANDS_DIC.put("display kitchen food", new DisplayKitchenFoodCmd<>(this.kitchenControlCentre));
+        COMMANDS_DIC.put("display shopping list", new DisplayShoppingListCmd<>(this.kitchenControlCentre));
+        COMMANDS_DIC.put("add from recipe", new AddFromRecipeCmd<>(this.kitchenControlCentre));
+        COMMANDS_DIC.put("show kitchen recipes", new ShowKitchenRecipesCmd<>(this.kitchenControlCentre));
+        COMMANDS_DIC.put("buy food from shopping list", new BuyFoodFromListCmd<>(this.kitchenControlCentre));
 
 
         //for RecipeControlCentre
