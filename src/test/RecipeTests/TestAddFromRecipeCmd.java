@@ -1,9 +1,10 @@
-package test;
+package test.RecipeTests;
 
-import commandline.KitchenShoppingListCommands.ShowKitchenRecipesCmd;
+import commandline.RecipeCommands.AddFromRecipeCmd;
 import controllers.KitchenControlCentre;
 import entities.Recipe;
 import entities.User;
+import entities.food.Food;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,36 +19,35 @@ import java.util.Scanner;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Class for testing the ShowKitchenRecipes Command
+ * Class for testing the AddFromRecipe Command
  */
 
-public class TestShowKitchenRecipesCmd {
-
+public class TestAddFromRecipeCmd {
     KitchenControlCentre kitchenControl;
     User user;
     ArrayList<Recipe> recipes;
+    ArrayList<Food> shoppingList;
     String instructions;
     HashMap<String, Float> ingredients;
-    ShowKitchenRecipesCmd<KitchenControlCentre> showRecipesCmd;
-
+    AddFromRecipeCmd<KitchenControlCentre> showAddFromRecipeCmd;
 
     @Before
     public void setUp() {
         user = new User("Guy", "CoolUserGuy", "cooluseremail@aaaaaa.ca", "pass");
         kitchenControl = new KitchenControlCentre(user);
         recipes = user.getKitchen().getRecipes();
+        shoppingList = user.getKitchen().getShoppingList();
         ingredients = new HashMap<>();
         ingredients.put("great ingredient", 2.0F);
         ingredients.put("even better ingredient", 4.5F);
         Recipe newRecipe = new Recipe(1,"Good Recipe", 60, instructions, ingredients, "Italian", "Lunch");
         recipes.add(newRecipe);
 
-        showRecipesCmd = new ShowKitchenRecipesCmd<KitchenControlCentre>(kitchenControl);
-
+        showAddFromRecipeCmd = new AddFromRecipeCmd<KitchenControlCentre>(kitchenControl);
     }
 
     @Test(timeout = 50)
-    public void TestShowKitchenRecipesInitiate() {
+    public void TestDisplayRecipesInitiate() {
         InputStream stdin = System.in;
         System.setIn(new ByteArrayInputStream("full\n".getBytes()));
 
@@ -56,7 +56,7 @@ public class TestShowKitchenRecipesCmd {
         PrintStream stdout = System.out;
         System.setOut(ps);
 
-        showRecipesCmd.initiate(new Scanner(System.in));
+        showAddFromRecipeCmd.initiate(new Scanner(System.in));
 
         System.setIn(stdin);
         System.setOut(stdout);
@@ -64,7 +64,6 @@ public class TestShowKitchenRecipesCmd {
         String outputText = byteArrayOutputStream.toString();
         String[] lines = outputText.split("\\n");
 
-        assertEquals(lines[lines.length-1].trim(), "- Good Recipe");
-
+        assertEquals(lines[lines.length-1].trim(), "- great ingredient");
     }
 }

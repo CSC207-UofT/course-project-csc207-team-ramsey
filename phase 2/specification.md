@@ -1,12 +1,51 @@
 ### **Project Specifications**
-The app allows users to have a practical meal planning experience with a straightforward and functional design. It allows users to add in their recipes, check their pantry, shopping list and will keep track of expiring items to alert the user before the date.
+Hi! Welcome to our project, Ricetta, created by the Chef of the Round Table. 
+Our project works to make storing, creating, and buying foods as
+simple as possible. We tried to create an experience where users can 
+create a food they bought and add it to the program. Create recipes and 
+..
 
-Food - Users can start by adding all the ingredients/ foods that they have in their home, with each food item containing its name, quantity, shelf life, and expiration date. Users should be able see their foods based on certain criteria ie. expiration.
+###### User
+
+When a user first opens the program they should be prompted with 
+the option to create a new user. Old users of the program should be able to
+log back into their accounts. Users should be able to update
+their username and passwords through the terminal as well. When a new user is created
+a kitchen is automatically created for the user. In the future we may add additional kitchens 
+so that a user may have multiple, but as of now, the user may only have one kitchen.
+
+###### Food
+
+Once a user is all set up, they are now able to access all the commands that will be listed and detailed below.
+They can create foods, which will be stored in the kitchen. Each food they create will have its own
+name, shelf life, unit and a way to store the quantities. The food quantities are stored in 
+a way that allows users to see when a quantity was added and when that quantity of food will expire. 
+For instance, if we had a banana, users would first need to make a banana object. This banana would have an initial
+quantity, lets say 7 for this example. If the user bought this banana and made the instance of the banana on Jan1 and the shelf life of a banana was 8 days, then
+we know that it will expire on Jan 9th. These dates will be stored with each entry of quantity that will be added later on. 
+So, if a user were to buy another 5 bananas 
+the next day, a new entry would be stored with a different expiration date. 
+When a user removes a quantity, the earliest date's quantity will be subtracted first and it will keep 
+subtracting from the quantity of each next earliest day. 
+
+
+Users will also be able to update the shelf life, name, and unit of their foods. 
+In case they decide on another way of storing their foods, or if they wish to change the name of their food. 
+Currently, users are not able to change the dates, because of the specificity of creating dates, but that would 
+be a future feature that we would like to implement. Additionally, users
+will also be able to sort their foods based on their type (Grains, fruits and vegetables, meats, dariy, and soups and condiments.)
+They will also be able to sort their foods based on which foods will expire the soonest. 
+
 
 Recipe - Users may also add their own recipes where they can use the recipe function to search for recipes based on specific preferences, such as key ingredient, availability of ingredients, or based on the expiration date of items in the user’s pantry.
 
-Shopping List - If required items are not available, then item will be added to a shopping list for the user.
+###### Kitchen + Shopping List
 
+Users will be able to store their recipes, food, and shopping list in their kitchen. In their kitchen, users are able 
+to see what food they currently have and select a recipe to make. If a recipe contains ingredients the user does not 
+currently have, they can add their unowned ingredients to their shopping list based on the recipe. The user can take the 
+items on the shopping list and add them to their kitchen after they obtain the items, upon which the items are removed from
+the shopping list. 
 ### New functionality
 
 We've added a User login, registration, and serialization using the Jackson Library. We've also added a few new commands to allow the user to

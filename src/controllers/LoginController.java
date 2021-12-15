@@ -66,7 +66,7 @@ public class LoginController {
 //        loginManager.saveChanges(user);
 //        return user;
 //    }
-
+//
 //    public User runSignIn(String name, String uName, String mail, String password){
 //        LoginManager loginManager = new LoginManager();
 //        User user = new User(name, uName, mail, password);

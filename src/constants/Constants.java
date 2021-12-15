@@ -12,13 +12,13 @@ public class Constants {
             new Hashtable<>();
 
     public KitchenControlCentre kitchenControlCentre;
-    public UserControlCentre userControlCentre;
+    public UserDetailsController userDetailsController;
     public RecipeControlCentre recipeControlCentre;
     public FoodControlCentre foodControlCentre;
 
-    public Constants(KitchenControlCentre kitchenControlCentre, UserControlCentre userControlCentre, RecipeControlCentre recipeControlCentre, FoodControlCentre foodControlCentre){
+    public Constants(KitchenControlCentre kitchenControlCentre, UserDetailsController userDetailsController, RecipeControlCentre recipeControlCentre, FoodControlCentre foodControlCentre){
         this.kitchenControlCentre = kitchenControlCentre;
-        this.userControlCentre = userControlCentre;
+        this.userDetailsController = userDetailsController;
         this.recipeControlCentre = recipeControlCentre;
         this.foodControlCentre = foodControlCentre;
     }

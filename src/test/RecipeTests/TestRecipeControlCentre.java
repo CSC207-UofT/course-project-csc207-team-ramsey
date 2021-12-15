@@ -1,4 +1,4 @@
-package test;
+package test.RecipeTests;
 
 import controllers.RecipeControlCentre;
 import entities.Recipe;

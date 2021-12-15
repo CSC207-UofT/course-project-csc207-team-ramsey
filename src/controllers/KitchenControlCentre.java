@@ -24,6 +24,14 @@ public class KitchenControlCentre{
     }
 
     /**
+     *
+     * @return the user
+     */
+    public User getUser(){
+        return this.user;
+    }
+
+    /**
      * Create a new food to add to the User's food list
      * @param foodType the type for the new food
      * @param foodName the name of the new food
@@ -73,13 +81,5 @@ public class KitchenControlCentre{
     public HashMap<String, Float> getRecipeIngredients(String recipeName, User user) {
         Recipe recipe = shoppingListManager.getRecipeFromTitle(user, recipeName);
         return recipe.getIngredients();
-    }
-
-    /**
-     * gets the current user
-     * @return the current User
-     */
-    public User getUser(){
-        return this.user;
     }
 }

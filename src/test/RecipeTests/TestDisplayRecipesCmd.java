@@ -1,7 +1,6 @@
-package test;
+package test.RecipeTests;
 
-
-import commandline.RecipeCommands.DeleteRecipeCmd;
+import commandline.RecipeCommands.DisplayRecipesCmd;
 import controllers.RecipeControlCentre;
 import entities.User;
 import org.junit.Before;
@@ -9,19 +8,21 @@ import org.junit.Test;
 import usecases.RecipeManager;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestDeleteRecipeCmd {
+public class TestDisplayRecipesCmd {
     RecipeControlCentre recipeControlCentre;
     RecipeManager recipeManager;
     User user;
     String recipeInstructions;
     HashMap<String, Float> ingredients;
-    DeleteRecipeCmd<RecipeControlCentre> deleteRecipeCmd;
+    DisplayRecipesCmd<RecipeControlCentre> displayRecipesCmd;
 
     @Before
     public void setUp() {
@@ -34,21 +35,28 @@ public class TestDeleteRecipeCmd {
         ingredients = new HashMap<>();
         ingredients.put("apples", 1.0F);
         ingredients.put("Curry", 1.0F);
-        deleteRecipeCmd = new DeleteRecipeCmd<>(recipeControlCentre);
+        displayRecipesCmd = new DisplayRecipesCmd<RecipeControlCentre>(recipeControlCentre);
     }
 
     @Test(timeout = 50)
-    public void TestDeleteRecipeInitiate() {
-        assertEquals(user.getKitchen().getRecipes().size(), 1);
+    public void TestDisplayRecipesInitiate() {
         InputStream stdin = System.in;
-        System.setIn(new ByteArrayInputStream("Curry\nn\n".getBytes()));
+        System.setIn(new ByteArrayInputStream("full\n".getBytes()));
 
-        deleteRecipeCmd.initiate(new Scanner(System.in));
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(byteArrayOutputStream);
+        PrintStream stdout = System.out;
+        System.setOut(ps);
+
+        displayRecipesCmd.initiate(new Scanner(System.in));
 
         System.setIn(stdin);
+        System.setOut(stdout);
 
-        assertEquals(user.getKitchen().getRecipes().size(), 0);
+        String outputText = byteArrayOutputStream.toString();
+        String[] lines = outputText.split("\\n");
+
+        assertEquals(lines[lines.length-1].trim(), "-Curry");
     }
-
 }
 
