@@ -32,9 +32,13 @@ Marco
 - Significant Pull Request:
 
 Mer
-- Adding testing for Food related responsibilities
+- Adding testing for Food entity and managers
+- Adding testing for food commands 
 - Updating Food commands to include generics
 - Adding in more docstrings for Food classes
+- Added classes and commands for sorting food
+- Refactoring packages 
+- Added constants for food commands
 - Significant Pull Request:
 
 Tosha
