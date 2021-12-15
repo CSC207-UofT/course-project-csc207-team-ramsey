@@ -1,6 +1,5 @@
 package entities.food;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -8,6 +7,7 @@ import java.util.*;
 /**
  * Represents a Entities.Food.Food for our fridge
  */
+
 public abstract class Food implements Serializable {
     /** assuming shelfLife is in days */
     private int shelfLife;
@@ -33,6 +33,10 @@ public abstract class Food implements Serializable {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public int getQuantity(){
         int quantity = 0;
         for (String[] val : this.dates.values()) {
@@ -148,3 +152,4 @@ public abstract class Food implements Serializable {
 
 
 }
+
