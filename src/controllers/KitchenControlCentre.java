@@ -24,6 +24,14 @@ public class KitchenControlCentre{
     }
 
     /**
+     *
+     * @return the user
+     */
+    public User getUser(){
+        return this.user;
+    }
+
+    /**
      * Create a new food to add to the User's food list
      * @param foodType the type for the new food
      * @param foodName the name of the new food
