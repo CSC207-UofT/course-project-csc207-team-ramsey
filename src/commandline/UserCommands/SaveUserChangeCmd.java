@@ -1,4 +1,4 @@
-package commandline;
+package commandline.UserCommands;
 
 import controllers.UserControlCentre;
 import entities.User;

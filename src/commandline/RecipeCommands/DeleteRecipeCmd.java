@@ -1,5 +1,7 @@
-package commandline;
+package commandline.RecipeCommands;
 
+import commandline.Command;
+import commandline.CommandExecute;
 import controllers.RecipeControlCentre;
 
 import java.util.ArrayList;
@@ -7,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class DeleteRecipeCmd<T> extends Command<T> implements CommandExecute{
+public class DeleteRecipeCmd<T> extends Command<T> implements CommandExecute {
 
     public DeleteRecipeCmd(T receiver) {
         super(1, 1, receiver);

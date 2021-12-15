@@ -1,12 +1,14 @@
-package commandline;
+package commandline.RecipeCommands;
 
+import commandline.Command;
+import commandline.CommandExecute;
 import controllers.RecipeControlCentre;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ShowRecipeCmd<T> extends Command<T> implements CommandExecute{
+public class ShowRecipeCmd<T> extends Command<T> implements CommandExecute {
     public ShowRecipeCmd(T receiver) {
         super(0, 0, receiver);
     }

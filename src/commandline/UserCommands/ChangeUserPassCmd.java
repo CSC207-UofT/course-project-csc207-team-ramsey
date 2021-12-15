@@ -1,12 +1,14 @@
-package commandline;
+package commandline.UserCommands;
 
+import commandline.Command;
+import commandline.CommandExecute;
 import controllers.UserDetailsController;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ChangeUserPassCmd<T> extends Command<T> implements CommandExecute{
+public class ChangeUserPassCmd<T> extends Command<T> implements CommandExecute {
     public ChangeUserPassCmd(T receiver){super(1,1, receiver);}
 
     /**

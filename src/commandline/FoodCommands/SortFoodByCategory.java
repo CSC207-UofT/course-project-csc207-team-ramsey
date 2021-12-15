@@ -1,5 +1,7 @@
-package commandline;
+package commandline.FoodCommands;
 
+import commandline.Command;
+import commandline.CommandExecute;
 import controllers.FoodControlCentre;
 
 import java.util.ArrayList;
@@ -8,28 +10,28 @@ import java.util.Objects;
 import java.util.Scanner;
 
 /**
- * This class is that command that helps users sort their food expiration
+ * This class is that command that helps users sort their food by a certain category
  * @param <T> represents the type for the receiver
  */
-public class SortFoodByExpiration<T> extends Command<T> implements CommandExecute {
+public class SortFoodByCategory<T> extends Command<T> implements CommandExecute {
 
     /**
      * the constructor for the command
      * @param receiver the control centre that receives the information
      */
-    public SortFoodByExpiration(T receiver) {
-        super(1, 1, receiver);
+    public SortFoodByCategory(T receiver) {
+            super(1, 1, receiver);
     }
 
     /**
      * this function executes the function in the control centre
      * @param arguments the values given by the user from the scanner s
-     * @return the string that represents the list of foods sorted by expiration
+     * @return the string that represents the list of foods sorted by that category
      */
     @Override
     public String execute(List<String> arguments) {
         FoodControlCentre control = (FoodControlCentre) this.receiver;
-        return control.sortByExpiration(control.getUser());
+        return control.sortByCategory(control.getUser(), arguments.get(0));
     }
 
     /**
@@ -38,7 +40,10 @@ public class SortFoodByExpiration<T> extends Command<T> implements CommandExecut
      */
     public void initiate(Scanner s){
         do {
+            System.out.println("What category do you want to sort your food by?");
+            String type = s.nextLine();
             ArrayList<String> arguments = new ArrayList<String>();
+            arguments.add(type);
 
             String response = execute(arguments);
             System.out.println(response);
@@ -52,4 +57,3 @@ public class SortFoodByExpiration<T> extends Command<T> implements CommandExecut
         } while (!Objects.equals(s.nextLine(), "n"));
     }
 }
-

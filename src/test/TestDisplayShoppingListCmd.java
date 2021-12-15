@@ -1,10 +1,9 @@
 package test;
 
-import commandline.DisplayShoppingListCmd;
+import commandline.KitchenShoppingListCommands.DisplayShoppingListCmd;
 import controllers.KitchenControlCentre;
 import entities.food.Food;
 import entities.User;
-import entities.Kitchen;
 import org.junit.Before;
 import org.junit.Test;
 import usecases.FoodFactory;
@@ -14,7 +13,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
