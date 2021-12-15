@@ -1,6 +1,5 @@
 package controllers;
 
-import entities.Kitchen;
 import entities.Recipe;
 import entities.User;
 import entities.food.Food;
@@ -8,7 +7,6 @@ import usecases.FoodFactory;
 import usecases.ShoppingListManager;
 
 import java.util.HashMap;
-import java.util.List;
 
 
 /**
@@ -33,9 +31,10 @@ public class KitchenControlCentre{
      * @param quantity the quantity of the new food
      * @param unit the unit for the new food
      */
-    public void createFoodForList(String foodType, String foodName, int sl, int quantity, String unit) {
+    public Food createFoodForList(String foodType, String foodName, int sl, int quantity, String unit) {
         Food add = FoodFactory.getFood(foodType, foodName, sl, quantity, unit);
-        this.user.getKitchen().addFoodtoList(add);
+        this.getUser().getKitchen().addFoodtoList(add);
+        return add;
     }
 
     /**
