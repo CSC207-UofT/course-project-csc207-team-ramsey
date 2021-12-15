@@ -1,5 +1,9 @@
 package entities.food;
 
+/**
+ * This class represents a meat, it is a child class for the class food.
+ */
+public class Meat extends Food{
 import java.io.Serializable;
 
 public class Meat extends Food implements Serializable {

@@ -16,8 +16,9 @@ public class UI {
         KitchenControlCentre kitchenControlCentre = new KitchenControlCentre(user);
         UserControlCentre userControlCentre = new UserControlCentre();
         RecipeControlCentre recipeControlCentre = new RecipeControlCentre(user);
+        FoodControlCentre foodControlCentre = new FoodControlCentre(user);
         this.s = new Scanner(System.in);
-        this.constants = new Constants(kitchenControlCentre, userControlCentre, recipeControlCentre);
+        this.constants = new Constants(kitchenControlCentre, userControlCentre, recipeControlCentre, foodControlCentre);
         this.constants.populateConstants();
     }
 
