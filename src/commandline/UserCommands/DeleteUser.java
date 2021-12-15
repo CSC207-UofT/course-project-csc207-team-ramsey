@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class DeleteUser {
-    private UserControlCentre userControlCentre = new UserControlCentre();
-    private Scanner scanner = new Scanner(System.in);
+    private final UserControlCentre userControlCentre = new UserControlCentre();
+    private final Scanner scanner = new Scanner(System.in);
 
     public DeleteUser() throws Exception {}
 

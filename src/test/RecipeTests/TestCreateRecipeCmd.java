@@ -20,7 +20,7 @@ public class TestCreateRecipeCmd {
     User user;
     String recipeInstructions;
     HashMap<String, Float> ingredients;
-    CreateRecipeCmd createRecipeCmd;
+    CreateRecipeCmd<RecipeControlCentre> createRecipeCmd;
 
     @Before
     public void setUp() {
@@ -33,7 +33,7 @@ public class TestCreateRecipeCmd {
         ingredients = new HashMap<>();
         ingredients.put("apples", 1.0F);
         ingredients.put("Curry", 1.0F);
-        createRecipeCmd = new CreateRecipeCmd(recipeControlCentre);
+        createRecipeCmd = new CreateRecipeCmd<>(recipeControlCentre);
     }
 
     @Test(timeout = 50)

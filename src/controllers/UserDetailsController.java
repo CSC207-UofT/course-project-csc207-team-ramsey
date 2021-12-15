@@ -6,8 +6,8 @@ import usecases.UserManager;
 public class UserDetailsController {
     /** Create a user details controller that could use to changes username and password.
      */
-    private User user;
-    private UserManager userManager;
+    private final User user;
+    private final UserManager userManager;
 
     public UserDetailsController(User user) throws Exception {
         this.user = user;
@@ -18,8 +18,6 @@ public class UserDetailsController {
     /**
      * Change the user's name with username. Throw Exception When the username is already used. And change the user's username
      * when the username is available.
-     * @param username
-     * @throws Exception
      */
 
     public void changeUserName(String username) throws Exception {
@@ -33,7 +31,6 @@ public class UserDetailsController {
 
     /**
      * Change user's password to password
-     * @param password
      */
     public void changeUserPassword(String password){
         userManager.changeUserPassword(password, user);

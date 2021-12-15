@@ -9,9 +9,9 @@ import java.io.IOException;
 
 public class LoginManager implements LoginInputBoundary {
     // Can be improved by making UserList Final and static since users are used in other class.
-    private UserList users;
+    private final UserList users;
 
-    UserWriteReader readWriter = new UserWriteReader();
+    final UserWriteReader readWriter = new UserWriteReader();
 
     /**
      * / The "output" of this use case.
@@ -68,7 +68,6 @@ public class LoginManager implements LoginInputBoundary {
 
     /**
      * For test cases
-     * @return
      */
     @Override
     public String toString(){
@@ -77,16 +76,12 @@ public class LoginManager implements LoginInputBoundary {
 
     /**
      * Test case, please ignore that
-     * @param args
-     * @throws Exception
      */
     public static void main(String[] args) throws Exception {
 
         LoginManager loginManager = new LoginManager();
         User user = new User("123","123","123","123");
         System.out.println(loginManager.users.getUser("123"));
-//        User user = new User("123","123","123","123");
-//        loginManager.saveChanges(user);
         loginManager.users.getUser("456");
     }
 }

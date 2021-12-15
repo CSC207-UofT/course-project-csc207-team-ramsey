@@ -21,7 +21,7 @@ public class ShoppingListManager {
      * @param newFood new food being added to list
      * @return true if item was successfully added to list
      */
-    public boolean addFood(User user, Food newFood) {
+    public void addFood(User user, Food newFood) {
 
         ArrayList<Food> shoppingList = user.getKitchen().getShoppingList();
         Kitchen kitchen = user.getKitchen();
@@ -38,7 +38,10 @@ public class ShoppingListManager {
                 food.setQuantity(formattedBuy, Integer.toString(quan));
                 kitchen.setShoppingList(shoppingList);
                 user.setKitchen(kitchen);
-                return user.getKitchen().getShoppingList().contains(newFood) && newFood.getQuantity() == quan;
+                if (user.getKitchen().getShoppingList().contains(newFood)) {
+                    newFood.getQuantity();
+                }
+                return;
             }
         }
 
@@ -47,16 +50,14 @@ public class ShoppingListManager {
             user.getKitchen().setShoppingList(shoppingList);
         }
 
-        return user.getKitchen().getShoppingList().contains(newFood);
     }
 
     /**
      * Add all food from shoppingList into FoodManager
-     *
      * @param user user buying food
      * @return true if items were successfully added
      */
-    public boolean buyAllFood(User user) {
+    public void buyAllFood(User user) {
         ArrayList<Food> shoppingList = user.getKitchen().getShoppingList();
         Kitchen kitchen = user.getKitchen();
         for (Food item : user.getKitchen().getShoppingList()) {
@@ -65,12 +66,11 @@ public class ShoppingListManager {
             shoppingList.remove(item);
             kitchen.setShoppingList(shoppingList);
             if (user.getKitchen().getShoppingList().contains(item)) {
-                return false;
+                return;
             }
             kitchen.setFood(food);
             user.setKitchen(kitchen);
         }
-        return true;
     }
 
     /**
@@ -81,7 +81,7 @@ public class ShoppingListManager {
      * @return true if item was successfully deleted
      */
 
-    public boolean deleteItem(User user, Food item) {
+    public void deleteItem(User user, Food item) {
         ArrayList<Food> shoppingList = user.getKitchen().getShoppingList();
         Kitchen kitchen = user.getKitchen();
         if (shoppingList.contains(item)) {
@@ -89,7 +89,6 @@ public class ShoppingListManager {
             kitchen.setShoppingList(shoppingList);
             user.setKitchen(kitchen);
         }
-        return (user.getKitchen().getShoppingList().contains(item));
     }
 
 

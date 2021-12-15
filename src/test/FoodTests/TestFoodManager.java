@@ -4,20 +4,17 @@ import controllers.FoodControlCentre;
 import entities.Kitchen;
 import entities.User;
 import entities.food.Food;
-import entities.food.FruitVegi;
 import org.junit.Before;
 import org.junit.Test;
 import usecases.FoodManager;
 
-import java.util.HashMap;
-
 public class TestFoodManager {
-    Kitchen kitchen;
     FoodManager foodManager;
+    Kitchen kitchen;
     @Before
     public void setUp() {
-        Kitchen kitchen = new Kitchen();
-        FoodManager foodManager = new FoodManager();
+        kitchen = new Kitchen();
+        foodManager = new FoodManager();
     }
 
     @Test(timeout = 50)

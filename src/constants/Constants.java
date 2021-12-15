@@ -8,13 +8,13 @@ import controllers.*;
 import java.util.Hashtable;
 
 public class Constants {
-    public Hashtable<String, CommandExecute> COMMANDS_DIC =
+    public final Hashtable<String, CommandExecute> COMMANDS_DIC =
             new Hashtable<>();
 
-    public KitchenControlCentre kitchenControlCentre;
-    public UserDetailsController userDetailsController;
-    public RecipeControlCentre recipeControlCentre;
-    public FoodControlCentre foodControlCentre;
+    public final KitchenControlCentre kitchenControlCentre;
+    public final UserDetailsController userDetailsController;
+    public final RecipeControlCentre recipeControlCentre;
+    public final FoodControlCentre foodControlCentre;
 
     public Constants(KitchenControlCentre kitchenControlCentre, UserDetailsController userDetailsController, RecipeControlCentre recipeControlCentre, FoodControlCentre foodControlCentre){
         this.kitchenControlCentre = kitchenControlCentre;

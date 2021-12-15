@@ -7,7 +7,7 @@ import usecases.UserManager;
 import java.io.IOException;
 
 public class UserControlCentre {
-    private UserManager userManager;
+    private final UserManager userManager;
 
     /**
      * UserControlCentre for CreateNewUser, DeleteUserAccount,
@@ -76,15 +76,8 @@ public class UserControlCentre {
 
     /**
      * Test cases, please ignore
-     * @param args
-     * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        //UserControlCentre userControlCentre = new UserControlCentre();
-        //userControlCentre.createNewUser("101112","123","123","123");
-        //userControlCentre.userManager.saveChangesDeleteUser();
-        //User user = userControlCentre.userManager.getSelectedUser("101112");
-        //userControlCentre.deleteUserAccount(user);
         LoginRegisterUI loginRegisterUI = new LoginRegisterUI();
         User user = loginRegisterUI.initiate();
         UserControlCentre userControlCentre = new UserControlCentre();
