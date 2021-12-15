@@ -194,8 +194,8 @@ public class CreateRecipeCmd<T> extends Command<T> implements CommandExecute{
                     "");
             String[] ingrList = ingredient.split(":");
             if(!ingredient.equals("done")){
-                if (!isNumeric(ingrList[1])){
-                    System.out.println("The amount needs to be a number.");
+                if (!ingredient.matches("^[a-zA-Z]+:+[0-9]+$")){
+                    System.out.println("Your input is not formatted correctly.");
                     continue;
                 }
             }
