@@ -1,19 +1,45 @@
 package commandline;
 
 import controllers.ControlCentre;
+import controllers.FoodControlCentre;
 import entities.User;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
 
-public class DeleteFood extends Command implements CommandExecute{
+public class DeleteFood<T> extends Command<T> implements CommandExecute{
 
 
-    public DeleteFood(int maxArguments, int minArguments, ControlCentre receiver, User user) {
-        super(maxArguments, minArguments, receiver);
+    public DeleteFood(T receiver) {
+        super(1, 1, receiver);
     }
 
     @Override
     public String execute(List<String> arguments) {
-        return null;
+        FoodControlCentre control = (FoodControlCentre) this.receiver;
+        return control.deleteEntity(arguments.get(0), control.getUser());
+    }
+
+    public void initiate(Scanner s){
+        do {
+
+            System.out.println("What food would you like to delete?");
+            String foodName = s.nextLine();
+
+            ArrayList<String> arguments = new ArrayList<String>();
+            arguments.add(foodName);
+
+            String response = execute(arguments);
+            System.out.println(response);
+
+            if (Objects.equals(response, "There is no food matching that name")) {
+                System.out.println("Would you like to try again(y/n)");
+            } else {
+                System.out.println("Would you like to show another food(y/n)");
+            }
+
+        } while (!Objects.equals(s.nextLine(), "n"));
     }
 }

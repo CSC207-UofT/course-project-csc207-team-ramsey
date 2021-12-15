@@ -7,6 +7,7 @@ import java.util.*;
 /**
  * Represents a Entities.Food.Food for our fridge
  */
+
 public abstract class Food {
     /** assuming shelfLife is in days */
     private int shelfLife;
@@ -32,6 +33,10 @@ public abstract class Food {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public int getQuantity(){
         int quantity = 0;
         for (String[] val : this.dates.values()) {

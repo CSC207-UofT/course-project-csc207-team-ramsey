@@ -81,6 +81,8 @@ public class Kitchen {
         this.food.add(newFood);
     }
 
+    public void removeFoodfromList(Food newFood){this.food.remove(newFood);}
+
 
     /**
      * helper method that returns a StringBuilder representation of current food in kitchen (with amounts)
