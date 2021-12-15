@@ -17,6 +17,10 @@ import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Class for testing the DisplayKitchenFood Command
+ */
+
 public class TestDisplayKitchenFoodCmd {
     KitchenControlCentre kitchenControl;
     User user;

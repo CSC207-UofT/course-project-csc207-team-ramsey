@@ -5,6 +5,10 @@ import controllers.*;
 import entities.User;
 import java.util.Scanner;
 
+/**
+ * UI class for user to input commands
+ */
+
 public class UI {
     public Scanner s;
 
