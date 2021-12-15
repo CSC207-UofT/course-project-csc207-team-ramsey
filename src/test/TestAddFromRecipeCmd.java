@@ -4,6 +4,7 @@ import commandline.AddFromRecipeCmd;
 import controllers.KitchenControlCentre;
 import entities.Recipe;
 import entities.User;
+import entities.food.Food;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,15 +22,17 @@ public class TestAddFromRecipeCmd {
     KitchenControlCentre kitchenControl;
     User user;
     ArrayList<Recipe> recipes;
+    ArrayList<Food> shoppingList;
     String instructions;
     HashMap<String, Float> ingredients;
     AddFromRecipeCmd<KitchenControlCentre> showAddFromRecipeCmd;
 
     @Before
     public void setUp() {
-        user = new User("Bob", "Bob", "bob@user.ca", "1234");
+        user = new User("Guy", "CoolUserGuy", "cooluseremail@aaaaaa.ca", "pass");
         kitchenControl = new KitchenControlCentre(user);
         recipes = user.getKitchen().getRecipes();
+        shoppingList = user.getKitchen().getShoppingList();
         ingredients = new HashMap<>();
         ingredients.put("great ingredient", 2.0F);
         ingredients.put("even better ingredient", 4.5F);

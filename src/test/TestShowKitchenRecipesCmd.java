@@ -30,7 +30,7 @@ public class TestShowKitchenRecipesCmd {
 
     @Before
     public void setUp() {
-        user = new User("Bob", "Bob", "bob@user.ca", "1234");
+        user = new User("Guy", "CoolUserGuy", "cooluseremail@aaaaaa.ca", "pass");
         kitchenControl = new KitchenControlCentre(user);
         recipes = user.getKitchen().getRecipes();
         ingredients = new HashMap<>();
