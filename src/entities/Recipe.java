@@ -90,7 +90,7 @@ public class Recipe implements Serializable {
 
     /**
      * set the title
-     * @param newTitle
+     * @param newTitle the new title
      */
     public void setTitle(String newTitle){
         this.title = newTitle;
@@ -98,7 +98,7 @@ public class Recipe implements Serializable {
 
     /**
      * set the servings
-     * @param newServings
+     * @param newServings is the new servings
      */
     public void setServings(int newServings){
         this.recipeServings = newServings;
@@ -106,7 +106,7 @@ public class Recipe implements Serializable {
 
     /**
      * set the prepTime
-     * @param newPrepTime
+     * @param newPrepTime is the new prepTime
      */
     public void setPrepTime(int newPrepTime){
         this.prepTime = newPrepTime;
@@ -114,7 +114,7 @@ public class Recipe implements Serializable {
 
     /**
      * set the instructions
-     * @param newInstructions
+     * @param newInstructions is the new instruction
      */
     public void setInstructions(String newInstructions){
         this.instructions = newInstructions;
@@ -122,16 +122,24 @@ public class Recipe implements Serializable {
 
     /**
      * set the ingredients
-     * @param newIngredients
+     * @param newIngredients is the new ingredients
      */
     public void setIngredients(HashMap<String, Float> newIngredients){
         this.ingredients = newIngredients;
     }
 
+    /**
+     * set the categoryCountry
+     * @param newCategory category to change country to
+     */
     public void setCategoryCountry(String newCategory){
         this.categoryCountry = newCategory;
     }
 
+    /**
+     * set the categoryTime
+     * @param newCategoryTime categoryTime to change to
+     */
     public void setCategoryTime(String newCategoryTime){
         this.categoryTime = newCategoryTime;
     }
@@ -142,8 +150,9 @@ public class Recipe implements Serializable {
      */
     public String addIngredients() {
         StringBuilder it = new StringBuilder();
+        it.append("\t");
         for (String ingredient : this.ingredients.keySet()) {
-            it.append(this.ingredients.get(ingredient)).append(" ").append(ingredient);
+            it.append(ingredient).append(":").append(this.ingredients.get(ingredient)).append("   ");
         }
         return it.toString();
     }
@@ -152,11 +161,12 @@ public class Recipe implements Serializable {
      * @return String representation of te recipe
      */
     public String recToString() {
-        String servings = "\n Servings: " + Integer.toString(this.recipeServings);
-        String prep = "\n Prep Time: " + Integer.toString(this.prepTime);
+        String servings = "\n Servings: " + this.recipeServings;
+        String prep = "\n Prep Time: " + this.prepTime;
         String i = "\n Ingredients: \n" + this.addIngredients();
         String steps = "\n Steps: " + this.instructions;
-        return this.title + "\n" + servings + prep + i + steps;
+        return this.title + servings + prep + i + steps;
     }
 
 }
+

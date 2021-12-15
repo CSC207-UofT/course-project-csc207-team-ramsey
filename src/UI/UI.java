@@ -11,7 +11,7 @@ public class UI {
     private final Constants constants;
     private LoginController loginController;
 
-    public UI(User user){
+    public UI(User user) throws Exception {
 
         KitchenControlCentre kitchenControlCentre = new KitchenControlCentre(user);
         UserControlCentre userControlCentre = new UserControlCentre();
@@ -48,7 +48,7 @@ public class UI {
             }
             if (command.equals("exit")){
                 break;
-            } else if (success = false){
+            } else if (!success){
                 System.out.println("inputted command does not exist.\n");
             }
 
