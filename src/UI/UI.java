@@ -1,5 +1,9 @@
 package UI;
 
+import commandline.DeleteRecipeCmd;
+import commandline.DeleteUser;
+import commandline.LoginRegisterUI;
+import commandline.SaveUserChangeCmd;
 import constants.Constants;
 import controllers.*;
 import entities.User;
@@ -11,9 +15,9 @@ import java.util.Scanner;
 
 public class UI {
     public Scanner s;
-
     private final Constants constants;
     private LoginController loginController;
+    User user;
 
     public UI(User user) throws Exception {
 

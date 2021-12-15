@@ -74,4 +74,12 @@ public class KitchenControlCentre{
         Recipe recipe = shoppingListManager.getRecipeFromTitle(user, recipeName);
         return recipe.getIngredients();
     }
+
+    /**
+     * gets the current user
+     * @return the current User
+     */
+    public User getUser(){
+        return this.user;
+    }
 }

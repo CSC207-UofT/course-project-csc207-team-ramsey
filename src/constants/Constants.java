@@ -6,7 +6,7 @@ import java.util.Hashtable;
 
 public class Constants {
     public Hashtable<String, CommandExecute> COMMANDS_DIC =
-            new Hashtable<String, CommandExecute>();
+            new Hashtable<>();
 
     public KitchenControlCentre kitchenControlCentre;
     public UserControlCentre userControlCentre;
@@ -27,6 +27,7 @@ public class Constants {
 
         //for FoodControlCentre
 
+
         //for KitchenControlCentre
 
 
@@ -35,6 +36,8 @@ public class Constants {
         COMMANDS_DIC.put("delRecipe", new DeleteRecipeCmd<>(this.recipeControlCentre));
         COMMANDS_DIC.put("dsplyRecipes", new DisplayRecipesCmd<>(this.recipeControlCentre));
         COMMANDS_DIC.put("showRecipe", new ShowRecipeCmd<>(this.recipeControlCentre));
+        COMMANDS_DIC.put("editRecipe", new EditRecipeDetailsCmd<>(this.recipeControlCentre));
+
 
     }
 

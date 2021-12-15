@@ -51,7 +51,7 @@ public class TestDisplayShoppingListCmd {
         PrintStream stdout = System.out;
         System.setOut(ps);
 
-        DisplayShoppingListCmd.initiate(new Scanner(System.in));
+        showDisplayShoppingListCmd.initiate(new Scanner(System.in));
 
         System.setIn(stdin);
         System.setOut(stdout);
