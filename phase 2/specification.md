@@ -63,24 +63,48 @@ see the full list of recipes and food as wells as view recipes of a specific cat
 
 **Commands**
 
-`addNewFood ` - adds a new food, requires food name, quantity, shelf life and unit, (doesn't work if food already exists)
+###### Food
+`create food` - adds a new food, requires food name, quantity, shelf life and unit, (doesn't work if food already exists)
 
-'deleteFood' - deletes a food from users food list
+`add quantity` - adds an amount to a food
 
-'displayFoodList' - displays user's list of food
+`remove quantity` - removes an amount from food
 
-`displayFood` - displays all foods and quantities
+`show food` - displays all the features and quantities of food
 
-`addRecipe` - adds a new recipe (requires new, servings, time, instructions, and ingredients:quantities)
+`sort food by category` - sorts the food by a certain category
 
-'deleteRecipe' - deletes a recipe from user's list
+`sort food by expiration` - sorts all the food by expiration
 
-`displayRecipe` - displays a recipe's details
+`update food` - updates the food based on a field (name, shelf life, unit)
 
-'displayRecipeList' - displays user's list of recipes
+`delete food` - deletes food from users food list
 
-'displayShoppingList' = displays user's Shopping List
+###### Recipe
 
-'addToShoppingList' - adds a food to the Shopping List
+`crtRecipe` - adds a new recipe (requires new, servings, time, instructions, and ingredients:quantities)
 
-`quit` - quits program
+`delRecipe` - deletes a recipe from user's list
+
+`dsplyRecipes` - displays user's list of recipes (can be filtered as well)
+
+`showRecipe` - displays a recipe's details
+
+`editRecipe` = edit the features of a recipe
+
+###### Shopping List and Kitchen
+ 
+`display kitchen food` - shows all the foods
+
+`display shopping list` - shows the shopping list
+
+`add from recipe` - add food to shopping list from recipe
+
+`show kitchen recipes` - shows all the recipes 
+
+`buy food from shopping list` - removes all food from shopping list and adds to the food
+
+###### User
+
+
+`exit` - quits program
