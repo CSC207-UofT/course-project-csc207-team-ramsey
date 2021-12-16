@@ -43,6 +43,7 @@ Mer
 - Added constants for food commands
 - design_document.md
 - specification.md
+- Both these pull requests have changes to many parts of the program 
 - Significant Pull Request: https://github.com/CSC207-UofT/course-project-csc207-team-ramsey/pull/80
 - Significant Pull Request: https://github.com/CSC207-UofT/course-project-csc207-team-ramsey/pull/33/files
 
