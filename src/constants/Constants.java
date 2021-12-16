@@ -24,12 +24,9 @@ public class Constants {
     }
 
     public void populateConstants(){
-        //for LoginController
-
-
         //for UserControlCentre
-
-
+        COMMANDS_DIC.put("change username", new ChangeUserNameCmd<>(this.userDetailsController));
+        COMMANDS_DIC.put("change username", new ChangeUserPassCmd<>(this.userDetailsController));
         //for FoodControlCentre
         COMMANDS_DIC.put("create food", new CreateFoodCmd<>(this.foodControlCentre));
         COMMANDS_DIC.put("add quantity", new AddFoodQuantity<>(this.foodControlCentre));
