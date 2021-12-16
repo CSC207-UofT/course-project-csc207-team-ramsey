@@ -31,7 +31,8 @@ Marco
 - Updated Constants
 - Accessibility.md
 - specification.md
-- Significant Pull Request:
+- Significant Pull Request: https://github.com/CSC207-UofT/course-project-csc207-team-ramsey/pull/79
+- Signficant Pull Request: https://github.com/CSC207-UofT/course-project-csc207-team-ramsey/pull/30
 
 Mer
 - Adding testing for Food entity and managers
