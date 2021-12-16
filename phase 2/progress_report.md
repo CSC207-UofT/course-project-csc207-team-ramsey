@@ -54,7 +54,8 @@ Tosha
 - Add in Constants
 - progress_report.md
 - specification.md
-- Significant Pull Request:
+- Significant Pull Request: https://github.com/CSC207-UofT/course-project-csc207-team-ramsey/pull/71
+- This pull request adds significant updates to the commands needed to fulfill the kitchen responsibilities, which is a major component of the program
 
 Sora
 - Implementing User system
