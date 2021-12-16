@@ -3,6 +3,8 @@ import commandline.*;
 import commandline.FoodCommands.*;
 import commandline.KitchenShoppingListCommands.*;
 import commandline.RecipeCommands.*;
+import commandline.UserCommands.ChangeUserNameCmd;
+import commandline.UserCommands.ChangeUserPassCmd;
 import controllers.*;
 
 import java.util.Hashtable;
