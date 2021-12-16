@@ -66,22 +66,22 @@ public class LoginManager implements LoginInputBoundary {
         return users;
     }
 
-    /**
-     * For test cases
-     */
-    @Override
-    public String toString(){
-        return users.toString();
-    }
-
-    /**
-     * Test case, please ignore that
-     */
-    public static void main(String[] args) throws Exception {
-
-        LoginManager loginManager = new LoginManager();
-        User user = new User("123","123","123","123");
-        System.out.println(loginManager.users.getUser("123"));
-        loginManager.users.getUser("456");
-    }
+//    /**
+//     * For test cases
+//     */
+//    @Override
+//    public String toString(){
+//        return users.toString();
+//    }
+//
+//    /**
+//     * Test case, please ignore that
+//     */
+//    public static void main(String[] args) throws Exception {
+//
+//        LoginManager loginManager = new LoginManager();
+//        User user = new User("123","123","123","123");
+//        System.out.println(loginManager.users.getUser("123"));
+//        loginManager.users.getUser("456");
+//    }
 }

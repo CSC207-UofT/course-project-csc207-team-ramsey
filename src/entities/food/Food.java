@@ -24,7 +24,7 @@ public abstract class Food implements Serializable {
 
         LocalDate buyDate = LocalDate.now();
         LocalDate expDate = buyDate.plusDays(shelfLife);
-        DateTimeFormatter formatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter formatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedBuy = buyDate.format(formatObj);
         String formattedExp = expDate.format(formatObj);
 
